@@ -28,6 +28,8 @@ Run it twice: the second run (`--raw`) gives no name hints, so a mispronounced "
 
 `GITHUB-MOTION-REPOS.md` covers the 15 public Claude motion-design repos (from the @RoundtableSpace post, 13 Oct 2026): what each one is, which fit Andri, and the timing, cursor, narration, sound and render rules worth borrowing.
 
+`REJECTED.md` lists every video idea Bennett turned down and why. Read it before proposing a new video.
+
 `REFERENCES.md` lists the motion videos Bennett liked (with links), what worked in Academy 1.1, and what to watch for next time. Read it before starting an Academy video.
 
 Final approved example: `~/Desktop/Andri Videos/Andri Academy/English/`.

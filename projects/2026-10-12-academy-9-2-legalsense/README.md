@@ -9,7 +9,7 @@ How this video is built (12 Oct 2026):
    frame (`plates/frames/s1..s3`, 4.8 s loops, only the app's `emt-` animations stepped).
 3. `app.js` draws everything on one canvas (`build/index.html`); timings at the top (`VO`, `T`, `SHOTS`, `CAP`).
 4. Audio: one ElevenLabs take (`audio/narration-uk-9.2.mp3`) cut into `audio/uk/N*.wav`; `zsh audio/mix.sh` gives `audio/mix-uk-14.wav`.
-5. Render: `node "$HOME/Desktop/Andri/Motion Graphics/_toolkit/render.mjs" build --out vN.mp4 --audio "$PWD/audio/mix-uk-14.wav"`,
+5. Render: `node "$HOME/Desktop/andri code /Motion Graphics/_toolkit/render.mjs" build --out vN.mp4 --audio "$PWD/audio/mix-uk-14.wav"`,
    then `node chapters.mjs` and mux `chapters.ffmeta` in.
 
 Nothing was changed in staging (nothing saved, connected or sent). See `story.md` for the calls made and `staging-notes.md` for what staging shows.

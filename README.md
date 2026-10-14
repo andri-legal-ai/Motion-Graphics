@@ -18,8 +18,8 @@ To start one, just ask Claude for it (for example "make a 20s launch reel for th
 **Re-listen every narrated video before delivering it** (Bennett, 12 Oct 2026). `_toolkit/transcribe.py` writes down what the finished MP4 actually says (faster-whisper, runs on this Mac, nothing uploaded) and compares it word for word with the script:
 
 ```
-~/.local/share/academy-stt/.venv/bin/python "$HOME/Desktop/Andri/Motion Graphics/_toolkit/transcribe.py" <final.mp4> <script.txt>
-~/.local/share/academy-stt/.venv/bin/python "$HOME/Desktop/Andri/Motion Graphics/_toolkit/transcribe.py" <final.mp4> <script.txt> --raw
+~/.local/share/academy-stt/.venv/bin/python "$HOME/Desktop/andri code /Motion Graphics/_toolkit/transcribe.py" <final.mp4> <script.txt>
+~/.local/share/academy-stt/.venv/bin/python "$HOME/Desktop/andri code /Motion Graphics/_toolkit/transcribe.py" <final.mp4> <script.txt> --raw
 ```
 
 Run it twice: the second run (`--raw`) gives no name hints, so a mispronounced "Andri" or name shows up. Add `--lang de`, `--lang nl` or `--lang fr` for German, Dutch and French. It prints the timed transcript and every word that differs, and saves `<video>.transcript.txt`. If the Python environment is missing: `uv venv ~/.local/share/academy-stt/.venv && uv pip install --python ~/.local/share/academy-stt/.venv/bin/python faster-whisper`.

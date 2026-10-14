@@ -34,7 +34,7 @@ Read this before making any Andri Academy video. Also read `ACADEMY-LESSONS.md` 
 | English (UK) | "UK voice voice to use for ANDRI vids" | British accent. Use this for all English videos. |
 | German | "german voice for andri vids" | Native Hochdeutsch, male 40–50. |
 | Dutch | "Devin" (Dutch, Standard); may be renamed "dutch voice andri academy" | Confirmed by Bennett, 8 Oct 2026 (again 13 Oct). |
-| French | not chosen yet | Ask Bennett which voice before the first French video. |
+| French | "Adam french Andri narration", voice ID `TGAegA0zNRi8I6nUdq3i` ([shared link](https://elevenlabs.io/app/voice-lab/share/a60442213940cd14f9f10f19d72c8fb2d7b11be2573c513704fcb499bb1d9226/TGAegA0zNRi8I6nUdq3i)) | Confirmed by Bennett, 14 Oct 2026. Used for French 1.1. |
 
 Generate narration in the ElevenLabs web app (Text to Speech) through Claude in Chrome, Bennett's account. No need to ask before generating (Bennett, 8 Oct 2026): generate the narration on your own, but only for your own video and only what you need. Pick the voice by its name above and check it is selected before generating.
 
@@ -121,7 +121,7 @@ Bennett runs several sessions at the same time, one video each. To keep them fro
 
 - Finished English videos go in `~/Desktop/Andri Videos/Andri Academy/English/`, named by number only: `1.1.mp4`, `1.2.mp4`, `2.1.mp4`... (that folder holds only the MP4s); `<number> timestamps.txt` goes in `~/Desktop/Andri Videos/Andri Academy/English/Timestamps/`. Update the table in that folder's README.
 - Never speed up the process: after every render, contact sheets of the whole video, not only the part that changed.
-- **Re-listen before delivery (Bennett, 12 Oct 2026: "relisten to the videos made so no bs is said").** Transcribe the final MP4 locally and compare it with the script, twice: `~/.local/share/academy-stt/.venv/bin/python "$HOME/Desktop/Andri/Motion Graphics/_toolkit/transcribe.py" <final.mp4> <script.txt>`, then again with `--raw` (no name hints, so a mispronounced "Andri" or name shows). `--lang de` / `--lang nl` / `--lang fr` for German, Dutch and French. Check every line is said, lands on the screen it describes, and claims nothing staging doesn't show; report doubtful words with their time.
+- **Re-listen before delivery (Bennett, 12 Oct 2026: "relisten to the videos made so no bs is said").** Transcribe the final MP4 locally and compare it with the script, twice: `~/.local/share/academy-stt/.venv/bin/python "$HOME/Desktop/andri code /Motion Graphics/_toolkit/transcribe.py" <final.mp4> <script.txt>`, then again with `--raw` (no name hints, so a mispronounced "Andri" or name shows). `--lang de` / `--lang nl` / `--lang fr` for German, Dutch and French. Check every line is said, lands on the screen it describes, and claims nothing staging doesn't show; report doubtful words with their time.
 - After delivering (or changing) a video, refresh the copy of its code (Bennett, 9 Oct 2026): `zsh "$HOME/Desktop/Andri Videos/Andri Academy/English/Timestamps/source code/update-source-code.sh"`. It copies every delivered video's source into that `source code` folder, so it can be edited later.
 
 ## Pacing and length

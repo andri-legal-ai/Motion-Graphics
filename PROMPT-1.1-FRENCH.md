@@ -8,9 +8,9 @@ Make the French version of Andri Academy video 1.1 "Your first matter, start to 
 
 ## 1. Read first
 
-- `~/Desktop/Andri/Motion Graphics/ANDRI-ACADEMY-PROJECT.md` (the rule block at the top about German/Dutch/French videos applies to French too), `ACADEMY-LESSONS.md`, `REFERENCES.md`, `known-issues/README.md`.
+- `~/Desktop/andri code /Motion Graphics/ANDRI-ACADEMY-PROJECT.md` (the rule block at the top about German/Dutch/French videos applies to French too), `ACADEMY-LESSONS.md`, `REFERENCES.md`, `known-issues/README.md`.
 - Load the `motion-graphics` skill.
-- **The reference is the German 1.1**: `~/Desktop/Andri Videos/Andri Academy/German/1.1.mp4` (v7, 1:43) and its project `~/Desktop/Andri/Motion Graphics/projects/2026-10-12-academy-1-1-first-matter-de/` (README.md, script-de.md, app.js, plates/capture.mjs, staging-snapshot/, audio/mix.py). Watch it and read its code before starting. The English original is `~/Desktop/Andri Videos/Andri Academy/English/1.1.mp4`.
+- **The reference is the German 1.1**: `~/Desktop/Andri Videos/Andri Academy/German/1.1.mp4` (v7, 1:43) and its project `~/Desktop/andri code /Motion Graphics/projects/2026-10-12-academy-1-1-first-matter-de/` (README.md, script-de.md, app.js, plates/capture.mjs, staging-snapshot/, audio/mix.py). Watch it and read its code before starting. The English original is `~/Desktop/Andri Videos/Andri Academy/English/1.1.mp4`.
 - Make your own project folder `projects/<date>-academy-1-1-first-matter-fr/`. Copy what you need from the German project; never edit the German or English projects.
 
 ## 2. What the French video must be (everything Bennett asked for on the German one)
@@ -58,7 +58,7 @@ Bennett has a French version of the mock case in `~/Downloads/Mock Case Nair - D
 
 ## 5. Narration (ElevenLabs, Bennett's account)
 
-- Find the French voice in Voices → My Voices (search "french"). If there is no French voice for Andri videos in My Voices, ask Bennett which voice to use before generating (that's his account choice).
+- French voice: "Adam french Andri narration" in Voices → My Voices, voice ID `TGAegA0zNRi8I6nUdq3i` (confirmed by Bennett, 14 Oct 2026).
 - Settings as always: Eleven v4, Stability 50, Similarity 75, Speed 100, MP3 44.1 kHz 128 kbps. Whole script in one take, one line per paragraph. Spell "Andri" as "Andri".
 - The editor is shared: read and save what's there first (with paragraph breaks), clear it (focus, Cmd+A, Delete, check empty), type, compare word for word (character count) before Generate, download Generation 1, move it out of ~/Downloads at once, then put the other script and its voice back exactly and verify.
 - Split by silencedetect, cut lines with `-ss`/`-t` before `-i` + `asetpts=PTS-STARTPTS`, check each line's mean volume, mix with `audio/mix.py` (same time map as app.js), loudnorm -14 LUFS, then silencedetect the final MP4.

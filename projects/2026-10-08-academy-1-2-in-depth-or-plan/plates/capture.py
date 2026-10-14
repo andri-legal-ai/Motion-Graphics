@@ -10,7 +10,7 @@ from playwright.sync_api import sync_playwright
 
 HERE = pathlib.Path(__file__).resolve().parent
 SRC = pathlib.Path("/Users/bennettnittke/Desktop/Andri/5 - Marketing/Videos/Andri Learn Video Designs/video-1.1/build/s12.html")
-P11 = pathlib.Path("/Users/bennettnittke/Desktop/Andri/Motion Graphics/projects/2026-10-07-academy-1-1-first-matter/plates")
+P11 = pathlib.Path("/Users/bennettnittke/Desktop/andri code /Motion Graphics/projects/2026-10-07-academy-1-1-first-matter/plates")
 IDS = ["cbox", "modeLbl", "go", "eqBtn", "disc", "mcard", "modemenu", "miDeep", "miPlan", "dcard", "dopt0", "dopt1", "dopt2", "dother",
        "dbar", "btCancel", "btEdit", "btExec", "ppanel", "ppHead", "thread"]
 RECTS = """ids => { const o={}; for (const id of ids){ const e=document.getElementById(id); if(!e || !e.offsetParent && e.id!=='ppanel') continue;

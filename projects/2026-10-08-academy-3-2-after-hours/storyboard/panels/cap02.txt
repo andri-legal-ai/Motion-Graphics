@@ -1,0 +1,2 @@
+2  Sliders icon, tooltip Personalisation, click
+VO: Open Personalisation, with the sliders icon at the top.   Next: panel opens

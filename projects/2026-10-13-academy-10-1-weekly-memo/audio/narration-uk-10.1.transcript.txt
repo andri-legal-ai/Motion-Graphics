@@ -1,0 +1,35 @@
+0:00.00  Writing the same Monday memo every week?
+0:02.76  Build it once as a workflow and Andrew writes it for you.
+0:06.48  Open Explore, then Workflows and click New Workflow.
+0:10.64  Every workflow starts with a trigger.
+0:12.94  It can start when an email arrives,
+0:14.84  when you click Run on a schedule or before a deadline.
+0:18.56  For a weekly memo, choose On a Schedule.
+0:21.52  Click the trigger and set How often to every week?
+0:24.92  Monday at nine is filled in for you.
+0:27.20  It runs on its own with everything in the matter to hand.
+0:30.44  Next, add Run Prompt.
+0:32.52  Place it under the trigger and join the two.
+0:35.12  Then tell Andrew what to do each week.
+0:37.28  Summarize the new documents and emails
+0:39.40  and list what needs action.
+0:41.20  Add Create Document and join it on.
+0:43.84  It turns that summary into a one-page word memo
+0:46.48  for the partner.
+0:47.68  Name the workflow and click Publish.
+0:50.28  A published workflow is a template.
+0:52.30  It doesn't run on its own.
+0:53.84  So open the matter's workflows and click Activate.
+0:57.16  From now on, the memo is written every Monday morning
+1:00.16  and each run shows up under Executions.
+1:03.08  Workflows can start in other ways too.
+1:05.40  Deadline Approaching fires a set number of days
+1:07.92  before a date you pick in the matter.
+1:09.80  For example, two weeks before a hearing
+1:11.88  to start the preparation.
+1:13.64  Assignment Updated fires when a task on the matter
+1:16.32  changes, say to email the partner once it's marked done.
+1:20.00  And Manual Trigger runs when you click Run in the matter.
+1:23.56  Email triggers have their own video.
+1:25.64  Build it once, switch it on, and the routine work
+1:28.44  starts by itself.

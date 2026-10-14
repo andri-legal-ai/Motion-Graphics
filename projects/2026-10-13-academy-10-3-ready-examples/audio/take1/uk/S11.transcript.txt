@@ -1,0 +1,1 @@
+0:00.00  First, Andrew checks that it really is a contract with tracked changes.

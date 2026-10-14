@@ -1,0 +1,25 @@
+When a client emails you a document, someone has to read it, check it and reply. Here's how to build a workflow that does it for you.
+
+Open Explore, then Workflows, and click New Workflow.
+
+Every workflow starts with a trigger. Choose When an email arrives.
+
+It fires when an email reaches the matter's own inbox, or a connected Gmail or Outlook, and it passes on the sender, the text and every attachment.
+
+Next, the check. From the list, add Run Action, drag it under the trigger and join the two.
+
+Pick the action that holds your checklist. This firm made Remedy check once, under Explore, Actions. The email's attachments go to it automatically.
+
+Then Create Document. Say what the memo should cover, and pick your firm's memo template, so it comes out in your house style.
+
+Nothing should go out unchecked. Add a Pause and Approval step, choose a specific person, Adam Frith here, and write a short note for the request.
+
+Last, Send Email, joined to the Approved side. It goes from your own Outlook or Gmail to whoever sent the email, with the memo attached.
+
+Name the workflow and click Publish. A published workflow is a template: it doesn't run on its own.
+
+To switch it on, open the matter, go to Workflows and click Activate. Add a filter, so only Ms Nair's emails start it.
+
+Andri replies from your own mailbox, so connect your Outlook to this matter with sending turned on. Then click Activate.
+
+From then on, every document Ms Nair sends is checked, written up and answered, as soon as Adam approves.

@@ -1,0 +1,1 @@
+Editor text before 9.1 (4.2 script, kept in my tab as window.__before; restore after generating).

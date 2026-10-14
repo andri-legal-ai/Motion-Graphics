@@ -1,0 +1,32 @@
+;FFMETADATA1
+title=Andri Academy 1.2 · In-Depth or Plan
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=7000
+title=Introduction
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=7000
+END=13000
+title=1. The mode button
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=13000
+END=24500
+title=2. In-Depth: research, one reply
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=24500
+END=57350
+title=3. Plan: approve first
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=57350
+END=64500
+title=Up next

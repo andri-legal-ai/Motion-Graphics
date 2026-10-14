@@ -1,0 +1,19 @@
+0:00.00  Does your firm run LegalSense, the Dutch practice management system?
+0:03.96  Link it to Andri once and work with it straight from the chat.
+0:07.56  An administrator sets it up once for the whole firm.
+0:11.00  Open company from the top bar, then company connectors.
+0:14.68  LegalSense is listed here, not connected yet.
+0:17.72  Click Connect.
+0:19.12  Andri first shows what it brings.
+0:21.20  Your matters, contacts and time, together in the conversation you're already having.
+0:26.24  Once it's linked, you simply ask.
+0:28.56  Andri finds matters, clients and contacts, registers time, looks up invoices, budgets and
+0:34.12  third-party funds, and opens new clients and matters.
+0:37.84  The administrator enters the firm's installation once, then each lawyer signs in with their own
+0:42.68  LegalSense account so Andri never has more rights than they do.
+0:46.84  Click Continue and enter your firm's LegalSense address.
+0:50.16  Connecting a system for the whole firm needs two-factor authentication on your
+0:53.68  own account, so set that up first, then save the installation.
+0:58.28  After that, each lawyer opens personalization, then connectors.
+1:02.48  LegalSense appears here once it's switched on, and you always sign in with your own login.
+1:07.36  Set up once for the firm, one login per lawyer, and LegalSense right in the chat.

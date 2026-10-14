@@ -1,0 +1,42 @@
+;FFMETADATA1
+title=Andri Academy 2.2 - Reply to a letter from the other side
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=6000
+title=Introduction
+[CHAPTER]
+TIMEBASE=1/1000
+START=6000
+END=15000
+title=1. Add their letter
+[CHAPTER]
+TIMEBASE=1/1000
+START=15000
+END=35000
+title=2. List every point
+[CHAPTER]
+TIMEBASE=1/1000
+START=35000
+END=46000
+title=3. Set the firm's tone
+[CHAPTER]
+TIMEBASE=1/1000
+START=46000
+END=60000
+title=4. Your position, in one message
+[CHAPTER]
+TIMEBASE=1/1000
+START=60000
+END=71000
+title=5. Andri asks first
+[CHAPTER]
+TIMEBASE=1/1000
+START=71000
+END=79000
+title=6. The reply, on your letterhead
+[CHAPTER]
+TIMEBASE=1/1000
+START=79000
+END=91800
+title=7. Open it from Jobs

@@ -1,0 +1,38 @@
+;FFMETADATA1
+title=Andri Academy 3.2 · Andri works while you sleep
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=5600
+title=Introduction
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=5600
+END=14000
+title=1. Open Personalisation
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=14000
+END=31900
+title=2. Matter reflections
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=31900
+END=49700
+title=3. Nightly dreams
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=49700
+END=54650
+title=4. Switch either off
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=54650
+END=60600
+title=Up next

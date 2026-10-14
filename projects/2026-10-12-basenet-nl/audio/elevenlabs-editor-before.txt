@@ -1,0 +1,20 @@
+The other side's redline lands at midnight. A ready-made workflow can have it reviewed and marked up by morning. Here's how to start from one, and make it your own.
+Open Explore, then Workflows, and click New Workflow.
+This time, choose Start from a template.
+Start blank, or from one of four examples: a contract redline response, a daily morning briefing, a matter status memo, and a full intake for new clients.
+Open the contract redline response. All six steps are already in place.
+It starts when an email arrives with a Word document attached. First, Andri checks that it really is a contract with tracked changes.
+Then it reviews every change against the facts of your case, and rates the risk.
+Next, it counter-edits the redline in place: new tracked changes and comments, inside the same Word document.
+Last, it writes a short covering note and emails it to you, with the document attached. Nothing goes back to the other side until you've checked it.
+Now the intake example. Say a prospective client, like Priya Nair, emails in after her dismissal.
+Andri first checks the matter is one your firm handles. If it isn't, the client is politely referred elsewhere.
+Then it checks the file is complete. If something is missing, it asks the client for it.
+If everything is there, Andri triages the matter and builds a dossier for the lawyer.
+Nothing is written for the client until the lawyer approves. Then Andri drafts the advice report and the next letter or email, and sends both to you to check.
+To make it yours, change what doesn't fit. Aldridge Vine only takes on employment work, so say that in the first check, and save.
+And send every approval to one person: Adam Frith.
+Give it a name, and click Publish. It's now a template, ready to switch on in a matter.
+Go to the matter whose email address receives your enquiries, open its Workflows, and click Activate.
+The example already listens for the word intake in the subject line. Connect your Outlook or Gmail with sending turned on, then click Activate.
+Start from an example, change what doesn't fit, and switch it on.

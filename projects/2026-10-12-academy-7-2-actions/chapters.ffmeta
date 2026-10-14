@@ -1,0 +1,68 @@
+;FFMETADATA1
+title=Andri Academy 7.2 · Actions: write a brief once, use it in chat and workflows
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=8150
+title=Introduction
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=8150
+END=20500
+title=1. Open Actions
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=20500
+END=30800
+title=2. Write the brief
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=30800
+END=39050
+title=3. Add firm files
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=39050
+END=45800
+title=4. Expected output
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=45800
+END=53400
+title=5. Andri builds it
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=53400
+END=61700
+title=6. Check the skill
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=61700
+END=68700
+title=7. Share with your firm
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=68700
+END=93200
+title=8. Run it in a matter
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=93200
+END=101150
+title=9. Use it in a workflow
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=101150
+END=106500
+title=Up next

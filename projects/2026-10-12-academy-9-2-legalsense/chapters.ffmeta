@@ -1,0 +1,50 @@
+;FFMETADATA1
+title=Andri Academy 9.2 · LegalSense, linked once
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=9000
+title=Introduction
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=9000
+END=16900
+title=1. Company connectors
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=16900
+END=30200
+title=2. Connect LegalSense
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=30200
+END=42300
+title=3. What Andri can do
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=42300
+END=51400
+title=4. How it works
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=51400
+END=65700
+title=5. Your firm's address
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=65700
+END=76500
+title=6. Your own login
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=76500
+END=83600
+title=Up next

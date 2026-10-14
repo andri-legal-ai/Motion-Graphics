@@ -1,0 +1,80 @@
+;FFMETADATA1
+title=Andri Academy 5.1 · Check many contracts at once, in one table
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=9450
+title=Introduction
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=9450
+END=16300
+title=1. Your contracts
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=16300
+END=22200
+title=2. Open Review
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=22200
+END=31400
+title=3. Add the contracts
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=31400
+END=70400
+title=4. Ask a question
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=70400
+END=87300
+title=5. Add more questions
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=87300
+END=97400
+title=6. Test one cell
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=97400
+END=106000
+title=7. Run the review
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=106000
+END=116600
+title=8. Read the answers
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=116600
+END=126000
+title=9. Filter a column
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=126000
+END=138600
+title=10. Add a question later
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=138600
+END=145050
+title=11. Export
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=145050
+END=151800
+title=Up next

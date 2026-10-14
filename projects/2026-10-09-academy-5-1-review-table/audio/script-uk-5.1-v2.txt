@@ -1,0 +1,27 @@
+Checking the same clause in every contract, one by one, all evening? Let Andri check them all at once, in one table.
+
+Here, six supplier contracts for our client, Pennbridge Foods, are already in the matter's Knowledge Base.
+
+Open Review from the sidebar. Each document becomes a row, and each question a column.
+
+Click Add a source. Pick from this matter's Knowledge Base, your firm's, or case law. Open the folder, select all six, and use them.
+
+Click the column to write your first question, and pick a format: short text, yes or no, an exact extract, a date, a number, or a choice list.
+
+Yes or no suits this one: does the contract cap the supplier's liability?
+
+Add as many questions as you need. Here, a date for when each contract ends, and then a number: the days' notice either side must give to end it.
+
+Before you run them all, try one cell. Andri answers for the first contract, so you can check the question does what you meant.
+
+Then start the review. Andri answers every question for every contract, one row each.
+
+Every answer shows its source. Click one to see the exact passage, with the document and the page.
+
+Filter a column to find what matters: here, the two contracts with no liability cap.
+
+Need one more question later? Add it, and only the new cells run. The answers you already have stay as they are.
+
+When you're done, export the whole table to Excel, with every answer and its reasoning.
+
+Many contracts, the same questions, one table. Every answer sourced.

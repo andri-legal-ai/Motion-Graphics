@@ -1,0 +1,39 @@
+Five versions of one letter, and their clauses changed by hand? Finish both in Word, with Andri.
+
+Andri works inside Word on Windows, Mac and the web. You need Microsoft 365 and an Andri Business plan.
+
+To add it, open Add-ins on the Home tab, then More Add-ins, and search for Andri.
+
+Select Andri and choose Add. If your firm has already added it for you, you'll see Open instead.
+
+Open Andri from your add-ins, and sign in with the Andri account you already use.
+
+The pane shows your matters. Search them, sort them, or start a new one. Only matters you own appear here.
+
+Open a matter. Its Word files are under Case files.
+
+Here is our update letter to Ms Nair, already in the matter's Knowledge Base. Open it, and it loads straight into Word.
+
+Small fixes, you simply type. Here, today's date.
+
+For a bigger change, select the paragraph. It appears in the pane as your selection. Then tell Andri what you want.
+
+Andri reads the whole letter, rewrites the paragraph, and explains what it changed.
+
+Nothing changes until you review it. For each edit, reject it, accept it, or keep it as a tracked change.
+
+Kept edits arrive as tracked changes, under your own name in Word. Andri turns tracking on for its edit, then puts your setting back.
+
+Click Save to Andri. The letter is saved as a draft on the matter, with a new version every time.
+
+In Andri on the web, you'll find it under Drafts, on the Word tab.
+
+Their contract works the same way, in its own conversation. Open the settlement agreement from the other side's solicitors. Select the confidentiality clause, and give your position.
+
+Andri redrafts the clause, and flags what else to look at, like the one-sided repayment clause.
+
+Keep it tracked, and your redline is ready to send back.
+
+Each question you send uses your firm's credits. Opening matters and saving versions cost nothing.
+
+Your draft and their contract, finished in Word.

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>html,body{margin:0;background:#111}canvas{display:block;max-width:100vw}</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+// Starter: every frame is a pure function of time t. No setTimeout/requestAnimationFrame state,
+// so Playwright can render any frame in any order and the result is identical every time.
+const W = 1920, H = 1080, FPS = 30, DURATION = 6;
+const c = document.getElementById('c'); c.width = W; c.height = H;
+const ctx = c.getContext('2d');
+
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const ease = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; // easeInOutCubic
+const prog = (t, start, len) => ease(clamp((t - start) / len));            // 0..1 over a window
+
+function renderFrame(t) {
+  // Background: cream to gold (Andri brand)
+  const g = ctx.createLinearGradient(0, 0, W, H);
+  g.addColorStop(0, '#F7F1E6'); g.addColorStop(1, '#E6C98A');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+
+  // Beat 1: card rises in
+  const p = prog(t, 0.5, 1.2);
+  ctx.save();
+  ctx.globalAlpha = p;
+  ctx.translate(W / 2, H / 2 + (1 - p) * 60);
+  ctx.shadowColor = 'rgba(80,60,20,.18)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 12;
+  ctx.fillStyle = '#fff';
+  ctx.beginPath(); ctx.roundRect(-360, -120, 720, 240, 28); ctx.fill();
+  ctx.shadowColor = 'transparent';
+  ctx.fillStyle = '#1C1A17'; ctx.font = '600 64px -apple-system, "SF Pro Display", Helvetica, sans-serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText('Motion graphic', 0, 0);
+  ctx.restore();
+}
+
+window.MG = { width: W, height: H, fps: FPS, duration: DURATION, renderFrame };
+
+// Live preview when opened in a normal browser (Playwright ignores this; it calls renderFrame itself)
+if (!navigator.webdriver) {
+  const t0 = performance.now();
+  (function loop() { renderFrame(((performance.now() - t0) / 1000) % DURATION); requestAnimationFrame(loop); })();
+}
+</script>
+</body>
+</html>

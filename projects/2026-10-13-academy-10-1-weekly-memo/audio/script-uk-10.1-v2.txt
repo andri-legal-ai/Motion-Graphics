@@ -1,0 +1,23 @@
+Writing the same Monday memo every week? Build it once as a workflow, and Andri writes it for you.
+
+Open Explore, then Workflows, and click New Workflow.
+
+Every workflow starts with a trigger. It can start when an email arrives, when you click Run, on a <phoneme alphabet="ipa" ph="ˈskɛdjuːl">schedule</phoneme>, or before a deadline. For a weekly memo, choose On a <phoneme alphabet="ipa" ph="ˈskɛdjuːl">schedule</phoneme>.
+
+Click the trigger, and set How often to Every week. Monday at nine is filled in for you. It runs on its own, with everything in the matter to hand.
+
+Next, add Run Prompt, place it under the trigger and join the two. Then tell Andri what to do each week: summarise the new documents and emails, and list what needs action.
+
+Add Create Document, and join it on. It turns that summary into a one-page Word memo for the partner.
+
+Name the workflow and click Publish. A published workflow is a template: it doesn't run on its own.
+
+So open the matter's workflows and click Activate. From now on, the memo is written every Monday morning, and each run shows up under Executions.
+
+Workflows can start in other ways, too. Deadline Approaching fires a set number of days before a date you pick in the matter, for example two weeks before a hearing, to start the preparation.
+
+Assignment Updated fires when a task on the matter changes, say to email the partner once it's marked done.
+
+And Manual Trigger runs when you click Run in the matter. Email triggers have their own video.
+
+Build it once, switch it on, and the routine work starts by itself.

@@ -1,0 +1,55 @@
+;FFMETADATA1
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=12760
+title=Introductie
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=12760
+END=24960
+title=1. Andri in het Nederlands
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=24960
+END=40920
+title=2. Zaak aanmaken
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=40920
+END=50220
+title=3. Stukken toevoegen
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=50220
+END=62970
+title=4. Eerste vraag stellen
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=62970
+END=72710
+title=5. Bron aanklikken
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=72710
+END=84210
+title=6. Eén document kiezen met @
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=84210
+END=101670
+title=7. Eerste brief laten maken
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=101670
+END=108870
+title=Volgende

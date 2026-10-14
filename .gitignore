@@ -1,0 +1,23 @@
+# Made media (renders, audio, screenshots, frames)
+*.mp4
+*.mov
+*.webm
+*.wav
+*.mp3
+*.m4a
+*.png
+*.jpg
+*.jpeg
+*.gif
+frames/
+renders/
+# Regenerated per video: copies of the staging app and Word add-in
+staging-snapshot/
+addin/
+# Local environments and scratch
+.venv/
+node_modules/
+__pycache__/
+tmp/
+.DS_Store
+.env*

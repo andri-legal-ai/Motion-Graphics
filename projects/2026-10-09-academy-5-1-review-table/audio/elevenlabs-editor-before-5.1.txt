@@ -1,0 +1,29 @@
+Hearing on Thursday, and you still don't know the other side's best argument? Prepare it, and rehearse it, with Andri.
+
+In your matter, open the Timeline. It's the first icon on the left.
+
+Andri builds it from every file in the Knowledge Base: an overview of the case, the disputed issues, the parties, and where things stand.
+
+Every fact is linked to its source. Click one, and the document opens beside your chat.
+
+Close it, and open the Timeline again. Below the summary is every key date, in order.
+
+Something the file doesn't show yet, like a call with your client? Add it yourself: a title, a date, then save.
+
+Now ask Andri what each document proves.
+
+It reads every file, then sets out what each document proves, and its limits. It also flags what to fix first, like a schedule of loss that doesn't add up.
+
+Then ask for your hearing notes. If something is unclear, Andri asks first: here, which hearing, and where you want the notes.
+
+The notes arrive in the chat, built on what it just found.
+
+Now rehearse. Open Simulate: a judge, counsel for the Claimant, and counsel for the Defendant, over six turns.
+
+Start the simulation. The judge reads the case file and the law, fixes the issues and who has to prove each one, then opens the hearing.
+
+Next Step runs the next turn: counsel for the Claimant, then the Defendant. Each turn shows what it searched.
+
+To start again, use the circular arrow.
+
+Know your file, then hear the other side before the judge does.

@@ -1,0 +1,31 @@
+New admin? Here's how to set up your whole firm in one sitting.
+
+Everything starts on the Company page. Click your firm's name in the top bar.
+
+On the Company tab, set the firm's name and its language.
+
+Firm Customisations holds the rules for every answer, such as who you are and how you write.
+
+Type them in, then save with Update Company.
+
+Next, the Knowledge base. Upload your letterhead and your models here, and sort them into folders.
+
+Once they're processed, Andri uses them as context across the firm.
+
+Then invite your team from Members, and give each person the right role.
+
+Saved prompts is the firm's shared library for repeatable tasks, like standard questions. Anyone can save one from a chat.
+
+Firm memories are rules Andri keeps for everyone. Open Personalisation, then Memories. Anything under Firm applies to the whole firm.
+
+Next, a first specialist, under Explore, Specialists. Build it from your models, and Andri consults it whenever a matter needs what it knows.
+
+Then set up one workflow, like a weekly memo, under Explore, Workflows.
+
+Once a month, check Usage. Pick a billing cycle to see the credits used so far, against your allowance.
+
+Last, Billing. Switch on Automatic top-up. When your monthly credits run out, Andri buys a small batch and carries on, up to a ceiling you set.
+
+Or buy credits by hand, here under Credits.
+
+Name, knowledge, people, prompts, memory, a specialist and a workflow. Your firm is ready.

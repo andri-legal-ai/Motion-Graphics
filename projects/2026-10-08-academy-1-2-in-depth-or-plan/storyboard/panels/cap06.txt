@@ -1,0 +1,2 @@
+6  The plan: summary, Execution Flow, deliverables
+VO: Then it shows the plan: the steps, what you'll get, and what it won't do.   Next: zoom to decision bar

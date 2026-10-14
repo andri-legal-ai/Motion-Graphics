@@ -1,0 +1,29 @@
+Still pasting your firm's own clauses over Andri's, by hand? Give Andri a colleague who already knows them.
+
+A specialist learns from files you choose. Here, Aldridge Vine's letter and memo templates and a skeleton argument sit in one folder, in the Company Knowledge Base.
+
+Open Explore, then Specialists. A specialist is a colleague Andri consults. It gives direction and references, and never drafts for you.
+
+Click New specialist, and give it a short name. Employment law.
+
+Then the most important line: when should Andri consult it? This is the only thing Andri reads when it decides whether to ask, so say what it knows.
+
+Notes for the build are optional. Andri reads them once, while it builds.
+
+Now choose what it learns from. Pick the folder, and everything inside comes with it, now and later.
+
+Click Build specialist. Andri reads every file and writes the specialist its own brief. It takes a few minutes, and you can leave the page.
+
+When it's ready, Andri has rewritten the consult line from what it read, and the brief it wrote is yours to edit.
+
+Back in a matter, Andri has just drafted a letter to Ms Nair. Ask it to check the letter against your house style.
+
+Andri consults the specialist by itself, and comes back with every change the firm's letter template asks for.
+
+To ask it yourself, type the at sign, and pick it from Specialists.
+
+It answers straight from your firm's memo template.
+
+Add one specialist per team, or a playbook with your negotiation positions. Keep each consult line to its own area, so Andri always asks the right colleague.
+
+Your firm's know-how, on call in every matter.

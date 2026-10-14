@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Andri Academy Videos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F2EFE9; --paper:#FFFFFF; --sunk:#E9E4DA; --ink:#241E19; --ink-2:#5E574E; --ink-3:#8F877B; --line:#DCD3C5;
+  --yellow:#F8E37C; --yellow-deep:#E9CD4F; --on-yellow:#241E19;
+  --help:#3E5A55; --help-soft:#DCE5E2;
+  --acad:#8A6A12; --acad-soft:#FBF0C2;
+  --deep:#6E5D6B; --deep-soft:#E8E0E6;
+  --new:#A1532F; --new-soft:#F3E0D6;
+  --warn:#A86A1C; --urg:#B4493A; --urg-soft:#F6DDD7; --pick:#3E5A55; --pick-soft:#DCE5E2;
+  --f-display:"Rethink Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-body:"Rethink Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"DM Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1E1915; --paper:#28221D; --sunk:#312A24; --ink:#F2EFE9; --ink-2:#C2B9AC; --ink-3:#8F8B8A; --line:#38322E;
+  --yellow:#E9CD4F; --yellow-deep:#F8E37C; --on-yellow:#241E19;
+  --help:#9FC2B9; --help-soft:#2A3532;
+  --acad:#E9CD4F; --acad-soft:#3A321A;
+  --deep:#CDB6C8; --deep-soft:#3A2F37;
+  --new:#E3A07E; --new-soft:#3E2A21;
+  --warn:#E0A95A; --urg:#E08A74; --urg-soft:#41241E; --pick:#9FC2B9; --pick-soft:#2A3532; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1E1915; --paper:#28221D; --sunk:#312A24; --ink:#F2EFE9; --ink-2:#C2B9AC; --ink-3:#8F8B8A; --line:#38322E;
+  --yellow:#E9CD4F; --yellow-deep:#F8E37C; --on-yellow:#241E19;
+  --help:#9FC2B9; --help-soft:#2A3532;
+  --acad:#E9CD4F; --acad-soft:#3A321A;
+  --deep:#CDB6C8; --deep-soft:#3A2F37;
+  --new:#E3A07E; --new-soft:#3E2A21;
+  --warn:#E0A95A; --urg:#E08A74; --urg-soft:#41241E; --pick:#9FC2B9; --pick-soft:#2A3532; color-scheme:dark}
+:root{--ok:#3E6B45;--ok-soft:#DCEAD9}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ok:#9CC9A2;--ok-soft:#24322A}}
+:root[data-theme="dark"]{--ok:#9CC9A2;--ok-soft:#24322A}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55;padding:0 16px 80px}
+.wrap{max-width:1120px;margin:0 auto}
+h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance}
+p{margin:0}
+.mono{font-family:var(--f-mono)}
+.lbl{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+header.top{padding:48px 0 28px;display:grid;gap:14px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+h1{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;line-height:1.05}
+h1 mark{background:var(--yellow);color:var(--on-yellow);padding:0 .15em;border-radius:6px}
+.lede{max-width:66ch;color:var(--ink-2);font-size:17px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:8px}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.stat b{display:block;font-size:28px;font-weight:800;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--ink-2)}
+@media (max-width:700px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+nav.sec{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);margin:0 -16px;padding:10px 16px;overflow-x:auto}
+nav.sec .wrap{display:flex;gap:4px}
+nav.sec a{font-size:13px;font-weight:600;text-decoration:none;color:var(--ink-2);padding:6px 10px;border-radius:999px;white-space:nowrap}
+nav.sec a:hover{background:var(--sunk);color:var(--ink)}
+section{padding-top:48px;display:grid;gap:16px}
+h2{font-size:28px;font-weight:800;letter-spacing:-.01em}
+.sec-p{color:var(--ink-2);max-width:72ch}
+.format{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.format div{padding:18px 20px;border-right:1px solid var(--line);display:grid;gap:6px;align-content:start}
+.format div:last-child{border-right:0}
+.format h3{font-size:17px;font-weight:800}
+.format p{font-size:14px;color:var(--ink-2)}
+@media (max-width:760px){.format{grid-template-columns:1fr}.format div{border-right:0;border-bottom:1px solid var(--line)}.format div:last-child{border-bottom:0}}
+.rules{margin:0;padding-left:18px;display:grid;gap:4px;color:var(--ink-2);font-size:14.5px;max-width:80ch}
+.rules b{color:var(--ink)}
+table.ov{width:100%;border-collapse:collapse;font-size:14px;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.ovwrap{overflow-x:auto;border-radius:12px}
+table.ov th{text-align:left;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:500;padding:10px 12px;border-bottom:1px solid var(--line)}
+table.ov td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+table.ov tr:last-child td{border-bottom:0}
+table.ov tr.chr td{background:var(--sunk);font-weight:700;font-size:13px}
+table.ov a{color:inherit;text-decoration:none;font-weight:600}
+table.ov a:hover{text-decoration:underline}
+table.ov .n,table.ov .d{font-family:var(--f-mono);font-size:12.5px;color:var(--ink-3);white-space:nowrap;font-variant-numeric:tabular-nums}
+.pill{display:inline-flex;align-items:center;font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:999px;white-space:nowrap;background:var(--sunk);color:var(--ink-2)}
+.pill.biz{background:var(--acad-soft);color:var(--acad)}
+.pill.st-ready{background:var(--ok-soft);color:var(--ok)}
+.pill.st-check{background:var(--new-soft);color:var(--new)}
+.pill.st-hold{background:var(--urg-soft);color:var(--urg)}
+.vnum{font-family:var(--f-mono);font-size:12px;font-weight:500;background:var(--ink);color:var(--bg);border-radius:6px;padding:2px 7px;justify-self:start}
+.chhead{display:grid;gap:4px;padding-bottom:10px;border-bottom:2px solid var(--yellow-deep);margin-top:24px;scroll-margin-top:64px}
+.chhead .cn{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.chhead h2{font-size:26px}
+.chhead p{color:var(--ink-2)}
+.vid{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px 24px;display:grid;gap:18px;scroll-margin-top:64px;min-width:0}
+.vh{display:grid;gap:8px}
+.vh h3{font-size:24px;font-weight:800;letter-spacing:-.01em;line-height:1.2}
+.vtags{display:flex;flex-wrap:wrap;gap:6px}
+.feat{font-size:13.5px;color:var(--ink-3)}
+.vbody{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:28px}
+@media (max-width:860px){.vbody{grid-template-columns:1fr}}
+.main{display:grid;gap:18px;align-content:start;min-width:0}
+.blk ul{margin:6px 0 0;padding-left:18px;display:grid;gap:4px}
+.blk ul li::marker{color:var(--ink-3)}
+ol.beats{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+ol.beats li{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+ol.beats li:first-child{border-top:0}
+ol.beats .bt{font-size:12px;color:var(--ink-3);padding-top:2px;font-variant-numeric:tabular-nums}
+ol.beats b{font-size:14.5px}
+ol.beats .show{font-size:13.5px;color:var(--ink-2);margin-top:2px}
+ol.beats .say{font-size:13.5px;font-style:italic;color:var(--ink);margin-top:3px;border-left:2px solid var(--yellow-deep);padding-left:8px}
+ol.beats li.bookend b{color:var(--acad)}
+ol.beats li.aside b{font-weight:600;color:var(--ink-2)}
+@media (max-width:520px){ol.beats li{grid-template-columns:1fr;gap:2px}}
+.side{display:grid;gap:14px;align-content:start;min-width:0}
+.side dl{margin:0;display:grid;gap:10px}
+.side dt{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.side dd{margin:2px 0 0;font-size:14px}
+.side dd.tk{font-weight:700}
+.btn{display:inline-block;font-size:12.5px;font-weight:600;border:1px solid var(--line);border-radius:8px;padding:3px 9px;margin:2px 4px 2px 0;background:var(--bg)}
+.qf{display:block;font-size:13.5px;padding:3px 0}
+.qf .mono{font-size:11px;background:var(--help-soft);color:var(--help);border-radius:5px;padding:1px 6px;margin-right:4px}
+.good{background:var(--help-soft);border-radius:10px;padding:10px 14px}
+.good .lbl{color:var(--help)}
+.flag{background:var(--new-soft);border-radius:10px;padding:10px 14px}
+.flag .lbl{color:var(--new)}
+.good ul,.flag ul{margin:4px 0 0;padding-left:18px;display:grid;gap:3px;font-size:13.5px}
+figure{margin:0;display:grid;gap:6px}
+figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+figcaption{font-size:12.5px;color:var(--ink-3)}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3)}
+
+.find{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:820px){.find{grid-template-columns:1fr}}
+.fbox{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:grid;gap:8px;align-content:start}
+.fbox h3{font-size:16px;font-weight:800}
+.fbox.w{box-shadow:inset 4px 0 0 var(--urg)} .fbox.m{box-shadow:inset 4px 0 0 var(--help)} .fbox.c{box-shadow:inset 4px 0 0 var(--ink-3)} .fbox.s{box-shadow:inset 4px 0 0 var(--yellow-deep)}
+.fbox ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:14px}
+.fbox li b{font-weight:700}
+.fbox .k{font-weight:700}
+.pill.st-fix{background:var(--new-soft);color:var(--new)}
+.note-l{font-size:13.5px;color:var(--ink-2);background:var(--sunk);border-radius:10px;padding:10px 14px;max-width:80ch}
+ol.steps{list-style:none;margin:8px 0 0;padding:0;counter-reset:s;display:grid}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+ol.steps li:first-child{border-top:0}
+ol.steps li::before{content:counter(s);font-family:var(--f-mono);font-size:12px;font-weight:500;background:var(--acad-soft);color:var(--acad);border-radius:6px;height:22px;display:grid;place-items:center}
+ol.steps .sh{font-weight:700;font-size:14.5px}
+ol.steps .sd{font-size:14px;color:var(--ink-2);margin-top:2px}
+ol.steps .sd b{color:var(--ink);font-weight:600}
+.goal{font-size:16px;font-weight:600;max-width:70ch}
+.prob{font-size:14px;color:var(--ink-2)}
+.prob b{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-right:6px}
+.leave{background:var(--sunk);border-radius:10px;padding:10px 14px}
+.ver{background:var(--ok-soft);border-radius:10px;padding:10px 14px}
+.ver .lbl{color:var(--ok)}
+.ver p,.flag p,.leave p,.good p{font-size:13.5px;margin-top:3px}
+.leave ul,.flag ul,.good ul{margin:4px 0 0;padding-left:18px;display:grid;gap:3px;font-size:13.5px}
+.side .rel{font-size:13.5px;display:grid;gap:4px;margin-top:4px}
+.side .rel span{display:block}
+
+.find{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:820px){.find{grid-template-columns:1fr}}
+.fbox{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:grid;gap:8px;align-content:start}
+.fbox h3{font-size:16px;font-weight:800}
+.fbox.w{box-shadow:inset 4px 0 0 var(--urg)} .fbox.m{box-shadow:inset 4px 0 0 var(--help)} .fbox.c{box-shadow:inset 4px 0 0 var(--ink-3)} .fbox.s{box-shadow:inset 4px 0 0 var(--yellow-deep)}
+.fbox ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:14px}
+.fbox li b{font-weight:700}
+.fbox .k{font-weight:700}
+.pill.st-fix{background:var(--new-soft);color:var(--new)}
+.mock{background:var(--acad-soft);border-radius:10px;padding:10px 14px}
+.mock .lbl{color:var(--acad)}
+.mock ul{margin:4px 0 0;padding-left:18px;display:grid;gap:4px;font-size:13.5px}
+.mockgrid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:12px}
+@media (max-width:820px){.mockgrid{grid-template-columns:1fr}}
+ul.dates{list-style:none;padding:0}
+ul.dates .mono{display:inline-block;min-width:9.5em;font-size:12px;color:var(--ink-3)}
+details.files{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+details.files summary{cursor:pointer;font-weight:700}
+details.files ul{margin:10px 0 0;padding-left:18px;display:grid;gap:5px;font-size:14px}
+details.files .mono{font-size:12px;margin-right:6px}
+.note-l{font-size:13.5px;color:var(--ink-2);background:var(--sunk);border-radius:10px;padding:10px 14px;max-width:80ch}
+ol.steps{list-style:none;margin:8px 0 0;padding:0;counter-reset:s;display:grid}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+ol.steps li:first-child{border-top:0}
+ol.steps li::before{content:counter(s);font-family:var(--f-mono);font-size:12px;font-weight:500;background:var(--acad-soft);color:var(--acad);border-radius:6px;height:22px;display:grid;place-items:center}
+ol.steps .sh{font-weight:700;font-size:14.5px}
+ol.steps .sd{font-size:14px;color:var(--ink-2);margin-top:2px}
+ol.steps .sd b{color:var(--ink);font-weight:600}
+.goal{font-size:16px;font-weight:600;max-width:70ch}
+.prob{font-size:14px;color:var(--ink-2)}
+.prob b{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-right:6px}
+.leave{background:var(--sunk);border-radius:10px;padding:10px 14px}
+.ver{background:var(--ok-soft);border-radius:10px;padding:10px 14px}
+.ver .lbl{color:var(--ok)}
+.ver p,.flag p,.leave p,.good p{font-size:13.5px;margin-top:3px}
+.leave ul,.flag ul,.good ul{margin:4px 0 0;padding-left:18px;display:grid;gap:3px;font-size:13.5px}
+.side .rel{font-size:13.5px;display:grid;gap:4px;margin-top:4px}
+.side .rel span{display:block}
+
+.find{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:820px){.find{grid-template-columns:1fr}}
+.fbox{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:grid;gap:8px;align-content:start}
+.fbox h3{font-size:16px;font-weight:800}
+.fbox.w{box-shadow:inset 4px 0 0 var(--urg)} .fbox.m{box-shadow:inset 4px 0 0 var(--help)} .fbox.c{box-shadow:inset 4px 0 0 var(--ink-3)} .fbox.s{box-shadow:inset 4px 0 0 var(--yellow-deep)}
+.fbox ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:14px}
+.fbox li b{font-weight:700}
+.fbox .k{font-weight:700}
+.pill.st-fix{background:var(--new-soft);color:var(--new)}
+.mock{background:var(--acad-soft);border-radius:10px;padding:10px 14px}
+.mock .lbl{color:var(--acad)}
+.mock ul{margin:4px 0 0;padding-left:18px;display:grid;gap:4px;font-size:13.5px}
+.mockgrid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:12px}
+@media (max-width:820px){.mockgrid{grid-template-columns:1fr}}
+ul.dates{list-style:none;padding:0}
+ul.dates .mono{display:inline-block;min-width:9.5em;font-size:12px;color:var(--ink-3)}
+details.files{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+details.files summary{cursor:pointer;font-weight:700}
+details.files ul{margin:10px 0 0;padding-left:18px;display:grid;gap:5px;font-size:14px}
+details.files .mono{font-size:12px;margin-right:6px}
+.note-l{font-size:13.5px;color:var(--ink-2);background:var(--sunk);border-radius:10px;padding:10px 14px;max-width:80ch}
+ol.steps{list-style:none;margin:8px 0 0;padding:0;counter-reset:s;display:grid}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+ol.steps li:first-child{border-top:0}
+ol.steps li::before{content:counter(s);font-family:var(--f-mono);font-size:12px;font-weight:500;background:var(--acad-soft);color:var(--acad);border-radius:6px;height:22px;display:grid;place-items:center}
+ol.steps .sh{font-weight:700;font-size:14.5px}
+ol.steps .sd{font-size:14px;color:var(--ink-2);margin-top:2px}
+ol.steps .sd b{color:var(--ink);font-weight:600}
+.goal{font-size:16px;font-weight:600;max-width:70ch}
+.prob{font-size:14px;color:var(--ink-2)}
+.prob b{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-right:6px}
+.leave{background:var(--sunk);border-radius:10px;padding:10px 14px}
+.ver{background:var(--ok-soft);border-radius:10px;padding:10px 14px}
+.ver .lbl{color:var(--ok)}
+.ver p,.flag p,.leave p,.good p{font-size:13.5px;margin-top:3px}
+.leave ul,.flag ul,.good ul{margin:4px 0 0;padding-left:18px;display:grid;gap:3px;font-size:13.5px}
+.side .rel{font-size:13.5px;display:grid;gap:4px;margin-top:4px}
+.side .rel span{display:block}
+</style></head><body>
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">Andri Academy · video briefs · checked in Andri staging on 8 Oct 2026</div>
+  <h1>The <mark>Andri Academy</mark> videos</h1>
+  <p class="lede">What each of the 20 videos has to show, in order, with the exact names on screen. No scripts. Every step was checked in Andri staging (firm Bennet law) or, for Word, in the official help article. Anything not confirmed is marked "Still to check when filming".</p>
+  <div class="stats">
+    <div class="stat"><b>20</b><span>videos in 11 chapters</span></div>
+    <div class="stat"><b>14</b><span>ready to plan</span></div>
+    <div class="stat"><b>5</b><span>to fix before filming</span></div>
+    <div class="stat"><b>1</b><span>on hold (BaseNet)</span></div>
+  </div>
+</header>
+</div>
+<nav class="sec" aria-label="Sections"><div class="wrap">
+  <a href="#findings">What the check found</a><a href="#mock">Mock case</a><a href="#overview">All videos</a>
+  <a href="#ch1">1 · Getting started</a><a href="#ch2">2 · Letters and documents</a><a href="#ch3">3 · Memory and personalisation</a><a href="#ch4">4 · Research and hearings</a><a href="#ch5">5 · Reviewing many documents</a><a href="#ch6">6 · Andri in Word</a><a href="#ch7">7 · Specialists and Actions</a><a href="#ch8">8 · Assignments</a><a href="#ch9">9 · Email and connected systems</a><a href="#ch10">10 · Workflows</a><a href="#ch11">11 · For admins</a>
+</div></nav>
+<div class="wrap">
+<section id="findings">
+  <h2>What the staging check found</h2>
+  <div class="find">
+    <div class="fbox w"><h3>Wrong in the current scripts</h3><ul><li><span class="k">1.2 Modes:</span> The web app has two modes, not four. The mode button under the chat box offers only <b>In-Depth Mode</b> (default) and <b>Plan Mode</b>. Fast and Outcome don't exist on the web; the iPhone app has Fast and Deep (release notes, July 2026).</li><li><span class="k">4.2 Simulate:</span> The sides are labelled <b>Claimant</b> and <b>Defendant</b>, not &quot;respondent&quot;, even in a UK employment matter.</li><li><span class="k">3.2 After hours:</span> Reflections don't send an email every morning. Andri only emails &quot;when there is a genuine insight to share&quot;. Don't promise a daily 07:00 email.</li><li><span class="k">9.2 BaseNet:</span> BaseNet isn't in staging. The only firm connector is <b>LegalSense</b> (Dutch practice management, live since 5 Aug 2026). Keep 9.2 on hold, or swap it for LegalSense.</li><li><span class="k">5.1 Review to memo:</span> Turning a finished review table into a client memo could not be confirmed. Leave it out of the video.</li></ul></div>
+    <div class="fbox m"><h3>In Andri, but in no video</h3><ul><li><span class="k">Connect files and calendars:</span> The matter Knowledge Base has a <b>Connect</b> button: Microsoft SharePoint, Google Drive, Microsoft OneDrive, plus Google Workspace and Microsoft 365 (calendar and mail). No video shows it. Best fit: one step in 9.1.</li><li><span class="k">How Andri answers:</span> Personalisation → <b>Andri's answers</b>: Response style (Formal Legal / Practical), Detail level (Concise / Comprehensive), Format (Flowing / Organised), Thinking display. Best fit: one step in 3.1.</li><li><span class="k">Firm Customisations:</span> Company → Company has a <b>Firm Customisations</b> box (house rules and styling for every answer) and a firm Language setting (English, Dutch, French, German). Best fit: 11.2.</li><li><span class="k">Automatic top-up:</span> Company → Billing has <b>Automatic top-up</b>: when credits run out, Andri buys a batch (from £20) up to a ceiling you set. Off by default. Best fit: 11.2.</li><li><span class="k">LegalSense:</span> Live since 5 Aug 2026: create contacts, clients, matters and submatters in LegalSense from chat. Strong replacement for 9.2 for Dutch firms.</li></ul></div>
+    <div class="fbox c"><h3>Not needed, or too long</h3><ul><li><span class="k">1.2 is now very short:</span> With only In-Depth and Plan, 1.2 is about a minute of content. Either keep it as a 1-minute video, or fold it into 1.1 as its last step (that makes 19 videos).</li><li><span class="k">Footnotes in Word:</span> Still not in the Word help article. Keep them out of 6.1.</li><li><span class="k">Over 2:30:</span> 10.2 (2:34) and 11.2 (2:36) are over the cap. Trim a few seconds from each.</li></ul></div>
+    <div class="fbox s"><h3>Set up before filming</h3><ul><li>Use the <b>mock case</b> (Nair v Calderdale Logistics) for every example; it's the one full matter in staging. Van Hoven, Brightwater / Hallam and De Vries / Bakker don't exist, so drop them.</li><li>The firm knowledge base (Company → Knowledge base) is <b>empty</b>. Specialists (7.1) and Action reference files (7.2) need model documents uploaded first.</li><li>Bennet law has <b>one member</b>. The trainee part of 8.1 needs a second test user. I couldn't open the Members page (the permission check blocked it).</li><li><b>No mailbox is connected</b>. 9.1, 10.2 and anything with Send Email need a test Gmail or Outlook account.</li><li>Nair has <b>no contracts</b>. 5.1 (many contracts) and 6.1 (their contract) need a matter with 5 to 10 contracts.</li><li>Nair has no letter <b>from the other side</b> to reply to (2.2). Upload one first, e.g. from the respondent's solicitors.</li><li>Case law covers <b>Netherlands, Belgium, United Kingdom and Switzerland</b>. Nothing German, so the German versions should show UK, NL, BE or CH rulings.</li></ul></div>
+  </div>
+  <p class="note-l">I left two test items in staging, both named &quot;Academy test&quot;: an assignment &quot;Summarise the ET3 (Academy test)&quot; on Nair (now In review) and a personal action &quot;Supply-contract-check-(Academy-test)&quot;. Delete them when convenient; I don't delete data myself.</p>
+</section>
+<section id="mock">
+  <h2>The mock case: use it for every example</h2>
+  <p class="sec-p">Every video can use the same fictional case, Nair v Calderdale Logistics. The files are in <span class="mono">~/Desktop/Andri/2 - Product/Demo Files/Mock Case</span> and already loaded in staging. Each video below has an "Example from the mock case" box.</p>
+  <div class="mockgrid">
+    <div class="fbox s"><h3>At a glance</h3><ul><li><span class="k">Case:</span> Nair v Calderdale Logistics Limited, Leeds Employment Tribunal, case no 1803442/2025. UK employment.</li><li><span class="k">Client (claimant):</span> Ms Priya Nair, Operations Manager since 4 Jan 2018, salary £58,000, 14 Saltaire Road, Shipley BD18 3HN.</li><li><span class="k">Other side (respondent):</span> Calderdale Logistics Limited, Brighouse. Operations Director Geoffrey Marsden; HR Sandra Okeke. Represented by Bowater Sykes Solicitors, Leeds (their ref BS/CLL/2291).</li><li><span class="k">Our firm:</span> Aldridge Vine LLP, Leeds (our ref AV/HR/NAIR/0318). Partner Adam Frith; trainee solicitor Rosalind Keane. Counsel Hester Ramsbottom, Park Lane Chambers. (In staging the firm account is called Bennet law.)</li><li><span class="k">The story:</span> Maternity leave from 1 May 2024. Her cover, James Thornton, was kept on when she came back on 13 Jan 2025. Told &quot;at risk of redundancy&quot; on 17 Feb 2025, dismissed with effect from 31 Mar 2025. She says the redundancy was a sham.</li><li><span class="k">Where it stands:</span> Reserved judgment 19 Mar 2026 (Employment Judge Hartley): all complaints upheld. Remedy hearing listed for 11 May 2026; the file has no record of its outcome yet.</li><li><span class="k">Money:</span> Schedule of loss £71,640. Our without-prejudice offer of £52,000 (12 Jan 2026) was never accepted. Legal costs invoice £17,136.</li></ul></div>
+    <div class="fbox m"><h3>Key dates</h3><ul class="dates"><li><span class="mono">4 Jan 2018</span> Starts as Operations Manager</li><li><span class="mono">15 Apr 2024</span> James Thornton recruited as maternity cover</li><li><span class="mono">1 May 2024</span> Maternity leave starts</li><li><span class="mono">13 Jan 2025</span> Returns; role reduced, Thornton kept on</li><li><span class="mono">17 Feb 2025</span> Told her role is at risk of redundancy</li><li><span class="mono">24 Feb and 7 Mar 2025</span> Consultation meetings</li><li><span class="mono">14 Mar 2025</span> Dismissal letter</li><li><span class="mono">31 Mar 2025</span> Effective date of termination</li><li><span class="mono">10 Apr 2025</span> First meeting with Adam Frith (file note)</li><li><span class="mono">9 Apr / 21 May 2025</span> Acas early conciliation</li><li><span class="mono">2 Jun 2025</span> ET1 claim presented</li><li><span class="mono">30 Jun 2025</span> ET3 response filed</li><li><span class="mono">5 Dec 2025</span> Medical report: adjustment disorder</li><li><span class="mono">12 Jan 2026</span> Settlement offer £52,000</li><li><span class="mono">9 to 12 Feb 2026</span> Final hearing</li><li><span class="mono">19 Mar 2026</span> Judgment: all complaints upheld</li><li><span class="mono">11 May 2026</span> Remedy hearing</li></ul></div>
+  </div>
+  <details class="files"><summary>The 18 files and what each is good for</summary><ul><li><span class="mono">01_ET1_Grounds_of_Claim.pdf</span> Her claim: unfair dismissal, sex and maternity discrimination.</li><li><span class="mono">02_ACAS_EC_Certificate.pdf</span> Early conciliation certificate R123456/25/47.</li><li><span class="mono">03_ET3_Response.pdf</span> The other side's defence: genuine redundancy, 22% fall in volumes, fair consultation, Thornton's role different, failure to mitigate.</li><li><span class="mono">04_Witness_Statement_Claimant.pdf</span> Her account in her own words.</li><li><span class="mono">05_Tribunal_Judgment.pdf</span> Reserved judgment of 19 Mar 2026: she wins on everything.</li><li><span class="mono">06_Medical_Report.pdf</span> Dr Helena Brooke: adjustment disorder, recovery in 9 to 12 months.</li><li><span class="mono">07_Bank_Statement.pdf</span> Her finances after dismissal.</li><li><span class="mono">08_Invoice.pdf</span> Aldridge Vine invoice AV-2026-00318, £17,136.</li><li><span class="mono">09_Dismissal_Letter.docx</span> Calderdale's redundancy letter of 14 Mar 2025.</li><li><span class="mono">10_Letter_Settlement.docx</span> Our without-prejudice offer to Bowater Sykes, £52,000.</li><li><span class="mono">11_File_Note.docx</span> Adam Frith's note of first instructions, 10 Apr 2025.</li><li><span class="mono">12_Skeleton_Argument.docx</span> Counsel's skeleton for the final hearing.</li><li><span class="mono">13_Schedule_of_Loss.xlsx</span> Every head of loss, total £71,640, plus monthly pay.</li><li><span class="mono">14_Chronology.xlsx</span> 18 dated events with sources.</li><li><span class="mono">15_WhatsApp_Manager.jpg, 16_WhatsApp_Colleague.jpg, 17_Evidence_Office.jpg</span> Screenshots and a photo: shows Andri reads images.</li><li><span class="mono">18_Audio_Consultation.mp3</span> A recorded consultation meeting: shows Andri reads audio.</li><li><span class="mono">19_Email_Return_to_Work.eml, 20_Email_HR_Role.eml</span> Her return email and HR's reply (her role &quot;evolved&quot;).</li><li><span class="mono">Aldridge_Vine_Memo_Template.docx</span> The firm's memo style (trainee to partner). In staging there is also Aldridge_Vine_Letter_Template.docx, tagged Letter; it isn't in the local folder.</li></ul></details>
+  <ul class="rules"><li>There are <b>no contracts</b> and no letter <b>from</b> the other side in the mock case. Where a video needs those, the brief says so and suggests what to use instead.</li><li>The chronology's category column uses Dutch words (communicatie, getuige, medisch, justitie). Fine for the Dutch version; worth knowing for the others.</li><li>It's a UK case, so it suits the English videos best. For German and Dutch, keep the screens and swap the spoken examples, or build a matching NL or DE mock case later.</li></ul>
+</section>
+<section id="overview">
+  <h2>All 20 videos</h2>
+  <div class="ovwrap"><table class="ov"><thead><tr><th>#</th><th>Video</th><th>Length</th><th>Status</th></tr></thead><tbody>
+  <tr class="chr"><td colspan="4">Chapter 1 · Getting started</td></tr><tr><td class="n">1.1</td><td><a href="#v1-1">Your first matter, start to finish</a></td><td class="d">about 1:40</td><td><span class="pill st-ready">Ready to plan</span></td></tr><tr><td class="n">1.2</td><td><a href="#v1-2">In-Depth or Plan: how Andri works on your question</a></td><td class="d">about 1:00 (was 1:46)</td><td><span class="pill st-fix">Fix before filming</span></td></tr><tr class="chr"><td colspan="4">Chapter 2 · Letters and documents</td></tr><tr><td class="n">2.1</td><td><a href="#v2-1">The whole letter, in one request</a></td><td class="d">2:30</td><td><span class="pill st-ready">Ready to plan</span></td></tr><tr><td class="n">2.2</td><td><a href="#v2-2">Reply to a letter from the other side</a></td><td class="d">2:06</td><td><span class="pill st-ready">Ready to plan</span></td></tr><tr class="chr"><td colspan="4">Chapter 3 · Memory and personalisation</td></tr><tr><td class="n">3.1</td><td><a href="#v3-1">Say it once. Andri remembers.</a></td><td class="d">2:10</td><td><span class="pill st-ready">Ready to plan</span></td></tr><tr><td class="n">3.2</td><td><a href="#v3-2">Andri works while you sleep</a></td><td class="d">1:32</td><td><span class="pill st-fix">Fix before filming</span></td></tr><tr class="chr"><td colspan="4">Chapter 4 · Research and hearings</td></tr><tr><td class="n">4.1</td><td><a href="#v4-1">Case law research, start to finish</a></td><td class="d">1:38</td><td><span class="pill st-ready">Ready to plan</span></td></tr><tr><td class="n">4.2</td><td><a href="#v4-2">Prepare and rehearse the hearing</a></td><td class="d">2:54 (Part 2 length)</td><td><span class="pill st-fix">Fix before filming</span></td></tr><tr class="chr"><td colspan="4">Chapter 5 · Reviewing many documents</td></tr><tr><td class="n">5.1</td><td><a href="#v5-1">Check many contracts at once, in one table</a></td><td class="d">2:26</td><td><span class="pill st-fix">Fix before filming</span></td></tr><tr class="chr"><td colspan="4">Chapter 6 · Andri in Word</td></tr><tr><td class="n">6.1</td><td><a href="#v6-1">Your draft and their contract, finished in Word</a></td><td class="d">2:26</td><td><span class="pill st-ready">Ready to plan</span></td></tr><tr class="chr"><td colspan="4">Chapter 7 · Specialists and Actions</td></tr><tr><td class="n">7.1</td><td><a href="#v7-1">Your firm's experts, on call</a></td><td class="d">2:12</td><td><span class="pill st-ready">Ready to plan</span></td></tr><tr><td class="n">7.2</td><td><a href="#v7-2">Actions: write a brief once, use it in chat and workflows</a></td><td class="d">1:50</td><td><span class="pill st-ready">Ready to plan</span></td></tr><tr class="chr"><td colspan="4">Chapter 8 · Assignments</td></tr><tr><td class="n">8.1</td><td><a href="#v8-1">Delegate it to Andri, and to your trainee</a></td><td class="d">2:14</td><td><span class="pill st-ready">Ready to plan</span></td></tr><tr class="chr"><td colspan="4">Chapter 9 · Email and connected systems</td></tr><tr><td class="n">9.1</td><td><a href="#v9-1">Email in Andri: three ways in</a></td><td class="d">1:44</td><td><span class="pill st-ready">Ready to plan</span></td></tr><tr><td class="n">9.2</td><td><a href="#v9-2">Your BaseNet dossier, linked once</a></td><td class="d">2:02</td><td><span class="pill st-hold">On hold</span></td></tr><tr class="chr"><td colspan="4">Chapter 10 · Workflows</td></tr><tr><td class="n">10.1</td><td><a href="#v10-1">Your weekly memo, and other ways to start a workflow</a></td><td class="d">2:26</td><td><span class="pill st-ready">Ready to plan</span></td></tr><tr><td class="n">10.2</td><td><a href="#v10-2">Workflows: answer incoming emails automatically</a></td><td class="d">2:34 (trim to 2:30)</td><td><span class="pill st-ready">Ready to plan</span></td></tr><tr><td class="n">10.3</td><td><a href="#v10-3">Start from a ready example: overnight redline, new client intake</a></td><td class="d">2:12</td><td><span class="pill st-ready">Ready to plan</span></td></tr><tr class="chr"><td colspan="4">Chapter 11 · For admins</td></tr><tr><td class="n">11.1</td><td><a href="#v11-1">Before you invite a colleague</a></td><td class="d">2:14</td><td><span class="pill st-fix">Fix before filming</span></td></tr><tr><td class="n">11.2</td><td><a href="#v11-2">Set up Andri for your firm</a></td><td class="d">2:36 (trim to 2:30)</td><td><span class="pill st-ready">Ready to plan</span></td></tr>
+  </tbody></table></div>
+</section>
+<section aria-labelledby="ch1h">
+  <div class="chhead" id="ch1"><span class="cn">Chapter 1 · 2 videos</span><h2 id="ch1h">Getting started</h2></div>
+  
+  <article class="vid" id="v1-1">
+    <header class="vh">
+      <span class="vnum">1.1</span>
+      <h3>Your first matter, start to finish</h3>
+      <div class="vtags"><span class="pill mono">about 1:40</span><span class="pill st-ready">Ready to plan</span></div>
+    </header>
+    <p class="goal">A new user creates a matter, adds the file, asks a first question, checks the source, points Andri at one document and gets a first letter.</p>
+    <p class="prob"><b>Opens on</b>First day in Andri and no idea where to start.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">Create the matter</div><div class="sd">Matters page → yellow <b>New Matter</b> button (top right). Type the matter name.</div></div></li><li><div><div class="sh">Add the file</div><div class="sd">Open the matter's <b>Knowledge Base</b> (yellow button top right, shows the document count) → <b>Upload Matter Documents</b>. Mention the other way in: <b>Email Documents</b> shows the address to forward files to.</div></div></li><li><div><div class="sh">Andri reads every file</div><div class="sd">Each file gets a one-line <b>Summary</b>, a <b>Status</b> (Complete) and a <b>Tag</b> (e.g. Letter, Memo). Nair has PDFs, Word, Excel, emails (.eml), WhatsApp screenshots (.jpg) and audio (.mp3): show that range.</div></div></li><li><div><div class="sh">Ask a first question</div><div class="sd">Back in the matter's chat, the <b>Ask Andri...</b> box. Click <b>Example questions</b>: a panel &quot;Standard Questions: General case analysis questions&quot;, written for this matter, with arrows to switch question types. Pick one.</div></div></li><li><div><div class="sh">Andri shows its work</div><div class="sd">While answering, the steps appear (&quot;Search case documents&quot;, &quot;Thinking&quot;), then the answer with source links inline (e.g. &quot;ET3&quot;, &quot;judgment of 19 March 2026&quot;).</div></div></li><li><div><div class="sh">Click a source</div><div class="sd">Click a source link: the document opens beside the chat.</div></div></li><li><div><div class="sh">One document: @</div><div class="sd">Click the <b>@</b> button (or type @): the list opens on <b>Matter Documents</b>; &quot;Next: Company Documents&quot; switches lists. Pick one document, then ask the question.</div></div></li><li><div><div class="sh">A first letter</div><div class="sd">Ask for a short letter. It's written in the background; a <b>Document Ready</b> notification lands in <b>Inbox</b>; open it from <b>Jobs</b> in the matter's left sidebar.</div></div></li></ol>
+        </div>
+        <div class="mock"><span class="lbl">Example from the mock case</span><ul><li>Matter name for step 1: <b>Nair v Calderdale Logistics</b> (then switch to the full one in staging).</li><li>Files to upload: the <b>employment</b> folder: PDFs, Word, Excel, emails, images and the .mp3 show the range Andri reads.</li><li>First question: &quot;What does the claimant say about the redundancy process?&quot;</li><li>Source to click: <b>03_ET3_Response.pdf</b> or the judgment of 19 March 2026.</li><li>@ example: @03_ET3_Response then &quot;List the respondent's defences.&quot; (Expected: genuine redundancy, fair consultation, Thornton's role different, no discrimination, failure to mitigate.)</li><li>First letter: &quot;Draft a short update letter to Priya Nair on where her claim stands.&quot;</li></ul></div>
+        <div class="good"><span class="lbl">Worth saying or showing</span><ul><li>The <b>+</b> button in the chat box has two choices: <b>Case Knowledge Base</b> (Recommended; &quot;read once and available in every question&quot;) and <b>Attach to this question</b> (&quot;Up to 5 documents, spreadsheets, slides, emails or images, used for this question only&quot;).</li><li>Under every answer: thumbs up/down, copy, and <b>Edit In Drafts</b>.</li><li>Footer under the chat box: &quot;Andri is an AI system and can make mistakes, so please double-check responses.&quot;</li></ul></div>
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>New Matter, Knowledge Base buttons, summaries and tags, Example questions panel, + menu, @ list, source links in answers, Jobs page, Document Ready notifications in Inbox.</p></div>
+        <div class="flag"><span class="lbl">Still to check when filming</span><p>I didn't run a new letter request end to end today. Two letters already in Nair show it works.</p></div>
+        <div class="leave"><span class="lbl">Leave out</span><ul><li>The modes (that's 1.2) and the Timeline (4.2).</li></ul></div>
+        <dl>
+          <dt>Demo setup</dt><dd>Create an empty matter for step 1, then switch to Nair v Calderdale Logistics (already full) for the rest.</dd>
+          
+          
+        </dl>
+      </aside>
+    </div>
+  </article>
+  <article class="vid" id="v1-2">
+    <header class="vh">
+      <span class="vnum">1.2</span>
+      <h3>In-Depth or Plan: how Andri works on your question</h3>
+      <div class="vtags"><span class="pill mono">about 1:00 (was 1:46)</span><span class="pill st-fix">Fix before filming</span></div>
+    </header>
+    <p class="goal">The viewer knows the two modes and when to use Plan.</p>
+    <p class="prob"><b>Opens on</b>A big task, and you want to see Andri's approach before it starts.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">Find the mode button</div><div class="sd">Under the chat box: the button showing <b>In-Depth Mode</b>.</div></div></li><li><div><div class="sh">In-Depth: the default</div><div class="sd">Option text: &quot;Default. Full research and a single reply.&quot; Use it for normal questions.</div></div></li><li><div><div class="sh">Plan: approve first</div><div class="sd">Option text: &quot;Andri drafts a structured plan for you to approve before executing.&quot; Show a multi-step request (e.g. a chronology plus a letter), the plan appearing, and approving it.</div></div></li></ol>
+        </div>
+        <div class="mock"><span class="lbl">Example from the mock case</span><ul><li>Plan request: &quot;Prepare for the 11 May remedy hearing: build a chronology, check the schedule of loss against the judgment, then write a short note for counsel.&quot;</li><li>In-Depth request: &quot;Was the consultation a sham? Answer from the documents.&quot;</li></ul></div>
+        <div class="good"><span class="lbl">Worth saying or showing</span><ul><li>The iPhone app has its own modes, Fast and Deep (release notes, 14 to 15 July 2026). Only mention this if the video is about the phone.</li></ul></div>
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>The mode picker and both option texts.</p></div>
+        <div class="flag"><span class="lbl">Still to check when filming</span><p>What the plan and its approve button look like (I didn't run a Plan request).</p></div>
+        <div class="leave"><span class="lbl">Leave out</span><ul><li>Fast and Outcome: they're not in the web app. The current script still has them, so it must be rewritten.</li><li>Consider folding this into 1.1 as its last step.</li></ul></div>
+        <dl>
+          <dt>Demo setup</dt><dd>Nair v Calderdale Logistics.</dd>
+          <dt>Watch first</dt><dd>1.1</dd>
+          <dt>Quick fixes that lead here</dt><dd class="rel"><span>H5 · Ask better: who, what, which documents</span></dd>
+        </dl>
+      </aside>
+    </div>
+  </article>
+</section><section aria-labelledby="ch2h">
+  <div class="chhead" id="ch2"><span class="cn">Chapter 2 · 2 videos</span><h2 id="ch2h">Letters and documents</h2></div>
+  
+  <article class="vid" id="v2-1">
+    <header class="vh">
+      <span class="vnum">2.1</span>
+      <h3>The whole letter, in one request</h3>
+      <div class="vtags"><span class="pill mono">2:30</span><span class="pill st-ready">Ready to plan</span></div>
+    </header>
+    <p class="goal">The viewer asks for a complete letter in one message instead of copying answers into Word.</p>
+    <p class="prob"><b>Opens on</b>Copying Andri's answers into a blank Word page, piece by piece.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">Start in the matter</div><div class="sd">Nair's chat. Andri already has the whole file.</div></div></li><li><div><div class="sh">One request</div><div class="sd">Who it's for, what it must say, which documents to use. Example: &quot;Write a client update letter to Priya Nair on where the remedy hearing stands.&quot;</div></div></li><li><div><div class="sh">Use the letterhead</div><div class="sd">Type @ and pick the firm's letter template. In Nair it's <b>Aldridge_Vine_Letter_Template.docx</b>, tagged <b>Letter</b>.</div></div></li><li><div><div class="sh">Andri may ask first</div><div class="sd">If something is unclear, Andri asks before writing. Answer it.</div></div></li><li><div><div class="sh">Written in the background</div><div class="sd">Keep working. A <b>Document Ready</b> notification arrives in Inbox (Nair already has &quot;Aldridge_Vine_Client_Update_Letter_Nair_2026-09-22.docx&quot;).</div></div></li><li><div><div class="sh">Open it from Jobs</div><div class="sd">Matter sidebar → <b>Jobs</b> (filters: All statuses, All types, Newest first) → open or download.</div></div></li><li><div><div class="sh">Check the facts</div><div class="sd">Source links open the document beside the chat.</div></div></li><li><div><div class="sh">Change it</div><div class="sd">Ask Andri for changes, or click <b>Edit In Drafts</b>, or finish it in Word (6.1).</div></div></li></ol>
+        </div>
+        <div class="mock"><span class="lbl">Example from the mock case</span><ul><li>Request: &quot;Write a client update letter to Priya Nair at 14 Saltaire Road on where the remedy hearing stands, what she can expect to recover, and next steps. Use the schedule of loss and the judgment.&quot;</li><li>@ the letterhead: <b>Aldridge_Vine_Letter_Template.docx</b> (in staging).</li><li>Sources to show in the letter: <b>13_Schedule_of_Loss.xlsx</b> (£71,640) and <b>05_Tribunal_Judgment.pdf</b>.</li><li>Finished example already in staging: Aldridge_Vine_Client_Update_Letter_Nair_2026-09-22.docx.</li></ul></div>
+        <div class="good"><span class="lbl">Worth saying or showing</span><ul><li>From an earlier staging check: Andri's question stays open for 7 days.</li></ul></div>
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>The letter template and its Letter tag, Document Ready notifications, Jobs page, Edit In Drafts.</p></div>
+        <div class="flag"><span class="lbl">Still to check when filming</span><p>The question-first step and the 7-day detail (not run today).</p></div>
+        <div class="leave"><span class="lbl">Leave out</span><ul><li>Footnotes (not confirmed).</li></ul></div>
+        <dl>
+          <dt>Demo setup</dt><dd>Nair v Calderdale Logistics; the letter template is already in its Knowledge Base.</dd>
+          <dt>Watch first</dt><dd>1.1</dd>
+          <dt>Quick fixes that lead here</dt><dd class="rel"><span>11 · Your letterhead, on every letter</span><span>12 · Tell Andri which document to read</span><span>15 · Your reply, attachments included</span></dd>
+        </dl>
+      </aside>
+    </div>
+  </article>
+  <article class="vid" id="v2-2">
+    <header class="vh">
+      <span class="vnum">2.2</span>
+      <h3>Reply to a letter from the other side</h3>
+      <div class="vtags"><span class="pill mono">2:06</span><span class="pill st-ready">Ready to plan</span></div>
+    </header>
+    <p class="goal">The viewer gets a point-by-point reply that misses nothing.</p>
+    <p class="prob"><b>Opens on</b>The other side's letter has many points, and it's easy to miss one.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">Their letter, in the matter</div><div class="sd">Upload it to the Knowledge Base, or email it to the matter's address (Matter Email).</div></div></li><li><div><div class="sh">Their points, listed</div><div class="sd">Ask Andri to list every point in their letter first, so you can see nothing is missed.</div></div></li><li><div><div class="sh">Your position, once</div><div class="sd">One message: accept point 3, reject points 2 and 4, with your reasons.</div></div></li><li><div><div class="sh">Earlier letters</div><div class="sd">@ the earlier correspondence from the matter so the reply refers to it.</div></div></li><li><div><div class="sh">In your firm's tone</div><div class="sd">A firm memory (3.1) or Firm Customisations (11.2) keeps the tone, e.g. &quot;formal English to the other side&quot;.</div></div></li><li><div><div class="sh">Finish and send</div><div class="sd">Open the draft, finish it in Word or Drafts, save the version.</div></div></li></ol>
+        </div>
+        <div class="mock"><span class="lbl">Example from the mock case</span><ul><li>No letter from the other side exists. Best stand-in: answer the <b>03_ET3_Response.pdf</b> point by point (from Bowater Sykes): genuine redundancy, fair consultation, Thornton's lower-grade role, no discrimination, failure to mitigate.</li><li>Your position: &quot;Reject all five. Rely on the judgment's findings: volumes flat, two new clients, consultation a sham.&quot;</li><li>Earlier correspondence to @: <b>10_Letter_Settlement.docx</b> (our £52,000 offer, ref AV/HR/NAIR/0318, their ref BS/CLL/2291).</li><li>Or write a fictional reply from Bowater Sykes and upload it first.</li></ul></div>
+        
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>Upload and email routes into the matter.</p></div>
+        <div class="flag"><span class="lbl">Still to check when filming</span><p>The full reply flow (not run today).</p></div>
+        <div class="leave"><span class="lbl">Leave out</span><ul><li>&quot;Formal Dutch&quot; as the example in the English version; use it in the Dutch version only.</li></ul></div>
+        <dl>
+          <dt>Demo setup</dt><dd>Use Nair, not Brightwater / Hallam (that matter doesn't exist). Upload a letter from the respondent's solicitors first; Nair has none yet.</dd>
+          <dt>Watch first</dt><dd>2.1</dd>
+          
+        </dl>
+      </aside>
+    </div>
+  </article>
+</section><section aria-labelledby="ch3h">
+  <div class="chhead" id="ch3"><span class="cn">Chapter 3 · 2 videos</span><h2 id="ch3h">Memory and personalisation</h2></div>
+  
+  <article class="vid" id="v3-1">
+    <header class="vh">
+      <span class="vnum">3.1</span>
+      <h3>Say it once. Andri remembers.</h3>
+      <div class="vtags"><span class="pill mono">2:10</span><span class="pill st-ready">Ready to plan</span></div>
+    </header>
+    <p class="goal">The viewer stops repeating instructions: they know the three kinds of memory and where to manage them.</p>
+    <p class="prob"><b>Opens on</b>Telling Andri the same thing in every conversation.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">For you</div><div class="sd">In chat: &quot;Remember: always ask me before you create a document.&quot; Applies in all your matters.</div></div></li><li><div><div class="sh">For one matter</div><div class="sd">&quot;Remember in this case that the filing deadline is 15 March.&quot;</div></div></li><li><div><div class="sh">For the firm</div><div class="sd">&quot;Always remember we write to clients in formal English.&quot; Admins only.</div></div></li><li><div><div class="sh">Ask what it remembers</div><div class="sd">&quot;What do you remember about this case?&quot;</div></div></li><li><div><div class="sh">Correct or forget</div><div class="sd">&quot;Forget the filing deadline.&quot;</div></div></li><li><div><div class="sh">See them all</div><div class="sd">Personalisation (sliders icon, top bar) → <b>Memories</b>: &quot;The files Andri keeps about how you work&quot;. Three groups: <b>Personal</b>, <b>Firm</b>, <b>Matters</b> (a folder per matter). Each memory is a .md file you can open, <b>Edit</b> or <b>Delete</b>; <b>+ New file</b> adds one.</div></div></li><li><div><div class="sh">Optional: how Andri answers</div><div class="sd">Same panel → <b>Andri's answers</b>: Response style (Formal Legal / Practical), Detail level (Concise / Comprehensive), Format (Flowing / Organised), with a live preview. No video covers this yet.</div></div></li></ol>
+        </div>
+        <div class="mock"><span class="lbl">Example from the mock case</span><ul><li>For you: &quot;Remember: always ask me before you create a document.&quot;</li><li>For this matter: &quot;Remember in this case that the remedy hearing is on 11 May 2026.&quot;</li><li>For the firm: &quot;Always remember we write to clients in formal English.&quot;</li><li>Already in staging to show: matter memory <b>remedy_hearing_gap.md</b> under Nair, personal <b>working_preferences.md</b>.</li></ul></div>
+        <div class="good"><span class="lbl">Worth saying or showing</span><ul><li>Nair already has a matter memory (remedy_hearing_gap.md) and Bennett a personal one (working_preferences.md): good for the &quot;see them all&quot; shot.</li></ul></div>
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>Memories panel (groups, files, Edit, Delete, + New file), Andri's answers settings.</p></div>
+        <div class="flag"><span class="lbl">Still to check when filming</span><p>That each chat phrasing saves to the right group (not run today); firm memories are admin only (earlier check).</p></div>
+        
+        <dl>
+          <dt>Demo setup</dt><dd>Nair; Personalisation panel.</dd>
+          <dt>Watch first</dt><dd>1.1</dd>
+          <dt>Quick fixes that lead here</dt><dd class="rel"><span>14 · Your daily question, saved once</span><span>H7 · Shorter answers, every time</span></dd>
+        </dl>
+      </aside>
+    </div>
+  </article>
+  <article class="vid" id="v3-2">
+    <header class="vh">
+      <span class="vnum">3.2</span>
+      <h3>Andri works while you sleep</h3>
+      <div class="vtags"><span class="pill mono">1:32</span><span class="pill st-fix">Fix before filming</span></div>
+    </header>
+    <p class="goal">The viewer knows the two after-hours features and can switch them on or off.</p>
+    <p class="prob"><b>Opens on</b>Monday starts with catching up on what changed.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">Where</div><div class="sd">Personalisation → <b>After hours</b>: &quot;What Andri may do while you are away&quot;.</div></div></li><li><div><div class="sh">Matter reflections</div><div class="sd"><b>After-hours matter reflections</b>, Off by default. Help text: Andri reflects on your matter conversations outside work hours; if something was missed or deserves attention, you get an email with a brief analysis. It runs every night and only contacts you when there's a genuine insight.</div></div></li><li><div><div class="sh">The email</div><div class="sd">The preview shows an example email from Andri at 07:00 (&quot;what changed overnight&quot;, with a suggested next step).</div></div></li><li><div><div class="sh">Nightly dreams</div><div class="sd"><b>Nightly dreams</b>, On by default: &quot;Andri is learning your working style to quietly personalise responses.&quot; It rewrites your <b>Working profile</b> every Sunday from the week's conversations: How you work, Matters in focus.</div></div></li><li><div><div class="sh">Switch off</div><div class="sd">Either toggle, any time.</div></div></li></ol>
+        </div>
+        <div class="mock"><span class="lbl">Example from the mock case</span><ul><li>A believable overnight insight: &quot;The file still has no record of the 11 May remedy hearing outcome. Suggested next step: ask Bowater Sykes whether the schedule of loss is contested.&quot; (Andri raised exactly this gap in staging.)</li></ul></div>
+        
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>Both toggles, defaults, help text and preview.</p></div>
+        <div class="flag"><span class="lbl">Still to check when filming</span><p>A real reflection email (needs a night of activity).</p></div>
+        <div class="leave"><span class="lbl">Leave out</span><ul><li>Promising an email every morning: it only comes when there's something worth flagging.</li></ul></div>
+        <dl>
+          <dt>Demo setup</dt><dd>Personalisation panel; the preview pane already shows both examples.</dd>
+          <dt>Watch first</dt><dd>3.1</dd>
+          
+        </dl>
+      </aside>
+    </div>
+  </article>
+</section><section aria-labelledby="ch4h">
+  <div class="chhead" id="ch4"><span class="cn">Chapter 4 · 2 videos</span><h2 id="ch4h">Research and hearings</h2></div>
+  
+  <article class="vid" id="v4-1">
+    <header class="vh">
+      <span class="vnum">4.1</span>
+      <h3>Case law research, start to finish</h3>
+      <div class="vtags"><span class="pill mono">1:38</span><span class="pill st-ready">Ready to plan</span></div>
+    </header>
+    <p class="goal">The viewer finds rulings, reads them on the court's site, asks a legal question in the matter, and puts many rulings in one table.</p>
+    <p class="prob"><b>Opens on</b>Finding and checking case law takes many tabs.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">Explore → Case law</div><div class="sd">Left filters: <b>Jurisdiction</b> (Netherlands, Belgium, United Kingdom, Switzerland), <b>Legal Areas</b> (with counts), <b>Decision date</b> (Most recent, Last 7 days, Last 30 days, Last 3 months, This year, Custom range), <b>Courts</b>. A keyword search box on top.</div></div></li><li><div><div class="sh">Read a ruling card</div><div class="sd">Court, citation, outcome badge (e.g. Appeal Dismissed), an <b>Outcome</b> box, a summary, <b>Key holdings</b>, <b>Legal issues</b>, cited precedents.</div></div></li><li><div><div class="sh">On the court's site</div><div class="sd"><b>View case</b> opens the official text.</div></div></li><li><div><div class="sh">Ask in the matter</div><div class="sd">In Nair, ask the legal question. Andri searches case law and legislation (you see &quot;Searching case law&quot;, &quot;Looking up legislation&quot;) and cites what it uses.</div></div></li><li><div><div class="sh">Many rulings, one table</div><div class="sd">Tick rulings → <b>Add to tabular review</b>. (Or in a review: Add a source → Case law.)</div></div></li></ol>
+        </div>
+        <div class="mock"><span class="lbl">Example from the mock case</span><ul><li>Search in Case law: United Kingdom, Employment law, e.g. &quot;maternity redundancy sham consultation&quot;.</li><li>Question in the matter: &quot;Does the Acas Code uplift apply to a redundancy dismissal?&quot; (the schedule of loss claims a 25% uplift of £5,800; the simulation flagged this as a real issue).</li><li>Or: &quot;Which Vento band fits an £18,000 injury to feelings claim?&quot;</li></ul></div>
+        <div class="good"><span class="lbl">Worth saying or showing</span><ul><li>Ticking shows &quot;1 selected&quot; and the result count (e.g. 210 results).</li></ul></div>
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>All filters, ruling card parts, View case, Add to tabular review, case law and legislation searches in a live Andri turn.</p></div>
+        
+        <div class="leave"><span class="lbl">Leave out</span><ul><li>German rulings: there are none. In the German version, show UK, NL, BE or CH.</li></ul></div>
+        <dl>
+          <dt>Demo setup</dt><dd>Explore → Case law, then Nair.</dd>
+          <dt>Watch first</dt><dd>1.1</dd>
+          <dt>Quick fixes that lead here</dt><dd class="rel"><span>13 · Every source, one click away</span><span>H9 · Find a ruling yourself</span></dd>
+        </dl>
+      </aside>
+    </div>
+  </article>
+  <article class="vid" id="v4-2">
+    <header class="vh">
+      <span class="vnum">4.2</span>
+      <h3>Prepare and rehearse the hearing</h3>
+      <div class="vtags"><span class="pill mono">2:54 (Part 2 length)</span><span class="pill st-fix">Fix before filming</span></div>
+    </header>
+    <p class="goal">The viewer prepares a hearing with the Timeline, then rehearses it with Simulate.</p>
+    <p class="prob"><b>Opens on</b>Hearing on Thursday, a 400-page file, and the other side's best argument still unknown.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">Open Timeline</div><div class="sd">First icon in the matter's left sidebar (&quot;Open Timeline&quot;). A panel: <b>Matter Timeline</b>, &quot;Summary and key dates for this matter&quot;, &quot;28 of 28 events completed&quot;.</div></div></li><li><div><div class="sh">What's in it</div><div class="sd">Sections: Case overview &amp; type, Core facts, Key disputed issues, Where the documents bear on each other, Parties, Financial summary, Procedural status. Then every dated event.</div></div></li><li><div><div class="sh">Every event, sourced</div><div class="sd">Each fact links to its file (e.g. 05_Tribunal_Judgment.pdf, 14_Chronology.xlsx). Click one.</div></div></li><li><div><div class="sh">Add your own</div><div class="sd"><b>+ Add event</b> at the bottom, e.g. a phone call with the client.</div></div></li><li><div><div class="sh">What each document proves</div><div class="sd">In chat: &quot;Review the key documents: what does each one prove?&quot;</div></div></li><li><div><div class="sh">Hearing notes</div><div class="sd">&quot;Write my hearing notes from this.&quot;</div></div></li><li><div><div class="sh">Simulate</div><div class="sd">Sidebar → <b>Simulate</b> → <b>Start Simulation</b>. Roles along the top: Judge, Claimant, Defendant. Counter: &quot;Turn 1/6&quot;.</div></div></li><li><div><div class="sh">The judge opens</div><div class="sd">The judge fixes the issues and who has to prove each one (&quot;5 issues recorded and published to counsel&quot;), then gives the opening.</div></div></li><li><div><div class="sh">Both sides, in turn</div><div class="sd"><b>Next Step</b> runs the next turn: Claimant, then Defendant. Each turn shows its searches (case documents, legislation, case law).</div></div></li><li><div><div class="sh">Restart</div><div class="sd">The circular arrow (Start New Simulation) starts again.</div></div></li><li><div><div class="sh">Preparation list</div><div class="sd">What the judge flags goes into your hearing notes.</div></div></li></ol>
+        </div>
+        <div class="mock"><span class="lbl">Example from the mock case</span><ul><li>The hearing: the <b>remedy hearing of 11 May 2026</b>; liability already won on 19 March 2026.</li><li>Timeline shot: sections and events built from the 20 files, e.g. &quot;13 Jan 2025: returns; role reduced, Thornton kept on&quot;.</li><li>+ Add event example: &quot;Phone call with Ms Nair about job applications&quot; (mitigation is an issue).</li><li>What each document proves: schedule of loss, medical report, bank statement, dismissal letter.</li><li>Simulate: the judge's opening in staging fixes 5 remedy issues: loss of earnings, mitigation (burden on the Defendant), injury to feelings and the medical report, the Acas uplift, pension and interest.</li></ul></div>
+        <div class="good"><span class="lbl">Worth saying or showing</span><ul><li>Nair's real situation fits perfectly: liability won on 19 March 2026, remedy hearing listed for 11 May 2026.</li></ul></div>
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>Timeline panel, its sections, source links, + Add event; Simulate start, roles, 6 turns, judge's opening with recorded issues, Next Step, restart.</p></div>
+        <div class="flag"><span class="lbl">Still to check when filming</span><p>&quot;Each turn uses credits&quot; and &quot;stay on the page&quot; (earlier check only).</p></div>
+        <div class="leave"><span class="lbl">Leave out</span><ul><li>&quot;Respondent&quot;: the screen says Defendant. Fix the script.</li><li>The &quot;Edited&quot; label on changed events: I couldn't confirm it.</li></ul></div>
+        <dl>
+          <dt>Demo setup</dt><dd>Nair v Calderdale Logistics. A simulation already exists at Turn 2/6; restart for a clean take.</dd>
+          <dt>Watch first</dt><dd>4.1</dd>
+          
+        </dl>
+      </aside>
+    </div>
+  </article>
+</section><section aria-labelledby="ch5h">
+  <div class="chhead" id="ch5"><span class="cn">Chapter 5 · 1 video</span><h2 id="ch5h">Reviewing many documents</h2></div>
+  
+  <article class="vid" id="v5-1">
+    <header class="vh">
+      <span class="vnum">5.1</span>
+      <h3>Check many contracts at once, in one table</h3>
+      <div class="vtags"><span class="pill mono">2:26</span><span class="pill st-fix">Fix before filming</span></div>
+    </header>
+    <p class="goal">The viewer reviews a set of documents with the same questions and gets one sourced table.</p>
+    <p class="prob"><b>Opens on</b>The same clause, checked contract by contract, all evening.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">Start</div><div class="sd">Matter sidebar → <b>Review</b> → <b>Start new review</b>. The grid: a <b>Sources</b> column, &quot;Click to add a question&quot;, <b>Add another question</b>.</div></div></li><li><div><div class="sh">Add sources</div><div class="sd"><b>Add a source</b> opens &quot;Add sources&quot; with three tabs: <b>Matter Knowledge Base</b>, <b>Company Knowledge Base</b>, <b>Case law</b>. Search, Tags, Select all, a whole folder works. <b>Use sources</b>.</div></div></li><li><div><div class="sh">Ask a question</div><div class="sd">Click the question header → panel &quot;Question 1&quot;: <b>Format</b>, <b>Column header (optional)</b>, the question box (&quot;Use @ to reference a specific document&quot;). <b>Done</b>.</div></div></li><li><div><div class="sh">Pick a format</div><div class="sd">Short text, Yes / No, Extract, Date, Number, Choice list.</div></div></li><li><div><div class="sh">Test one first</div><div class="sd"><b>Try one cell</b>.</div></div></li><li><div><div class="sh">Run it</div><div class="sd"><b>Start review</b>: one row per document, one column per question, every answer cited.</div></div></li><li><div><div class="sh">Filter</div><div class="sd">Filter a column, e.g. every contract without a liability cap.</div></div></li><li><div><div class="sh">Later</div><div class="sd">Add a question later: only the new cells run. Export to Excel.</div></div></li></ol>
+        </div>
+        <div class="mock"><span class="lbl">Example from the mock case</span><ul><li>No contracts in the mock case. Two options: (a) add 5 to 10 mock contracts, or (b) review the <b>employment</b> folder itself with mock-case questions, which still shows every step.</li><li>Questions for option (b): &quot;Date of the document&quot; (Date), &quot;Who wrote it?&quot; (Short text), &quot;Does it mention Mr Thornton?&quot; (Yes / No), &quot;Exact words on redundancy&quot; (Extract), &quot;Amount in GBP&quot; (Number), &quot;Type&quot; (Choice list: letter, email, pleading, evidence).</li></ul></div>
+        <div class="good"><span class="lbl">Worth saying or showing</span><ul><li>From earlier checks: export as CSV or XLSX; the review stays in the matter for 90 days.</li></ul></div>
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>Start new review, the grid, Add sources tabs, the question panel and all six formats, Try one cell, Start review.</p></div>
+        <div class="flag"><span class="lbl">Still to check when filming</span><p>Results, filtering, add-later and export (I didn't run a review today).</p></div>
+        <div class="leave"><span class="lbl">Leave out</span><ul><li>Turning the table into a client memo (not confirmed).</li></ul></div>
+        <dl>
+          <dt>Demo setup</dt><dd>A matter with 5 to 10 contracts. Nair has none (it's an employment file).</dd>
+          <dt>Watch first</dt><dd>1.1</dd>
+          <dt>Quick fixes that lead here</dt><dd class="rel"><span>12 · Tell Andri which document to read</span><span>13 · Every source, one click away</span></dd>
+        </dl>
+      </aside>
+    </div>
+  </article>
+</section><section aria-labelledby="ch6h">
+  <div class="chhead" id="ch6"><span class="cn">Chapter 6 · 1 video</span><h2 id="ch6h">Andri in Word</h2></div>
+  
+  <article class="vid" id="v6-1">
+    <header class="vh">
+      <span class="vnum">6.1</span>
+      <h3>Your draft and their contract, finished in Word</h3>
+      <div class="vtags"><span class="pill mono">2:26</span><span class="pill st-ready">Ready to plan</span></div>
+    </header>
+    <p class="goal">The viewer edits their own draft and the other side's contract in Word with Andri, every change tracked.</p>
+    <p class="prob"><b>Opens on</b>Five versions of one letter, and clauses copied into their contract by hand.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">Install once</div><div class="sd">Business plan and Microsoft 365 Word. <b>Home → Add-ins</b> (or File → Get Add-ins) → More Add-ins → search &quot;Andri&quot; → <b>Add</b>. <b>Sign in</b> in the pane with your Andri account.</div></div></li><li><div><div class="sh">Your matters, in Word</div><div class="sd">The <b>Andri</b> button on the Home tab opens the pane: your matter list (search, filter by tag, sort). Only matters you own appear.</div></div></li><li><div><div class="sh">Your draft</div><div class="sd">Small fixes by hand. For a rewrite, select the text and type in <b>Ask Andri...</b></div></div></li><li><div><div class="sh">Tracked</div><div class="sd">Andri switches track changes on for each edit and restores your setting after. Changes show under your Word user name.</div></div></li><li><div><div class="sh">Review</div><div class="sd">The <b>Changes in your document</b> card: accept or reject each change.</div></div></li><li><div><div class="sh">Save</div><div class="sd">Save from the pane as a draft on the matter. In Andri, the matter's <b>Drafts</b> page has <b>Web</b> and <b>Word</b> tabs.</div></div></li><li><div><div class="sh">Their contract</div><div class="sd">Same steps on the other side's contract: select a clause, state your position, every change tracked.</div></div></li></ol>
+        </div>
+        <div class="mock"><span class="lbl">Example from the mock case</span><ul><li>Your draft: the client update letter to Priya Nair (already a Word file in staging). Rewrite request: &quot;Make the second paragraph more formal and cut it to three sentences.&quot;</li><li>Their document: no contract exists. Use <b>09_Dismissal_Letter.docx</b> only to show tracked edits, or add a mock contract for the &quot;their contract&quot; half.</li></ul></div>
+        <div class="good"><span class="lbl">Worth saying or showing</span><ul><li>Questions in the pane use credits; opening matters and saving versions cost nothing.</li><li>Word on the web can't load headers, footers and full styling: use desktop Word.</li><li>Each Word draft keeps its own conversation (release notes, 30 July 2026).</li></ul></div>
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>Drafts page with Web and Word tabs (staging); every Word step from the official help article &quot;Install and use Andri for Word&quot;.</p></div>
+        <div class="flag"><span class="lbl">Still to check when filming</span><p>The add-in itself: I can't open Word from here. Film it and compare with the help article.</p></div>
+        <div class="leave"><span class="lbl">Leave out</span><ul><li>Footnotes (not in the help article).</li><li>The second round (their markup on yours).</li></ul></div>
+        <dl>
+          <dt>Demo setup</dt><dd>Desktop Word with the add-in, signed in to staging. A matter you own with a draft and a contract.</dd>
+          <dt>Watch first</dt><dd>2.1</dd>
+          <dt>Quick fixes that lead here</dt><dd class="rel"><span>16 · Your footnotes, done in Word</span><span>17 · No Andri in Word? One-minute fix</span></dd>
+        </dl>
+      </aside>
+    </div>
+  </article>
+</section><section aria-labelledby="ch7h">
+  <div class="chhead" id="ch7"><span class="cn">Chapter 7 · 2 videos</span><h2 id="ch7h">Specialists and Actions</h2></div>
+  
+  <article class="vid" id="v7-1">
+    <header class="vh">
+      <span class="vnum">7.1</span>
+      <h3>Your firm's experts, on call</h3>
+      <div class="vtags"><span class="pill mono">2:12</span><span class="pill st-ready">Ready to plan</span></div>
+    </header>
+    <p class="goal">The viewer builds a specialist from the firm's own models, then one per team.</p>
+    <p class="prob"><b>Opens on</b>Pasting the firm's own clauses over Andri's, by hand.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">Explore → Specialists</div><div class="sd">Counter &quot;0 of 15&quot;. Empty page explains: &quot;A specialist is a colleague Andri consults.&quot; Example cards: Employment law, Corporate governance, Data protection.</div></div></li><li><div><div class="sh">New specialist</div><div class="sd"><b>Name</b>: &quot;A short name, two or three words at most.&quot;</div></div></li><li><div><div class="sh">The key line</div><div class="sd"><b>When should Andri consult it?</b>: one line, up to 300 characters. &quot;This is the only thing Andri reads when it decides whether to ask this specialist.&quot;</div></div></li><li><div><div class="sh">Build notes</div><div class="sd"><b>Notes for the build (optional)</b>: read once while building, not consulted afterwards.</div></div></li><li><div><div class="sh">What it learns from</div><div class="sd">Files and folders from the firm knowledge base; a folder brings everything inside. At most 100 files and 256 MB. Then <b>Build specialist</b>.</div></div></li><li><div><div class="sh">It works</div><div class="sd">Ask the same drafting question again: Andri consults the specialist and links to the firm's model.</div></div></li><li><div><div class="sh">Ask it directly</div><div class="sd">Type @ and pick the specialist.</div></div></li><li><div><div class="sh">One per team</div><div class="sd">Several specialists with when-to-consult lines that don't overlap, plus a playbook specialist for negotiation positions.</div></div></li></ol>
+        </div>
+        <div class="mock"><span class="lbl">Example from the mock case</span><ul><li>Firm knowledge base is empty: upload the Aldridge Vine templates and <b>12_Skeleton_Argument.docx</b> as &quot;Employment: models and precedents&quot;.</li><li>Name: <b>Employment law</b>. When to consult: &quot;UK employment: unfair dismissal, redundancy, maternity and sex discrimination, tribunal remedy.&quot;</li><li>Build note: &quot;Use the Aldridge Vine letter and memo templates for structure and tone.&quot;</li></ul></div>
+        <div class="good"><span class="lbl">Worth saying or showing</span><ul><li>Page footer: &quot;A specialist advises Andri with direction and references. It never drafts for you.&quot;</li></ul></div>
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>Specialists page, 0 of 15 limit, every form field, help text and limits.</p></div>
+        <div class="flag"><span class="lbl">Still to check when filming</span><p>Building, then Ready; rebuild; who may edit (earlier check only). Needs firm files to test.</p></div>
+        
+        <dl>
+          <dt>Demo setup</dt><dd>Upload model documents to Company → Knowledge base first. It's empty, so nothing can be built yet.</dd>
+          
+          <dt>Quick fixes that lead here</dt><dd class="rel"><span>11 · Your letterhead, on every letter</span></dd>
+        </dl>
+      </aside>
+    </div>
+  </article>
+  <article class="vid" id="v7-2">
+    <header class="vh">
+      <span class="vnum">7.2</span>
+      <h3>Actions: write a brief once, use it in chat and workflows</h3>
+      <div class="vtags"><span class="pill mono">1:50</span><span class="pill st-ready">Ready to plan</span></div>
+    </header>
+    <p class="goal">The viewer turns a task they explain often into an Action and runs it anywhere.</p>
+    <p class="prob"><b>Opens on</b>The same detailed brief, retyped in every matter.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">Explore → Actions</div><div class="sd">Tabs: All, Personal, Company. Empty page: &quot;Brief Andri once, run it in any matter.&quot; Example cards: Contract review, Client intake, Due diligence checklist.</div></div></li><li><div><div class="sh">Create Action, step 1: Workflow</div><div class="sd"><b>Action Name</b> and <b>What should this action do?</b> (at least 100 characters; describe it like briefing a junior).</div></div></li><li><div><div class="sh">Step 2: Data &amp; Files</div><div class="sd">Up to 5 reference documents from the knowledge base, and &quot;How should these documents be used?&quot; (optional).</div></div></li><li><div><div class="sh">Step 3: Expected Output</div><div class="sd">Up to 3 example documents of the result. Leave it empty and the Action answers in chat. &quot;What should the output look like?&quot; (optional). Then <b>Create Action</b>.</div></div></li><li><div><div class="sh">Andri builds it</div><div class="sd">&quot;Andri is making this action&quot; → it opens as a <b>Skill Definition</b>: purpose, files, a checklist of steps. Worth a close-up.</div></div></li><li><div><div class="sh">Share it</div><div class="sd">New Actions are <b>Personal</b>. The share icon → <b>Share with company</b>.</div></div></li><li><div><div class="sh">Use it</div><div class="sd">In any matter's chat: type @ and pick it. In a workflow: a <b>Run Action</b> step (10.2).</div></div></li></ol>
+        </div>
+        <div class="mock"><span class="lbl">Example from the mock case</span><ul><li>Action name: <b>Remedy check</b>. Brief: &quot;Compare the schedule of loss with the tribunal judgment. For each head of loss, say whether the judgment supports it, what the other side will argue, and the risk. Output a table.&quot;</li><li>Reference file: <b>13_Schedule_of_Loss.xlsx</b>. Example output: the Aldridge Vine memo template.</li><li>Run it in Nair: @Remedy check.</li></ul></div>
+        <div class="good"><span class="lbl">Worth saying or showing</span><ul><li>Andri built my test action in under a minute.</li></ul></div>
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>Everything above except running it with @ (I created and inspected a real test action).</p></div>
+        <div class="flag"><span class="lbl">Still to check when filming</span><p>Picking the Action from the @ list in chat (the list didn't switch tabs for me).</p></div>
+        
+        <dl>
+          <dt>Demo setup</dt><dd>Reference and example files in the firm knowledge base make steps 2 and 3 look real (it's empty now).</dd>
+          
+          
+        </dl>
+      </aside>
+    </div>
+  </article>
+</section><section aria-labelledby="ch8h">
+  <div class="chhead" id="ch8"><span class="cn">Chapter 8 · 1 video</span><h2 id="ch8h">Assignments</h2></div>
+  
+  <article class="vid" id="v8-1">
+    <header class="vh">
+      <span class="vnum">8.1</span>
+      <h3>Delegate it to Andri, and to your trainee</h3>
+      <div class="vtags"><span class="pill mono">2:14</span><span class="pill st-ready">Ready to plan</span></div>
+    </header>
+    <p class="goal">The viewer puts tasks in the matter, hands one to Andri, and splits work with a trainee.</p>
+    <p class="prob"><b>Opens on</b>A deadline on a sticky note, and a trainee waiting for work.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">Assignments</div><div class="sd">Top bar → <b>Assignments</b>. Views: My work, Assignments. Filters: Active, Backlog, Done, All; Matter; Due date; priority. List or board toggle. <b>+ New</b>.</div></div></li><li><div><div class="sh">New assignment</div><div class="sd">Title, description, then chips: status (Backlog, To do, In progress, In review, Done), priority (Urgent, High, Normal, Low), type (General, Call, Email, Draft, Review, Meeting, Filing), assignee, Matter, Due date. <b>Create</b>.</div></div></li><li><div><div class="sh">Hand it to Andri</div><div class="sd">Open it → <b>Delegate to Andri</b> → <b>Run in the background</b> (&quot;Andri works the assignment on its own and reports back on this ticket&quot;) or <b>Work together</b> (&quot;Opens the matter chat where Andri works while you watch and steer&quot;).</div></div></li><li><div><div class="sh">Andri working</div><div class="sd">Status turns In progress, the assignee becomes Andri, an &quot;Andri working&quot; badge, a toast &quot;Andri is on it&quot;, the activity log, and a <b>Stop</b> button.</div></div></li><li><div><div class="sh">Andri done</div><div class="sd">Status moves to <b>In review</b> (not Done) with an &quot;Andri done&quot; badge. Andri's report tags you with what to check. Buttons: <b>Request change</b>, <b>Open thread</b>, <b>Mark done</b>. Inbox shows &quot;Andri finished&quot;.</div></div></li><li><div><div class="sh">Comments and checklist</div><div class="sd">&quot;Write a comment, type @ to mention someone or Andri&quot;. A checklist on each task.</div></div></li><li><div><div class="sh">Add the trainee</div><div class="sd">Give them a Support seat (11.1), assign them tasks, and use the board: Andri works, the trainee checks.</div></div></li></ol>
+        </div>
+        <div class="mock"><span class="lbl">Example from the mock case</span><ul><li>Task: <b>Summarise the ET3</b>, matter Nair, priority High, due before the remedy hearing. (I ran exactly this in staging: Andri finished in about a minute and flagged that the response names no jurisdictional or time-limit defence.)</li><li>The trainee: <b>Rosalind Keane</b>, trainee solicitor at Aldridge Vine (she writes the memo template). Partner: Adam Frith.</li><li>Board example: Andri drafts &quot;Chronology of mitigation steps&quot;, Rosalind checks it, Adam reviews &quot;Remedy hearing bundle&quot;.</li></ul></div>
+        <div class="good"><span class="lbl">Worth saying or showing</span><ul><li>My test task (&quot;Summarise the ET3&quot;) finished in about a minute.</li></ul></div>
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>The whole Andri path, run for real: create, delegate in the background, working state, report, In review.</p></div>
+        <div class="flag"><span class="lbl">Still to check when filming</span><p>Board view drag-and-drop, overdue marker in the matter, Work together, the trainee part.</p></div>
+        <div class="leave"><span class="lbl">Leave out</span><ul><li>&quot;You're told on your iPhone&quot;: not checked today; only keep it if confirmed.</li></ul></div>
+        <dl>
+          <dt>Demo setup</dt><dd>Nair. A second test user for the trainee part (the firm has only one member).</dd>
+          
+          <dt>Quick fixes that lead here</dt><dd class="rel"><span>18 · Your matters, on your iPhone</span></dd>
+        </dl>
+      </aside>
+    </div>
+  </article>
+</section><section aria-labelledby="ch9h">
+  <div class="chhead" id="ch9"><span class="cn">Chapter 9 · 2 videos</span><h2 id="ch9h">Email and connected systems</h2></div>
+  
+  <article class="vid" id="v9-1">
+    <header class="vh">
+      <span class="vnum">9.1</span>
+      <h3>Email in Andri: three ways in</h3>
+      <div class="vtags"><span class="pill mono">1:44</span><span class="pill st-ready">Ready to plan</span></div>
+    </header>
+    <p class="goal">The viewer gets email and attachments into a matter without uploading.</p>
+    <p class="prob"><b>Opens on</b>Saving emails and attachments by hand.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">The matter's address</div><div class="sd">Matter sidebar → <b>Matter Email</b>: &quot;Email sent to this address is saved in this matter, attachments included.&quot; Shows the address (andri+…@inbox.andri.ai). There's a &quot;Watch how it works&quot; link.</div></div></li><li><div><div class="sh">Approved senders only</div><div class="sd"><b>Who may send</b>: &quot;Only these addresses may send. Anyone else gets a polite refusal.&quot; <b>Add</b>.</div></div></li><li><div><div class="sh">Forward it in</div><div class="sd">Same address via <b>Email Documents</b> on the Knowledge Base page.</div></div></li><li><div><div class="sh">Your own mailbox</div><div class="sd">Personalisation → <b>Connectors</b> (also: apps menu → Your connections): <b>Gmail</b>, <b>Outlook</b>, <b>SharePoint</b>. You sign in yourself; it stays with you, not the matter.</div></div></li><li><div><div class="sh">Your inbox in Andri</div><div class="sd">Top bar → <b>Inbox</b> → <b>Email</b> tab (&quot;No mailbox connected&quot; until you connect).</div></div></li><li><div><div class="sh">Files from other places</div><div class="sd">Matter Knowledge Base → <b>Connect</b>: Microsoft SharePoint, Google Drive, Microsoft OneDrive, Google Workspace, Microsoft 365. Suggested new step.</div></div></li></ol>
+        </div>
+        <div class="mock"><span class="lbl">Example from the mock case</span><ul><li>Forward in: <b>19_Email_Return_to_Work.eml</b> (Priya to Geoffrey Marsden) and <b>20_Email_HR_Role.eml</b> (Sandra Okeke's reply).</li><li>Who may send: add priya.nair@outlook.com (the client's address in the emails).</li></ul></div>
+        <div class="good"><span class="lbl">Worth saying or showing</span><ul><li>Each new matter starts with your connectors on; you can switch one off per matter on its Documents page.</li></ul></div>
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>Matter Email page, Who may send, Email Documents, Connectors panel, Inbox Email tab, the Connect dialog.</p></div>
+        <div class="flag"><span class="lbl">Still to check when filming</span><p>Andri filing emails into the right matter and flagging what needs you (needs a connected mailbox).</p></div>
+        
+        <dl>
+          <dt>Demo setup</dt><dd>A test Gmail or Outlook account to connect.</dd>
+          <dt>Watch first</dt><dd>1.1</dd>
+          <dt>Quick fixes that lead here</dt><dd class="rel"><span>H10 · Forward it into the matter</span><span>H12 · Your mailbox, sorted into matters</span></dd>
+        </dl>
+      </aside>
+    </div>
+  </article>
+  <article class="vid" id="v9-2">
+    <header class="vh">
+      <span class="vnum">9.2</span>
+      <h3>Your BaseNet dossier, linked once</h3>
+      <div class="vtags"><span class="pill mono">2:02</span><span class="pill st-hold">On hold</span></div>
+    </header>
+    <p class="goal">(On hold.)</p>
+    <p class="prob"><b>Opens on</b>Downloading letters from BaseNet and uploading them one by one.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">Not in staging</div><div class="sd">There is no BaseNet connector in staging. Company → Company connectors lists only <b>LegalSense</b>.</div></div></li></ol>
+        </div>
+        
+        <div class="good"><span class="lbl">Worth saying or showing</span><ul><li>Possible swap: <b>LegalSense</b> (practice management, Netherlands): &quot;Work with the matters, contacts and time in your firm's LegalSense Online installation.&quot; Live since 5 Aug 2026: create contacts, clients, matters and submatters from chat, record expenses.</li></ul></div>
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>Company connectors page (LegalSense only).</p></div>
+        <div class="flag"><span class="lbl">Still to check when filming</span><p>Everything, once BaseNet launches.</p></div>
+        <div class="leave"><span class="lbl">Leave out</span><ul><li>Everything BaseNet until it's in staging.</li></ul></div>
+        <dl>
+          <dt>Demo setup</dt><dd>Wait for BaseNet, or decide to make a LegalSense video instead.</dd>
+          <dt>Watch first</dt><dd>9.1</dd>
+          <dt>Quick fixes that lead here</dt><dd class="rel"><span>15 · Your reply, attachments included</span></dd>
+        </dl>
+      </aside>
+    </div>
+  </article>
+</section><section aria-labelledby="ch10h">
+  <div class="chhead" id="ch10"><span class="cn">Chapter 10 · 3 videos</span><h2 id="ch10h">Workflows</h2></div>
+  
+  <article class="vid" id="v10-1">
+    <header class="vh">
+      <span class="vnum">10.1</span>
+      <h3>Your weekly memo, and other ways to start a workflow</h3>
+      <div class="vtags"><span class="pill mono">2:26</span><span class="pill st-ready">Ready to plan</span></div>
+    </header>
+    <p class="goal">The viewer builds a scheduled workflow and knows the other ways one can start.</p>
+    <p class="prob"><b>Opens on</b>The same Monday memo, and hearing prep that always starts late.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">Explore → Workflows</div><div class="sd">Empty page: &quot;Automate your legal workflows&quot; and &quot;Workflows are templates. Build once, activate in any matter.&quot; → <b>New Workflow</b>.</div></div></li><li><div><div class="sh">Choose how it starts</div><div class="sd">&quot;Build your workflow&quot;: <b>When an email arrives</b>, <b>When I click Run</b>, <b>On a schedule</b>, <b>Before a deadline</b>, <b>Start from a template</b>.</div></div></li><li><div><div class="sh">Every Monday</div><div class="sd">Scheduled, weekly, Monday.</div></div></li><li><div><div class="sh">The instruction</div><div class="sd"><b>+ Add Node</b> → <b>Run Prompt</b>: &quot;Summarise this week's new documents and emails. List what needs action.&quot;</div></div></li><li><div><div class="sh">The memo</div><div class="sd"><b>Create Document</b> (&quot;Generate a Word (.docx) document&quot;).</div></div></li><li><div><div class="sh">Publish</div><div class="sd"><b>Publish</b> (top right; <b>Save Draft</b> next to it). Andri checks the steps.</div></div></li><li><div><div class="sh">Switch it on</div><div class="sd">In the matter: sidebar → <b>Workflows</b>.</div></div></li><li><div><div class="sh">Before a deadline</div><div class="sd"><b>Deadline Approaching</b> (&quot;Fires on a specific date or before it&quot;) → Run Prompt → Create Document → <b>Create Assignment</b> (a task to review the pack).</div></div></li><li><div><div class="sh">When a task is done</div><div class="sd"><b>Assignment Updated</b> (&quot;Fires when an assignment on this matter is updated&quot;) → Run Prompt → <b>Send Email</b> to the partner.</div></div></li><li><div><div class="sh">By hand</div><div class="sd"><b>Manual Trigger</b> (&quot;Started by clicking Run in the UI&quot;).</div></div></li></ol>
+        </div>
+        <div class="mock"><span class="lbl">Example from the mock case</span><ul><li>Weekly memo instruction: &quot;Summarise this week's new documents and emails in Nair v Calderdale. List what needs action before the remedy hearing.&quot;</li><li>Before a deadline: the remedy hearing on <b>11 May 2026</b>, 14 days before. Pack: &quot;List everything the remedy hearing needs.&quot; Task for Adam Frith: &quot;Review the hearing pack&quot;.</li><li>When a task is Done: &quot;Summarise the ET3&quot; marked done → email the partner a summary.</li></ul></div>
+        <div class="good"><span class="lbl">Worth saying or showing</span><ul><li>Full step list in + Add Node: Triggers (Email received, Manual Trigger, Scheduled, Deadline Approaching, Assignment Updated); AI Processing (Run Prompt, Run Action); Document Creation (Create Document, Create Excel, Create Powerpoint, Create PDF); Communication (Send Email, from the matter owner's own Outlook or Gmail); Control Flow (Pause / Approval, Ask user, Conditional Check); Assignments (Update Assignment, Create Assignment); Notes (Text box).</li><li>The template <b>Matter Status Memo (Example)</b> does the memo with one click on Run. Worth a mention.</li></ul></div>
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>Workflows page, New Workflow chooser, every node in + Add Node with its description, Save Draft and Publish.</p></div>
+        <div class="flag"><span class="lbl">Still to check when filming</span><p>The Publish check message and switching a workflow on in the matter (no published workflow existed to test).</p></div>
+        
+        <dl>
+          <dt>Demo setup</dt><dd>Nair for activation.</dd>
+          <dt>Watch first</dt><dd>8.1</dd>
+          <dt>Quick fixes that lead here</dt><dd class="rel"><span>14 · Your daily question, saved once</span></dd>
+        </dl>
+      </aside>
+    </div>
+  </article>
+  <article class="vid" id="v10-2">
+    <header class="vh">
+      <span class="vnum">10.2</span>
+      <h3>Workflows: answer incoming emails automatically</h3>
+      <div class="vtags"><span class="pill mono">2:34 (trim to 2:30)</span><span class="pill st-ready">Ready to plan</span></div>
+    </header>
+    <p class="goal">The viewer builds a workflow that reviews an incoming email's attachment and replies after approval.</p>
+    <p class="prob"><b>Opens on</b>A client emails a contract. Someone has to read it, check it and reply.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">Before you start</div><div class="sd">An Action with your checklist (7.2) and a connected Outlook or Gmail (9.1).</div></div></li><li><div><div class="sh">Trigger</div><div class="sd"><b>Email received</b>: fires for the matter inbox, a connected Gmail or a connected Outlook.</div></div></li><li><div><div class="sh">Check it</div><div class="sd"><b>Run Action</b> → your checklist, on the email's attachments.</div></div></li><li><div><div class="sh">Write it up</div><div class="sd"><b>Create Document</b>: a short memo.</div></div></li><li><div><div class="sh">You approve</div><div class="sd"><b>Pause / Approval</b>: &quot;Pause and wait for a team member to approve or reject.&quot;</div></div></li><li><div><div class="sh">Reply</div><div class="sd"><b>Send Email</b> to the sender, memo attached, from your own mailbox.</div></div></li><li><div><div class="sh">Join, publish, switch on</div><div class="sd">Connect the steps, Publish, activate in the matter.</div></div></li></ol>
+        </div>
+        <div class="mock"><span class="lbl">Example from the mock case</span><ul><li>Incoming email: Priya Nair emails a new document, e.g. a job offer letter (relevant to mitigation).</li><li>Checklist Action: the Remedy check from 7.2. Memo: in the Aldridge Vine memo style. Reply to the sender after Adam Frith approves.</li></ul></div>
+        
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>Every node named here and its description.</p></div>
+        <div class="flag"><span class="lbl">Still to check when filming</span><p>Connecting nodes, the Approved path, the email filter on activation (earlier check only).</p></div>
+        
+        <dl>
+          <dt>Demo setup</dt><dd>A connected test mailbox and a test Action.</dd>
+          <dt>Watch first</dt><dd>7.2 and 10.1</dd>
+          
+        </dl>
+      </aside>
+    </div>
+  </article>
+  <article class="vid" id="v10-3">
+    <header class="vh">
+      <span class="vnum">10.3</span>
+      <h3>Start from a ready example: overnight redline, new client intake</h3>
+      <div class="vtags"><span class="pill mono">2:12</span><span class="pill st-ready">Ready to plan</span></div>
+    </header>
+    <p class="goal">The viewer starts from a ready-made workflow instead of building one.</p>
+    <p class="prob"><b>Opens on</b>The other side's redline arrives at midnight.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">Find the examples</div><div class="sd">New Workflow → <b>Start from a template</b> → &quot;Create a Workflow&quot;: <b>Blank Workflow</b> plus four Examples.</div></div></li><li><div><div class="sh">The four examples</div><div class="sd"><b>Contract Redline Response</b> (6 nodes), <b>Daily Morning Briefing</b> (3), <b>Matter Status Memo</b> (4), <b>Intake to Advice: Full Case Workup</b> (12).</div></div></li><li><div><div class="sh">Redline</div><div class="sd">By morning Andri has reviewed every change and put counter-proposals as tracked changes and comments inside the same .docx, ready to accept or reject and send back.</div></div></li><li><div><div class="sh">Intake</div><div class="sd">A prospective client emails in. Andri checks the matter is one the firm handles, checks the file is complete, triages it and builds a lawyer-ready dossier. Nothing goes to the client until the lawyer approves; then Andri drafts the advice and next-step letter. Out of scope or incomplete: the client gets the right message instead.</div></div></li><li><div><div class="sh">Make it yours</div><div class="sd">Open an example, adjust the steps, Publish, activate in the matter.</div></div></li></ol>
+        </div>
+        <div class="mock"><span class="lbl">Example from the mock case</span><ul><li>Intake example fits the story: a prospective client like Priya Nair emails in after her dismissal. Show how the example checks the matter is employment law, the file is complete (dismissal letter, contract, payslips) and builds the dossier.</li></ul></div>
+        
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>The template list, names, node counts and descriptions.</p></div>
+        <div class="flag"><span class="lbl">Still to check when filming</span><p>The inside of each example's canvas (I didn't open them).</p></div>
+        
+        <dl>
+          <dt>Demo setup</dt><dd>Nothing special; the examples are built in.</dd>
+          <dt>Watch first</dt><dd>10.1</dd>
+          
+        </dl>
+      </aside>
+    </div>
+  </article>
+</section><section aria-labelledby="ch11h">
+  <div class="chhead" id="ch11"><span class="cn">Chapter 11 · 2 videos</span><h2 id="ch11h">For admins</h2></div>
+  
+  <article class="vid" id="v11-1">
+    <header class="vh">
+      <span class="vnum">11.1</span>
+      <h3>Before you invite a colleague</h3>
+      <div class="vtags"><span class="pill mono">2:14</span><span class="pill st-fix">Fix before filming</span></div>
+    </header>
+    <p class="goal">An admin invites people with the right role and knows the rules on seats and credits.</p>
+    <p class="prob"><b>Opens on</b>A trainee started on Monday and still can't edit a draft.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">Invite</div><div class="sd">Company (firm name, top bar) → <b>Members</b> → <b>Invite Member</b>: email and role.</div></div></li><li><div><div class="sh">The roles</div><div class="sd">Admin, Member, Support.</div></div></li><li><div><div class="sh">Support seats</div><div class="sd">Company → Billing: &quot;Support-role members are not billed as a seat. Their AI work is paid from the support wallet instead.&quot; Credits never expire and are shared across the firm.</div></div></li><li><div><div class="sh">The 30-day rule</div><div class="sd">Switching someone to or from Support is fixed for 30 days.</div></div></li><li><div><div class="sh">Someone leaves</div><div class="sd">Transfer their matters first, then remove them.</div></div></li></ol>
+        </div>
+        <div class="mock"><span class="lbl">Example from the mock case</span><ul><li>Invite Rosalind Keane as <b>Support</b> (trainee), Adam Frith as <b>Admin</b>.</li></ul></div>
+        <div class="good"><span class="lbl">Worth saying or showing</span><ul><li>Billing has two credit wallets: Premium (frontier models; £50 = 8,500 credits, £200 = 34,000, £500 = 85,000) and Support.</li></ul></div>
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>Billing page: support wallet text, credit packs.</p></div>
+        <div class="flag"><span class="lbl">Still to check when filming</span><p>The Members page and invite form, the roles, the 30-day rule, transfer and remove. I couldn't open Members (the permission check blocked it). These come from earlier checks only.</p></div>
+        
+        <dl>
+          <dt>Demo setup</dt><dd>Admin account.</dd>
+          
+          <dt>Quick fixes that lead here</dt><dd class="rel"><span>19 · Get more from every credit</span></dd>
+        </dl>
+      </aside>
+    </div>
+  </article>
+  <article class="vid" id="v11-2">
+    <header class="vh">
+      <span class="vnum">11.2</span>
+      <h3>Set up Andri for your firm</h3>
+      <div class="vtags"><span class="pill mono">2:36 (trim to 2:30)</span><span class="pill st-ready">Ready to plan</span></div>
+    </header>
+    <p class="goal">A new admin sets the firm up in one sitting.</p>
+    <p class="prob"><b>Opens on</b>A new firm signs up and the admin doesn't know where to start.</p>
+    <div class="vbody">
+      <div class="main">
+        <div class="blk"><span class="lbl">What the video must show, in order</span>
+          <ol class="steps"><li><div><div class="sh">Company page</div><div class="sd">Tabs: Company, Knowledge base, Billing, Usage, Members, Saved prompts, Audit log, Client intake, Client uploads, Company connectors, Access, Sources.</div></div></li><li><div><div class="sh">Firm basics</div><div class="sd">Company tab: Company Name, <b>Language</b> (English, Dutch, French, German), <b>Firm Customisations</b> (&quot;custom rules and styling for responses&quot;). New: not in the script yet.</div></div></li><li><div><div class="sh">Letterhead and models</div><div class="sd">Knowledge base → <b>Upload Knowledge Base Documents</b>, <b>New Folder</b>.</div></div></li><li><div><div class="sh">Members and roles</div><div class="sd">As in 11.1.</div></div></li><li><div><div class="sh">Firm memories</div><div class="sd">As in 3.1.</div></div></li><li><div><div class="sh">A first specialist</div><div class="sd">As in 7.1.</div></div></li><li><div><div class="sh">Shared prompts</div><div class="sd">Saved prompts: &quot;A shared prompt library for repeatable text-based tasks.&quot; Save from chat with the bookmark icon.</div></div></li><li><div><div class="sh">One workflow</div><div class="sd">As in 10.1.</div></div></li><li><div><div class="sh">Once a month: usage</div><div class="sd">Usage: &quot;Usage analytics&quot;, by billing cycle.</div></div></li><li><div><div class="sh">Top up, or switch it on</div><div class="sd">Billing → <b>Automatic top-up</b> (off by default): buys a batch (smallest £20) when credits run out, up to a monthly ceiling; every purchase is shown, emailed to admins and logged. Or buy premium credits by hand.</div></div></li></ol>
+        </div>
+        <div class="mock"><span class="lbl">Example from the mock case</span><ul><li>Firm Customisations: &quot;We are Aldridge Vine LLP, an employment practice in Leeds. Write to clients in plain formal English, UK spelling.&quot;</li><li>Letterhead: Aldridge_Vine_Letter_Template.docx. First specialist: Employment law (7.1). One workflow: the weekly memo (10.1).</li></ul></div>
+        <div class="good"><span class="lbl">Worth saying or showing</span><ul><li>The yearly Business plan saves £360 (Billing page).</li></ul></div>
+      </div>
+      <aside class="side">
+        <div class="ver"><span class="lbl">Seen in staging, 8 Oct</span><p>Company tabs, Language options, Firm Customisations, Knowledge base, Saved prompts, Usage, Billing with Automatic top-up and credit packs, Company connectors.</p></div>
+        <div class="flag"><span class="lbl">Still to check when filming</span><p>Members (blocked for me), Client intake (it showed &quot;Failed to load portal configuration&quot;).</p></div>
+        
+        <dl>
+          <dt>Demo setup</dt><dd>Admin account in Bennet law.</dd>
+          <dt>Watch first</dt><dd>3.1, 7.1, 10.1 and 11.1</dd>
+          <dt>Quick fixes that lead here</dt><dd class="rel"><span>19 · Get more from every credit</span></dd>
+        </dl>
+      </aside>
+    </div>
+  </article>
+</section>
+<footer>Briefs, not scripts: whoever makes each video should check every screen in Andri staging again before filming. Sources: Andri staging (staging.andri.ai) and docs.andri.ai, 8 Oct 2026.</footer>
+</div>
+</body></html>

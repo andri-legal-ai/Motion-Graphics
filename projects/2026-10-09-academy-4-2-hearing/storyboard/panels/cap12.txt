@@ -1,0 +1,3 @@
+12  Hearing notes arrive in the chat
+VO\: The notes arrive in the chat, built on what it just found.
+Next\: rail Simulate, push across

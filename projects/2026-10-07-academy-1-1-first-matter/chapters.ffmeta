@@ -1,0 +1,50 @@
+;FFMETADATA1
+title=Andri Academy 1.1 · Your first matter, start to finish
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=10850
+title=Introduction
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=10850
+END=18650
+title=1. Create a matter
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=18650
+END=28350
+title=2. Add the file
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=28350
+END=40750
+title=3. Ask a first question
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=40750
+END=49550
+title=4. Click a source
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=49550
+END=59950
+title=5. Point at one document with @
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=59950
+END=73300
+title=6. Ask for a first letter
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=73300
+END=81000
+title=Up next

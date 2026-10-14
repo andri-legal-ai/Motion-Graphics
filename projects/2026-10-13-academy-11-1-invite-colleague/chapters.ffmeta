@@ -1,0 +1,50 @@
+;FFMETADATA1
+title=Andri Academy 11.1 · Before you invite a colleague
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=7650
+title=Introduction
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=7650
+END=14400
+title=1. Members
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=14400
+END=18800
+title=2. Invite
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=18800
+END=36800
+title=3. Pick a role
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=36800
+END=48400
+title=4. The 30-day rule
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=48400
+END=75400
+title=5. Seats and credits
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=75400
+END=96100
+title=6. When someone leaves
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=96100
+END=103600
+title=Up next

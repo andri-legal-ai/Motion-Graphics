@@ -1,0 +1,35 @@
+Checking the same clause in every contract, one by one, all evening? Let Andri check them all at once, in one table.
+
+Here, six supplier contracts for our client, Pennbridge Foods, are already in the matter's Knowledge Base.
+
+Open Review from the sidebar. Each document becomes a row, and each question a column.
+
+Click Add a source. Pick from this matter's Knowledge Base, your firm's, or case law. Open the folder, select all six, and use them.
+
+Now the table has six rows, one for each contract. Each column will be one question, which Andri asks of every contract.
+
+Click the empty column to write your first question. First, pick a format. It decides what kind of answer you get back: short text, yes or no, an exact extract, a date, a number, or a choice list.
+
+This one is a yes or no question. Give the column a short name, Liability cap. Then type the question itself: does the contract cap the supplier's liability?
+
+Click Done. The column is ready, but its cells stay empty. Nothing runs until you say so.
+
+Add as many questions as you need. Here, a second column for when each contract ends, as a date. And a third for the notice period, as a number.
+
+Three questions for six contracts makes eighteen cells, counted at the top.
+
+Before running all eighteen, try one cell. Andri answers the first question for the first contract only. If the answer isn't what you meant, change the question now.
+
+Happy with it? Click Start review. Every cell is queued, then Andri answers them, one by one, until all eighteen are filled in.
+
+Each cell holds the answer, a short reason, and the clause and page it comes from.
+
+Click the source to see the exact passage, with the document and the page.
+
+Now put the table to work. Filter the Liability cap column to show only the No answers: the two contracts with no cap.
+
+Need one more question later? Add another column. Only its six new cells run. The answers you already have stay as they are.
+
+When you're done, export the whole table to Excel, with every answer and its reasoning.
+
+Many contracts, the same questions, one table. Every answer sourced.

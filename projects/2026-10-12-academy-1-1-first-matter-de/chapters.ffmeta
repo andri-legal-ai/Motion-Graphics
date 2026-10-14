@@ -1,0 +1,56 @@
+;FFMETADATA1
+title=Andri Academy 1.1 · Ihr erster Fall, von Anfang bis Ende
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=12130
+title=Einführung
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=12130
+END=22010
+title=1. Andri auf Deutsch
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=22010
+END=31370
+title=2. Fall anlegen
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=31370
+END=43010
+title=3. Akte hinzufügen
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=43010
+END=55849
+title=4. Erste Frage stellen
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=55849
+END=66410
+title=5. Quelle anklicken
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=66410
+END=76889
+title=6. Mit @ ein Dokument wählen
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=76889
+END=94950
+title=7. Ersten Brief anfordern
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=94950
+END=103000
+title=Als Nächstes

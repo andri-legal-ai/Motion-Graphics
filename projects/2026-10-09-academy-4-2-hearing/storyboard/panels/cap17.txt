@@ -1,0 +1,3 @@
+17  Complete Simulation dialog, Start New Simulation
+VO\: To start again, use the circular arrow.
+Next\: toasts, window fades

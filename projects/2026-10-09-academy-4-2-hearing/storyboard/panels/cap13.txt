@@ -1,0 +1,3 @@
+13  Simulate\: rings on Judge, Claimant, Defendant, Turn 1/6
+VO\: Now rehearse. Open Simulate\: a judge, counsel for the Claimant ...
+Next\: Start Simulation

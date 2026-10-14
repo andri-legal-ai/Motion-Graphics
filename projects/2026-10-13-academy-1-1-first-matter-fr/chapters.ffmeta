@@ -1,0 +1,56 @@
+;FFMETADATA1
+title=Andri Academy 1.1 · Premier dossier, du début à la fin
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=12130
+title=Introduction
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=12130
+END=22910
+title=1. Andri en français
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=22910
+END=31720
+title=2. Créer un dossier
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=31720
+END=40370
+title=3. Ajouter les pièces
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=40370
+END=52430
+title=4. Poser une première question
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=52430
+END=61950
+title=5. Cliquer sur une source
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=61950
+END=70947
+title=6. Choisir un document avec @
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=70947
+END=88305
+title=7. Demander une première lettre
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=88305
+END=95874
+title=À suivre

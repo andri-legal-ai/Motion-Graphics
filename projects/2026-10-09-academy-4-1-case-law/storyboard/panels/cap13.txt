@@ -1,0 +1,3 @@
+13  End card
+VO: Find it, read it, compare it, or just ask...
+Next: end

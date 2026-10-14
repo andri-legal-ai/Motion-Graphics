@@ -1,0 +1,420 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Academy 1.1 · draft W</title>
+<style>
+{{V1CSS}}
+/* ================= v2 ================= */
+html,body{background:#F0EDE6}
+:root{--ink:#231E19;--mute:#656464}
+#bg{position:absolute;inset:0;overflow:hidden;background:var(--base,#F0EDE6)}
+#bg i{position:absolute;border-radius:50%;filter:blur(140px);will-change:transform}
+#grain{position:absolute;inset:-50px;pointer-events:none;opacity:.07;mix-blend-mode:multiply;z-index:90;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")}
+#winwrap{position:absolute;inset:0;filter:drop-shadow(0 0 1px rgba(35,30,25,.22)) drop-shadow(0 26px 44px rgba(35,30,25,.16));will-change:filter}
+#win{left:0;top:0;box-shadow:none;border-radius:0}
+.panel{position:absolute;top:0;bottom:0;overflow:hidden;will-change:transform}
+.panel.card{top:40px;bottom:40px;border-radius:30px;background:#FFFFFF;box-shadow:0 0 0 1px #DDD1BE,0 4px 4px rgba(35,30,25,.10)}
+.panel .badge2{position:absolute;left:64px;top:80px;display:flex;align-items:center;gap:16px;font:600 24px Rethink;color:#494746}
+.panel .badge2 b{display:grid;place-items:center;width:62px;height:62px;border-radius:50%;background:#F7E17E;font:700 28px Rethink;color:#231E19}
+.panel .num{position:absolute;font:500 230px Neco;line-height:1;color:rgba(36,30,25,.12);letter-spacing:-.04em}
+.panel .ttl{position:absolute;font:500 76px Neco;line-height:1.02;color:var(--ink);letter-spacing:-.01em}
+.kt .w{display:inline-block;will-change:transform,opacity}
+.big{position:absolute;text-align:center;left:0;right:0}
+#chip{position:absolute;left:44px;bottom:40px;display:flex;align-items:center;gap:14px;background:#FFFFFF;border-radius:999px;padding:10px 22px 10px 10px;font:500 27px Neco;
+  box-shadow:0 0 0 1px #DDD1BE,0 4px 4px rgba(35,30,25,.10);z-index:60}
+#chip b{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#F7E17E;font:700 19px Rethink}
+.masc{z-index:30}
+.rays{position:absolute;will-change:transform;pointer-events:none}.rays svg{width:100%;height:100%}
+.dark .ln{color:#F0EDE6}.dark .ln.m{color:#DDD1BE}
+.callout{box-shadow:0 4px 4px rgba(35,30,25,.10)}
+#cur{width:34px;height:34px}
+.letter{border-radius:20px;overflow:hidden;box-shadow:0 30px 60px -10px rgba(20,15,10,.35),0 0 0 1px rgba(0,0,0,.05)!important}
+#reveal{position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,#2F2822,#231E19 70%);will-change:clip-path}
+#mWave,#mSearch,#k8,#chk,#kSrc,#kMail,#coMail,#co4{display:none!important}
+#chip{left:50%!important;bottom:34px!important;transform-origin:50% 50%;padding:10px 26px 10px 10px!important;font:500 26px Neco!important;white-space:nowrap}
+.pick{position:absolute;left:470px;top:250px;width:520px;background:#fff;border-radius:18px;box-shadow:0 0 0 1px #DDD1BE,0 24px 50px rgba(35,30,25,.18);overflow:hidden;z-index:6}
+.pick .ph{padding:16px 18px 10px;font:700 17px Neco}.pick .ph small{display:block;font:400 12.5px Rethink;color:#656464;margin-top:3px}
+.pick .pr{display:flex;align-items:center;gap:10px;padding:9px 18px;font-size:14px;border-top:1px solid #F0EDE6}
+.pick .pr .cb{width:16px;height:16px;border-radius:4px;border:1.5px solid #CFC6B8;display:grid;place-items:center;font-size:11px;color:#231E19}
+.pick .pr.on{background:#FBF4D0}.pick .pr.on .cb{background:#F7E17E;border-color:#E9CD4F}
+.pick .pf{display:flex;justify-content:flex-end;gap:10px;padding:12px 18px;border-top:1px solid #F0EDE6}
+.pick .pf span{padding:8px 18px;border-radius:10px;font-weight:600;font-size:14px}
+.tip{position:absolute;left:62px;top:503px;background:#231E19;color:#F0EDE6;font:500 13px Rethink;padding:5px 10px;border-radius:8px;z-index:6}
+.dlg{background:#FBFAF7!important}.dlg .in{background:#FFFFFF!important}
+</style></head>
+<body>
+<div id="stage">
+<div id="bg"><i id="b0"></i><i id="b1"></i><i id="b2"></i><div class="rays" id="bgRays" style="width:2200px;height:2200px">{{ICON}}</div></div>
+
+<div id="winwrap">{{V1APP}}</div>
+
+<!-- split panels -->
+<div class="panel" id="pIntro" style="background:#F7E17E;--ko:#F7E17E"></div>
+
+
+<!-- text -->
+<div class="kt" id="k0" style="left:120px;top:400px;font-size:96px"><span class="ln" id="k0a"></span><span class="ln m" id="k0b"></span></div>
+<div class="eyebrow" id="k1e" style="left:120px;top:372px;color:#494746">Andri Academy · 1.1</div>
+<div class="kt" id="k1" style="left:120px;top:420px;font-size:128px"><span class="ln" id="k1a"></span><span class="ln" id="k1b" style="color:#8a6e1f"></span></div>
+<div class="big" id="kMail" style="top:640px"><div style="font:500 76px Neco;letter-spacing:-.01em">Or forward it by email.</div><div style="font:500 30px Rethink;color:#494746;margin-top:14px">Every matter has its own address.</div></div>
+<div class="kt dark" id="kSrc" style="left:110px;top:420px;font-size:74px"><span class="ln">Every answer,</span><span class="ln m">one click from</span><span class="ln m">its source.</span></div>
+<div class="kt" id="k7" style="left:120px;top:400px;font-size:84px"><span class="ln">On your template.</span><span class="ln" style="font-weight:400;color:#231E19">Every fact sourced.</span></div>
+<div class="kt" id="k8" style="left:120px;top:420px;font-size:104px"><span class="ln">One matter.</span><span class="ln m">The whole loop.</span></div>
+<div class="chk" id="chk" style="left:1180px;top:170px;z-index:31">
+  <div><i>{{I:plus}}</i>Create a matter</div><div><i>{{I:upload}}</i>Add the file</div><div><i>{{I:lightbulb}}</i>Ask a first question</div>
+  <div><i>{{I:file-text}}</i>Click a source</div><div><i>{{I:at-sign}}</i>Point at one document</div><div><i>{{I:pen-tool}}</i>Ask for a first letter</div>
+</div>
+
+{{V1LETTER}}
+<svg class="wires" id="wires"></svg>
+<div class="callout" id="co1"><b>Firm template</b><span><span class="fi doc"></span>Aldridge_Vine_Letter_Template.docx</span></div>
+<div class="callout" id="co2"><b>Case number</b><span><span class="fi pdf"></span>01_ET1_Grounds_of_Claim.pdf</span></div>
+<div class="callout" id="co3"><b>The judgment</b><span><span class="fi pdf"></span>05_Tribunal_Judgment.pdf</span></div>
+<div class="callout" id="coMail"><b>Or forward it by email</b><span>Every matter has its own address</span></div>
+<div class="callout" id="co4"><b>The exact passage</b><span><span class="fi pdf"></span>05_Tribunal_Judgment.pdf · page 1</span></div>
+
+<div id="endc" style="position:absolute;left:0;top:0;width:1920px;height:1080px;z-index:70">
+  <img src="../assets/Andri-Logo-Ink.svg" style="position:absolute;left:470px;top:452px;width:520px;height:auto">
+  <div style="position:absolute;left:472px;top:612px;font:500 25px Rethink;color:#494746">Andri Academy · Next: In-Depth, Fast, Plan or Outcome</div>
+</div>
+
+<div id="chip"><b id="chipN">1</b><span id="chipT">Create a matter</span></div>
+
+<!-- mascots (cut-outs take the colour of the panel they stand on) -->
+<div class="masc" id="mWave" style="width:640px;--ko:#F7E17E">{{M:andri-waving-hello}}</div>
+<div class="masc" id="mIdea" style="width:640px;--ko:#F7E17E">{{M:andri-idea-lightbulb}}</div>
+<div class="masc" id="mSearch" style="width:560px;--ko:#F7E17E">{{M:andri-searching-magnifier}}</div>
+<div class="masc" id="mPoint" style="width:340px;--ko:#F7E17E">{{M:andri-presenting-feature-tiles:748}}</div>
+<div class="masc" id="mDone" style="width:560px;--ko:#F7E17E">{{M:andri-success-checkmark}}</div>
+
+<div id="ripple" style="z-index:79"></div>
+<svg id="cur" viewBox="0 0 30 30" style="z-index:80"><path d="M6 3 L6 24 L11.2 19.3 L14.6 27 L18.2 25.4 L14.9 17.9 L22 17.6 Z" fill="#1d1813" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg>
+<div id="grain"></div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const cl=x=>Math.max(0,Math.min(1,x));
+const E={lin:t=>t,out:t=>1-Math.pow(1-t,3),io:t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2,back:t=>{const a=1.4,c=a+1;return 1+c*Math.pow(t-1,3)+a*Math.pow(t-1,2)},q:t=>1-Math.pow(1-t,5),qio:t=>t<.5?16*t**5:1-Math.pow(-2*t+2,5)/2};
+const P=(t,a,b,e=E.out)=>e(cl((t-a)/(b-a)));
+const L=(a,b,k)=>a+(b-a)*k;
+const V=(t,a,b,fi=.35,fo=.3)=>Math.min(P(t,a,a+fi),1-P(t,b-fo,b,E.io));
+const S=(el,css)=>{for(const k in css) el.style[k]=css[k];};
+const show=(el,o)=>{el.style.opacity=o;el.style.visibility=o<=0.001?'hidden':'visible';};
+const hex=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+const mix=(a,b,k)=>{const A=hex(a),B=hex(b);return `rgb(${A.map((v,i)=>Math.round(L(v,B[i],k))).join(',')})`;};
+const DUR=71;
+
+// ------------------------------------------------ real staging data (as in v1)
+const KB=[
+ ["pdf","01_ET1_Grounds_of_Claim.pdf","An Employment Tribunal Claim Form (ET1) filed with the Leeds Employment Tribunal, case number 1803442/2025…",["Pleadings"]],
+ ["pdf","03_ET3_Response.pdf","One-page Response (ET3) filed on 30 June 2025 by Calderdale Logistics Limited, represented by Bowater Sykes…",["Pleadings"]],
+ ["pdf","05_Tribunal_Judgment.pdf","A two-page reserved judgment from the Employment Tribunal (Leeds) dated 19 March 2026…",["Judgment"]],
+ ["doc","09_Dismissal_Letter.docx","A two-page termination letter from Calderdale Logistics Limited, through Geoffrey Marsden (Operations Director)…",["Termination Letter"]],
+ ["doc","10_Letter_Settlement.docx","A two-page letter dated 12 January 2026 from Aldridge Vine LLP to Bowater Sykes Solicitors, without prejudice…",["Letter","Settlement Offer"]],
+ ["eml","20_Email_HR_Role.eml","Email dated 8 January 2025 from Sandra Okeke, Calderdale Logistics HR, to Priya Nair welcoming her return…",["Email"]],
+];
+$('kbRows').innerHTML=KB.map(r=>`<div class="tr kbr" style="height:64px"><span style="width:62px;padding-left:24px"><span style="display:block;width:14px;height:14px;border:1.5px solid #CFC6B8;border-radius:4px"></span></span>
+ <span style="width:290px;display:flex;gap:10px;align-items:center;font-weight:500"><span class="fi ${r[0]}" data-t="${r[0]==='pdf'?'PDF':r[0]==='doc'?'W':'@'}"></span>${r[1]}</span>
+ <span style="width:150px;display:flex;align-items:center;gap:8px"><span style="width:18px;height:18px;border-radius:50%;background:#EEE9E1;font-size:9px;display:grid;place-items:center">AF</span>06/10/2026</span>
+ <span style="flex:1;font-size:13px;color:#3a332c;line-height:1.35;padding-right:20px"><span class="sum" style="display:block;height:35px;overflow:hidden">${r[2]}</span></span>
+ <span style="width:150px"><span class="spin"></span><span class="status" style="display:none"><span class="ic">{{I:lock}}</span>Complete</span></span>
+ <span style="width:170px;display:flex;flex-direction:column;gap:3px;align-items:flex-start">${r[3].map(x=>`<span class="tag tg">${x}</span>`).join('')}</span></div>`).join('');
+document.documentElement.style.setProperty('--fileic',`url("data:image/svg+xml,${encodeURIComponent('{{I:file-text}}'.replace('currentColor','#000'))}")`);
+function typed(segs,n,caret){let out='',c=0;for(const s of segs){if(typeof s==='string'){const k=Math.max(0,Math.min(s.length,n-c));out+=s.slice(0,k);c+=s.length;}else{if(n>c)out+=`<span class="chip">${s.chip}</span>`;c+=1;}}return out+(caret?'<span class="caret"></span>':'');}
+const segLen=segs=>segs.reduce((a,s)=>a+(typeof s==='string'?s.length:1),0);
+
+// word-by-word kinetic lines
+function words(el,text,a,step=.09){if(!el.dataset.w){el.innerHTML=text.split(' ').map(w=>`<span class="w">${w}</span>`).join(' ');el.dataset.w=1;}
+  return (t,out)=>[...el.children].forEach((w,i)=>{const k=P(t,a+i*step,a+i*step+.42,E.q);w.style.opacity=k*(1-out);w.style.transform=`translateY(${(1-k)*46-out*24}px)`;});}
+const W0a=words($('k0a'),'First day in Andri?',0.35), W0b=words($('k0b'),'No idea where to start?',1.75);
+const W1a=words($('k1a'),'Your first matter,',4.05,.08), W1b=words($('k1b'),'start to finish.',4.6,.08);
+
+// ------------------------------------------------ background palette per section
+const PAL=[[0,'#F1EDE3','#F9EFC2','#FFFFFF','#F3DD86','#F7E17E',0]];
+function palette(t){let i=0;while(i<PAL.length-1&&PAL[i+1][0]<=t)i++;const a=PAL[i],b=PAL[Math.max(0,i-1)];const k=i===0?1:P(t,a[0],a[0]+.6,E.io);return [...[1,2,3,4,5].map(j=>mix(b[j],a[j],k)),L(b[6],a[6],k)];}
+
+// ------------------------------------------------ camera (window shots)
+// target: 'full' | 'off' | {id|ids, pad, fit:[w,h], at:[x,y], r}
+const SCR='screen';
+const SHOTS=[
+ [0,'off',0],
+ [6.95,SCR,0],
+ [8.75,{id:'dlg',fit:[1050,780],at:[960,520],r:18,app:true},.75],
+ [11.7,SCR,.7],
+ [38.15,{id:'srcPara',pad:26,fit:[1100,600],at:[900,500],r:18},.8],
+ [41.75,SCR,.7],
+ [59.05,'off',.5],
+];
+// v5: pieces added to the rebuilt app so no step is implied
+(() => {
+  // file picker shown after "Upload Matter Documents"
+  const files = [["pdf","01_ET1_Grounds_of_Claim.pdf"],["pdf","03_ET3_Response.pdf"],["pdf","05_Tribunal_Judgment.pdf"],
+                 ["doc","09_Dismissal_Letter.docx"],["doc","10_Letter_Settlement.docx"],["eml","20_Email_HR_Role.eml"]];
+  const pk = document.createElement('div'); pk.className = 'pick'; pk.id = 'pick';
+  pk.innerHTML = '<div class="ph">Upload Matter Documents<small>Nair v Calderdale Logistics · case files</small></div>' +
+    files.map(([k, f]) => `<div class="pr"><span class="cb">✓</span><span class="fi ${k}" data-t="${k==='pdf'?'PDF':k==='doc'?'W':'@'}" style="width:16px;height:20px"></span>${f}</div>`).join('') +
+    '<div class="pf"><span style="border:1.5px solid #D7CBB8">Cancel</span><span id="pickUp" style="background:#F7E17E">Upload 6 files</span></div>';
+  document.querySelector('#scrKB').appendChild(pk);
+  // sidebar chat icon on the knowledge base page
+  document.querySelector('#scrKB .rail .ri').id = 'railChatKB';
+  // "Jobs" label on hover
+  const tip = document.createElement('div'); tip.className = 'tip'; tip.id = 'tipJobs'; tip.textContent = 'Jobs';
+  document.getElementById('railJobs').parentNode.appendChild(tip);
+  // close button of the source viewer
+  [...document.querySelectorAll('#srcP .tabs > .ic')].pop().id = 'srcClose';
+  // @ menu for the firm template
+  const m2 = document.getElementById('mp').cloneNode(true); m2.id = 'mp2';
+  m2.querySelector('.row').innerHTML = '<span class="fi doc" data-t="W"></span><div style="flex:1"><div style="font-size:14px;font-weight:500">Aldridge_Vine_Letter_Template.docx ' +
+    '<span class="tag" style="color:#2B5BC4;border-color:#B8CBEF;background:#EEF3FC">DOC</span></div><div style="margin-top:4px"><span class="tag" style="background:#E9E2D4;border:0">Letter</span></div>' +
+    '<div style="font-size:12px;color:#4a4239;margin-top:4px">22/09/2026 14:43</div></div>';
+  document.getElementById('mp').parentNode.appendChild(m2);
+  // the answer paragraph the camera frames
+  document.querySelector('#ans1 .a2').id = 'ansP'; document.querySelector('#ans1 .a1').id = 'ansA1';
+  // scroll so the letter request and its steps sit in view
+  window.SCR3 = document.getElementById('ub3').offsetTop - 140;
+})();
+let curS=1, winRect=null;
+function appRect(ids,pad){const w=$('win').getBoundingClientRect();let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;for(const id of ids){const r=$(id).getBoundingClientRect();x0=Math.min(x0,r.left);y0=Math.min(y0,r.top);x1=Math.max(x1,r.right);y1=Math.max(y1,r.bottom);}
+  return [(x0-w.left)/curS-pad,(y0-w.top)/curS-pad,(x1-x0)/curS+2*pad,(y1-y0)/curS+2*pad];}
+function resolveShot(s){
+  if(s==='full'||s==='off') return {fx:720,fy:405,s:1920/1440,cx:960,cy:540,clip:[0,0,1440,860],r:0,o:s==='off'?0:1};
+  if(s==='screen'){const sc=1;return {fx:720,fy:430,s:sc,cx:880,cy:515,clip:[0,0,1440,860],r:22,o:1};}
+  if(s.win){const sc=Math.min(s.fit[0]/1440,s.fit[1]/860);return {fx:720,fy:430,s:sc,cx:s.at[0],cy:s.at[1],clip:[0,0,1440,860],r:22*sc,o:1};}
+  if(s.push){const R=appRect([s.push],0);const sc=s.s;let fx=R[0]+R[2]/2,fy=R[1]+R[3]/2,cx=s.at[0],cy=s.at[1];
+    // keep the frame filled: never show the background around a push
+    let tx=cx-sc*fx,ty=cy-sc*fy;tx=Math.min(0,Math.max(1920-sc*1440,tx));ty=Math.min(0,Math.max(1080-sc*860,ty));
+    return {fx,fy,s:sc,cx:tx+sc*fx,cy:ty+sc*fy,clip:[0,0,1440,860],r:0,o:1};}
+  const R=appRect(s.ids||[s.id],s.pad||0);const sc=Math.min(s.fit[0]/R[2],s.fit[1]/R[3]);
+  return {fx:R[0]+R[2]/2,fy:R[1]+R[3]/2,s:sc,cx:s.at[0],cy:s.at[1],clip:R,r:s.app?(s.r*sc):(s.r||18),o:1};}
+let BLUR=0;
+// critically damped spring: starts from rest, settles without bounce
+const SPR=x=>x<=0?0:x>=1?1:(1-(1+7.5*x)*Math.exp(-7.5*x))/(1-8.5*Math.exp(-7.5));
+function camera(t){
+  BLUR=0;
+  let i=0;while(i<SHOTS.length-1&&SHOTS[i+1][0]<=t)i++;
+  const cur=resolveShot(SHOTS[i][1]);const d=SHOTS[i][2];
+  if(i===0||d===0) return cur;
+  const prev=resolveShot(SHOTS[i-1][1]);const x=cl((t-SHOTS[i][0])/d);const k=SPR(x);
+  BLUR=0;
+  const o={};for(const key of ['fx','fy','s','cx','cy','r','o'])o[key]=L(prev[key],cur[key],k);o.clip=prev.clip.map((v,j)=>L(v,cur.clip[j],k));
+  // scale is interpolated in log space so zooms feel even
+  o.s=Math.exp(L(Math.log(prev.s),Math.log(cur.s),k));return o;}
+
+// ------------------------------------------------ cursor
+const MOV=[[7.7,8.4,'btnNew'],[8.9,9.2,'dlgIn'],[10.95,11.4,'btnCreate'],[12.4,13.4,'btnKB'],[14.1,14.45,'btnUp'],[14.95,15.25,'pickUp'],
+ [22.1,22.6,'railChatKB'],[24.7,25.45,'eqBtn'],[26.6,27.2,'eqPick'],[27.75,28.15,'go'],[35.8,36.8,'cite1'],[41.95,42.25,'srcClose'],
+ [48.75,49.0,'go'],[55.5,55.8,'go'],[56.85,57.35,'railJobs'],[57.75,58.55,'btnOpen']];
+const CLK=[8.55,9.3,11.55,13.6,14.5,15.35,22.7,25.6,27.4,28.3,37.0,42.3,49.08,55.88,57.45,58.8];
+const CURON=[[7.6,11.9],[12.2,15.5],[21.9,22.8],[24.55,28.45],[35.6,37.4],[41.85,42.4],[48.6,49.2],[55.4,56.0],[56.8,59.0]];
+function resolveT(tg){if(Array.isArray(tg))return tg;const r=$(tg).getBoundingClientRect();return [r.left+r.width/2,r.top+r.height/2];}
+function cursorAt(t){let pos=[1980,1120];for(const [t0,t1,tg] of MOV){const p=resolveT(tg);if(t>=t1){pos=p;continue;}if(t>t0){const k=E.io((t-t0)/(t1-t0));pos=[L(pos[0],p[0],k),L(pos[1],p[1],k)];}break;}return pos;}
+
+// ------------------------------------------------ mascots
+function masc(el,t,a,b,x,y,{from='bottom',flip=false,scale=1}={}){
+  if(t<a||t>b){el.style.visibility='hidden';return;}
+  el.style.visibility='visible';
+  const vin=P(t,a,a+.6,E.back), vout=P(t,b-.4,b,E.io);
+  let dx=0,dy=0,sx=1,sy=1,o=1;
+  if(from==='bottom'){dy=(1-vin)*600+vout*600;}
+  else if(from==='pop'){const k=P(t,a,a+.5,E.back);sx=sy=Math.max(.001,k*(1-vout));}
+  const land=P(t,a+.45,a+.7)*(1-P(t,a+.7,a+1));sy*=1-.06*land;sx*=1+.04*land;
+  el.style.opacity=o;el.style.transform=`translate(${x+dx}px,${y+dy}px) scale(${(flip?-1:1)*sx*scale},${sy*scale})`;}
+
+// ------------------------------------------------ panels: [t_in, t_out, side, width]
+function panel(el,t,a,b,side,w,{full=null}={}){
+  if(t<a||t>b+.01){el.style.visibility='hidden';return;}
+  el.style.visibility='visible';
+  const kin=P(t,a,a+.5,E.qio), kout=P(t,b-.45,b,E.qio);
+  let width=w; if(full){width=L(w,1920,P(t,full[0],full[1],E.qio));}
+  el.style.width=width+'px';
+  const D=width+60;
+  if(side==='left'){el.style.left='0px';el.style.right='';el.style.transform=`translateX(${(-1+kin)*D-kout*D}px)`;}
+  else{el.style.right='0px';el.style.left='';el.style.transform=`translateX(${(1-kin)*D+kout*D}px)`;}
+  if(full&&full[2]){el.style.transform=`translateY(${-P(t,full[2],full[2]+.45,E.qio)*1080}px)`;}
+}
+
+// ------------------------------------------------ render
+function frame(t){
+  for(const a of document.getAnimations()){a.pause();a.currentTime=VT*1000;}
+
+  // background
+  const [base,c0,c1,c2,rc,ro]=palette(t);
+  const wOn=Math.min(P(t,7.0,7.8,E.io)*(1-P(t,64.0,64.5,E.io)), 1-V(t,8.75,11.9,.5,.5), 1-V(t,38.1,41.9,.5,.5), 1-P(t,58.8,59.3,E.io));
+  $('bgRays').style.setProperty('--rayc','#F7E17E');
+  S($('bgRays'),{opacity:wOn,width:'1150px',height:'1150px',transform:`translate(1385px,545px) rotate(${VT*3}deg)`});
+  
+  $('bg').style.setProperty('--base',base);
+  S($('b0'),{background:c0,width:'1300px',height:'1100px',transform:`translate(${-300+Math.sin(VT*.12)*60}px,${-200+Math.cos(VT*.1)*40}px)`});
+  S($('b1'),{background:c1,width:'1100px',height:'900px',transform:`translate(${1150+Math.cos(VT*.1)*50}px,${-250+Math.sin(VT*.12)*40}px)`});
+  S($('b2'),{background:c2,width:'1200px',height:'900px',transform:`translate(${700+Math.sin(VT*.09+1)*60}px,${560+Math.cos(VT*.11)*40}px)`});
+  $('grain').style.transform=`translate(${(Math.floor(VT*24)*37)%50-25}px,${(Math.floor(VT*24)*53)%50-25}px)`;
+
+  // panels
+  panel($('pIntro'),t,3.0,7.45,'right',1920,{full:[0,0,7.0]});
+  
+  
+  
+
+  // intro text (dark text on the light background, then on the yellow panel)
+  const o0=P(t,3.4,3.8);W0a(t,o0);W0b(t,o0);
+  const o1=P(t,6.6,7.05);W1a(t,o1);W1b(t,o1);
+  S($('k1e'),{opacity:P(t,3.95,4.4)*(1-o1),transform:`translateY(${(1-P(t,3.95,4.45))*20}px)`});
+  masc($('mWave'),t,0.25,3.8,1180,330,{from:'bottom'});
+  masc($('mIdea'),t,3.95,7.1,1180,330,{from:'pop'});
+
+  // ---- window / app
+  const cam=camera(t); curS=cam.s;
+  $('win').style.filter=BLUR>.05?`blur(${BLUR.toFixed(2)}px)`:'none';
+  const tx=cam.cx-cam.s*cam.fx, ty=cam.cy-cam.s*cam.fy;
+  // punch-in on the first appearance
+  const punch=1+.04*(1-P(t,6.95,7.6,E.q));
+  $('win').style.transform=`translate(${tx}px,${ty}px) scale(${cam.s*punch})`;
+  $('win').style.transformOrigin='0 0';
+  const [x,y,w,h]=cam.clip, rr=cam.r/cam.s;
+  $('win').style.clipPath=`inset(${y}px ${1440-x-w}px ${860-y-h}px ${x}px round ${rr}px)`;
+  show($('winwrap'),cam.o*(t<6.95?0:1));
+  $('winwrap').style.filter=cam.r<1?'none':'';
+
+  const onList=t<12.0, onKB=t>=13.95&&t<22.85, onJobs=t>=57.6;
+  const fL=1-P(t,11.95,12.2,E.io), fK=P(t,13.75,14.0,E.io)*(1-P(t,22.75,23.0,E.io)), fJ=P(t,57.5,57.75,E.io);
+  show($('scrList'),fL);show($('scrKB'),fK);show($('scrJobs'),fJ);show($('scrMatter'),(1-fL)*(1-fK)*(1-fJ));
+  $('navMatters').classList.toggle('on',onList);
+
+  // dialog
+  const dlg=P(t,8.65,8.85)*(1-P(t,11.9,12.02));
+  show($('dim'),0);show($('dlg'),dlg);$('dlg').style.transform='none';
+  const name='Nair v Calderdale Logistics';const nn=Math.round(P(t,9.4,10.8,E.lin)*name.length);
+  $('dlgTx').innerHTML=nn?name.slice(0,nn)+(t<11.5?'<span class="caret"></span>':''):'<span class="caret"></span><span style="color:#9b958c">Enter matter name</span>';
+  $('btnCreate').classList.toggle('on',nn>0);$('rowNew').style.height='0px';
+
+  // matter
+  $('kbN').textContent=t>=22.85?'6':'0';
+  const greetOn=t<28.45;
+  show($('greet'),greetOn?1:0);show($('thread'),greetOn?0:1);show($('fadebot'),greetOn?0:1);
+  // tidy the isolated shots: nothing from behind peeks into the frame
+
+  const dock=P(t,28.4,28.9,E.io);
+  const srcK=P(t,37.15,37.75,E.io)*(1-P(t,42.4,42.9,E.io));
+  const cardW=L(1382,790,srcK);$('mcard').style.right=(1440-56-cardW)+'px';
+  const bx=(cardW-760)/2, byG=410, byD=600;
+  S($('cbox'),{left:bx+'px',top:L(byG,byD,dock)+'px',width:Math.min(760,cardW-40)+'px'});
+  S($('disc'),{left:'0px',right:'0px',top:(L(byG,byD,dock)+104)+'px'});
+  $('eqBtn').style.display=t>=22.85?'flex':'none';$('eqBtn').classList.toggle('hot',t>=25.6&&t<28.3);
+  show($('srcP'),srcK>0?1:0);$('srcP').style.transform=`translateX(${(1-srcK)*620}px)`;
+  $('srcHl').style.backgroundSize=`${P(t,38.7,39.6,E.io)*100}% 100%`;
+
+  let ph=true,ct='',go=false,at=false;
+  if(t>=27.4&&t<28.45){ph=false;ct='Provide a detailed SWOT analysis of Calderdale Logistics Limited’s position on the core issue of whether…';go=true;}
+  if(t>=45.5&&t<47.4){ph=false;ct='@ET3'.slice(0,Math.round(P(t,45.5,46.0,E.lin)*4))+'<span class="caret"></span>';}
+  const seg2=[{chip:'@[03_ET3_Response.pdf]'},' List the respondent’s defences.'];
+  if(t>=47.4&&t<49.15){ph=false;ct=typed(seg2,1+Math.round(P(t,47.6,48.8,E.lin)*31),true);go=true;at=true;}
+  const seg3=['Draft a short update letter to Priya Nair on where the claim stands. ',{chip:'@[Aldridge_Vine_Letter_Template.docx]'}];
+  const s3=seg3[0];
+  if(t>=53.7&&t<54.95){ph=false;ct=s3.slice(0,Math.round(P(t,53.8,54.85,E.lin)*s3.length))+'<span class="caret"></span>';go=true;}
+  if(t>=54.95&&t<55.3){ph=false;ct=s3+'@Ald'.slice(0,Math.round(P(t,54.95,55.05,E.lin)*4))+'<span class="caret"></span>';go=true;}
+  if(t>=55.3&&t<55.95){ph=false;ct=typed(seg3,segLen(seg3),true);go=true;at=true;}
+  $('cph').style.display=ph?'block':'none';$('ctx').innerHTML=ct;$('go').classList.toggle('on',go);$('atn').style.display=at?'grid':'none';
+  const ex=ph?0:Math.max(0,$('ctx').offsetHeight-27);
+  S($('cbox'),{height:(98+ex)+'px',top:(L(byG,byD,dock)-ex)+'px'});
+
+  const eq=P(t,25.7,25.95)*(1-P(t,27.45,27.65));
+  show($('eqp'),eq);S($('eqp'),{left:(56+bx+24)+'px',bottom:(860-84-byG+10)+'px',transform:`translateY(${(1-P(t,25.7,26))*12}px)`});
+  $('eqPick').classList.toggle('hot',t>=26.9);
+  const mp2=P(t,55.06,55.12)*(1-P(t,55.28,55.32));show($('mp2'),mp2);S($('mp2'),{left:(56+bx+24)+'px',bottom:(860-84-byD+10)+'px'});
+  $('mp2').querySelector('.row').style.background=t>=55.18?'#D8CEBB':'#E1D9CA';
+  $('mp').querySelector('.row').style.background=t>=47.1?'#D8CEBB':'#E1D9CA';
+  const pk=P(t,14.6,14.75)*(1-P(t,15.4,15.5));show($('pick'),pk);$('pick').style.transform=`translateY(${(1-P(t,14.6,14.8,E.out))*14}px)`;
+  [...$('pick').querySelectorAll('.pr')].forEach((r,i)=>r.classList.toggle('on',t>=14.82+i*.05));
+  $('pickUp').style.boxShadow=t>=15.25&&t<15.45?'0 0 0 3px rgba(233,205,79,.6)':'';
+  show($('tipJobs'),P(t,57.15,57.25)*(1-P(t,57.5,57.6)));
+  const mp=P(t,46.0,46.25)*(1-P(t,47.3,47.45));
+  show($('mp'),mp);S($('mp'),{left:(56+bx+24)+'px',bottom:(860-84-byD+10)+'px',transform:`translateY(${(1-P(t,46,46.3))*10}px)`});
+
+  const rev=(el,a)=>{const k=P(t,a,a+.35);el.style.opacity=k;el.style.transform=`translateY(${(1-k)*14}px)`;};
+  rev($('ub1'),28.5);[...$('steps1').children].forEach((c,i)=>rev(c,29.0+i*.55));
+  const a1=$('ans1').children;rev(a1[0],32.0);rev(a1[1],32.6);rev(a1[2],33.4);rev(a1[3],33.9);$('ans1').style.opacity=t>=32?1:0;
+  rev($('ub2'),49.3);rev($('steps2'),49.6);rev($('ans2'),50.1);
+  rev($('ub3'),56.0);[...$('steps3').children].forEach((c,i)=>rev(c,56.3+i*.5));$('docCk').style.opacity=t>=57.2?1:0;
+  const scr=[[28.5,0],[31.4,0],[32.2,330],[49.2,330],[49.8,860],[55.95,860],[56.4,SCR3]];
+  let sc=0;for(let i=0;i<scr.length;i++){if(t>=scr[i][0]){sc=scr[i][1];const n=scr[i+1];if(n&&t<n[0])sc=L(scr[i][1],n[1],E.io(cl((t-scr[i][0])/(n[0]-scr[i][0]))));}}
+  $('tin').style.transform=`translateY(${-sc}px)`;
+
+  // knowledge base rows
+  [...document.querySelectorAll('.kbr')].forEach((r,i)=>{const a=15.6+i*.26;const k=P(t,a,a+.4,E.back);r.style.opacity=P(t,a,a+.2);r.style.transform=`translateX(${(1-k)*-50}px)`;
+    const done=t>=17.9+i*.33;r.querySelector('.spin').style.display=done?'none':'inline-block';r.querySelector('.status').style.display=done?'inline-flex':'none';r.querySelector('.spin').style.transform=`rotate(${t*540}deg)`;
+    r.querySelector('.sum').style.opacity=P(t,16.9+i*.3,17.4+i*.3);
+    r.querySelectorAll('.tg').forEach(g=>{const k2=P(t,18.0+i*.33,18.35+i*.33,E.back);g.style.opacity=cl(k2);g.style.transform=`scale(${k2})`;});});
+  
+
+  
+  masc($('mPoint'),t,38.9,41.55,1500,560,{flip:true});
+
+  // text cards
+  show($('kMail'),0);
+  const ks=$('kSrc').children;[...ks].forEach((l,i)=>{const a=38.3+i*.25;S(l,{opacity:P(t,a,a+.4)*(1-P(t,42.1,42.4)),transform:`translateY(${(1-P(t,a,a+.45,E.q))*40}px)`});});
+
+  // callouts + wires
+  const Wr=[];
+  const co=(id,a,b,anchor,x,y)=>{const el=$(id);const v=V(t,a,b,.35,.3);show(el,v);if(v<=0)return;el.style.left=x+'px';el.style.top=y+'px';el.style.transform=`translateY(${(1-P(t,a,a+.4,E.back))*14}px)`;
+    const r=el.getBoundingClientRect();const [ax,ay]=anchor;const sx=r.left, sy=r.top+r.height/2;const k=P(t,a+.05,a+.55,E.io);const mx=L(ax,sx,.5);const ex=L(ax,sx,k),ey=L(ay,sy,k);
+    Wr.push(`<g opacity="${v}"><circle cx="${ax}" cy="${ay}" r="5"/><path d="M${ax},${ay} C${mx},${ay} ${mx},${sy} ${ex},${ey}" stroke-dasharray="1400" stroke-dashoffset="${(1-k)*1400}"/><circle cx="${sx}" cy="${sy}" r="${4*k}"/></g>`);};
+  const er=$('btnEmail').getBoundingClientRect();
+
+  const hr=$('srcHl').getBoundingClientRect();
+
+
+  // the letter
+  const lt=$('letter');const lk=P(t,58.7,59.5,E.qio);const lv=lk*(1-P(t,64.4,64.85,E.io));show(lt,lv);
+  S(lt,{left:L(1150,900,lk)+'px',top:L(260,2,lk)+'px',transform:`scale(${L(.45,.82,lk)}) rotate(${L(6,0,lk)}deg)`});
+  [['lm1',60.1],['lm2',60.7],['lm3',61.3]].forEach(([id,a])=>$(id).style.backgroundSize=`${P(t,a,a+.45,E.io)*100}% 100%`);
+  const m1=$('lm1').getBoundingClientRect(),m2=$('lm2').getBoundingClientRect(),m3=$('lm3').getBoundingClientRect();
+  co('co1',60.2,64.6,[m1.right+10,m1.top+m1.height/2],1630,m1.top-30);
+  co('co2',60.8,64.6,[m2.right+8,m2.top+m2.height/2],1630,m2.top+10);
+  co('co3',61.4,64.6,[m3.right+8,m3.top+m3.height/2],1630,m3.top+110);
+  $('wires').innerHTML=Wr.join('');
+  const k7=$('k7').children;S(k7[0],{opacity:P(t,59.8,60.3)*(1-P(t,64.3,64.7)),transform:`translateY(${(1-P(t,59.8,60.4,E.q))*40}px)`});
+  S(k7[1],{opacity:P(t,60.6,61.1)*(1-P(t,64.4,64.8)),transform:`translateY(${(1-P(t,60.6,61.2,E.q))*40}px)`});
+
+  // outro
+  const k8=$('k8').children;
+  S(k8[0],{opacity:P(t,64.9,65.4)*(1-P(t,67.9,68.2)),transform:`translateY(${(1-P(t,64.9,65.5,E.q))*40}px)`});
+  S(k8[1],{opacity:P(t,65.4,65.9)*(1-P(t,67.95,68.25)),transform:`translateY(${(1-P(t,65.4,66,E.q))*40}px)`});
+  const ch=$('chk');show(ch,P(t,65.0,65.3)*(1-P(t,67.9,68.2)));
+  [...ch.children].forEach((d,i)=>{const a=65.2+i*.26;d.style.opacity=.35+.65*P(t,a,a+.2);d.classList.toggle('on',t>=a+.12);d.querySelector('i').style.transform=`scale(${t>=a&&t<a+.3?1+.2*Math.sin((t-a)/.3*Math.PI):1})`;});
+  masc($('mDone'),t,64.9,68.6,1000,330,{from:'pop',scale:.9});
+  show($('endc'),P(t,64.7,65.2)*(1-P(t,68.3,68.6)));$('endc').style.transform=`translateY(${(1-P(t,64.7,65.4,E.out))*14}px)`;
+
+  // step chip (only when no split panel carries the step)
+  const CAP=[[6.95,1,'Matters: every case lives here'],[7.7,1,'Click New Matter'],[9.25,1,'Give the matter a name'],[10.95,1,'Create'],
+   [11.75,1,'Your new matter, still empty'],[12.4,2,'Open the Knowledge Base'],[14.05,2,'Upload Matter Documents'],[14.7,2,'Choose the case files'],[15.0,2,'Upload'],
+   [15.6,2,'Andri reads every file'],[17.9,2,'Each one summarised and tagged'],[21.9,3,'Back to the chat'],[23.05,3,'Now there are example questions'],
+   [25.6,3,'Written for this matter'],[27.0,3,'Pick one'],[28.0,3,'Send'],[28.6,3,'Andri searches the file, the law and case law'],
+   [31.9,3,'Every claim comes with its source'],[35.8,4,'Click the source'],[37.2,4,'It opens beside the chat'],[38.3,4,'At the exact passage'],
+   [41.85,4,'Close it'],[43.3,5,'Point Andri at one document'],[45.45,5,'Type @ and a few letters'],[46.05,5,'Pick the document'],
+   [47.45,5,'Ask your question'],[48.75,5,'Send'],[49.35,5,'Answered from that document'],[52.9,6,'Ask for a letter'],
+   [54.9,6,'@ your firm\u2019s template'],[55.5,6,'Send'],[56.05,6,'Andri drafts it in the background'],[56.85,6,'Open Jobs'],
+   [57.75,6,'Open the letter'],[59.2,6,'Your letter, ready to check']];
+  let ci=-1;for(let i=0;i<CAP.length;i++)if(t>=CAP[i][0])ci=i;
+  const capOn=ci>=0&&t<64.45;
+  if(capOn){$('chipN').textContent=CAP[ci][1];$('chipT').textContent=CAP[ci][2];}
+  const ck=capOn?P(t,CAP[ci][0],CAP[ci][0]+.28,E.out):0;
+  const cvis=P(t,6.95,7.4)*(1-P(t,64.1,64.45));
+  S($('chip'),{opacity:cvis*(.25+.75*ck),transform:`translateX(-50%) translateY(${(1-ck)*10}px)`});
+
+  // cursor
+  const curOn=CURON.some(([a,b])=>t>=a&&t<b);
+  const [cx,cy]=cursorAt(t);
+  let press=0;for(const c of CLK){if(t>=c-.07&&t<c+.15)press=1;}
+  S($('cur'),{transform:`translate(${cx-7}px,${cy-4}px) scale(${press?.84:1})`,opacity:curOn?1:0});
+  let rp=0,rs=1;for(const c of CLK){if(t>=c&&t<c+.45){rp=1-(t-c)/.45;rs=.4+((t-c)/.45)*1.3;}}
+  S($('ripple'),{left:cx+'px',top:cy+'px',opacity:curOn?rp:0,transform:`scale(${rs})`});
+}
+// video time T -> timeline time t. Opens on the title card, then runs 18% slower than v2.
+const WARP=[[0.0, 3.85], [6.1111, 6.6], [14.4641, 13.7], [18.5752, 15.55], [26.0458, 21.9], [28.2276, 23.1], [65.6393, 54.9], [66.8893, 55.4], [67.5952, 56.0], [70.2619, 57.6], [83.2031, 68.6]];
+const warp=T=>{for(let i=0;i<WARP.length-1;i++){const [a,x]=WARP[i],[b,y]=WARP[i+1];if(T<=b)return x+(y-x)*cl((T-a)/(b-a));}return WARP[WARP.length-1][1];};
+let VT=0;
+window.render=T=>{VT=T;const t=warp(T);frame(t);frame(t);}; // second pass: camera reads element rects after layout settles
+window.DUR=WARP[WARP.length-1][0];
+document.fonts.ready.then(()=>{window.READY=true;window.render(+(location.hash.slice(1)||0));});
+</script>
+</body></html>

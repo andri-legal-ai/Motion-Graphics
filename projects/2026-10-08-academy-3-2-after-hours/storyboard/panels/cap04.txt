@@ -1,0 +1,2 @@
+4  Zoom: reflections Off, click On, line changes
+VO: ...off by default. Switch them on, and each night Andri looks back...   Next: pan to preview

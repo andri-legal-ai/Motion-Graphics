@@ -1,0 +1,3 @@
+5  Zoom: court, citation, outcome
+VO: Each ruling is summarised for you...
+Next: scroll: holdings, issues, precedents

@@ -1,0 +1,29 @@
+Typing the same detailed brief into every matter? Write it once as an Action, and run it anywhere.
+
+Open Explore, then Actions.
+
+Actions sit in two lists: Personal, just for you, and Company, for your whole firm. To make one, click Create Action.
+
+First, give it a short name. Then describe the task the way you'd brief a junior colleague.
+
+It needs at least a hundred characters. Then click Next.
+
+Next, you can add up to five documents from your firm's Knowledge Base, like a model or a checklist. This check doesn't need any.
+
+Then, up to three examples of the finished result. Leave it empty, and the action answers in the chat.
+
+Click Create Action. Andri builds it in the background, which takes a few minutes. You can keep working meanwhile.
+
+When it's ready, open it. Your brief is now a skill: the inputs it needs, and a checklist Andri follows every time.
+
+New actions are personal. To give one to your whole firm, click share, then Share with company.
+
+Now open a matter. This one already has the judgment and the <phoneme alphabet="ipa" ph="ˈskɛdjuːl">schedule</phoneme> of loss in its Knowledge Base.
+
+In the chat, type the at sign, and press the right arrow until you reach Actions. Pick Remedy check, and send it.
+
+Andri applies your brief to this matter's files: each head of loss, whether the judgment supports it, the other side's argument, and the risk.
+
+Actions work in workflows too. Add a Run Action step, and pick one from your library.
+
+Brief Andri once, and run it in any matter.

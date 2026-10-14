@@ -1,0 +1,19 @@
+Still saving emails and attachments into the file by hand? Here are three ways to bring them straight into Andri.
+
+First, every matter has its own email address. Open Matter Email from the sidebar, and copy the address.
+
+Only addresses on this list can send to it, and yours is there from the start. Add your client, Priya Nair, and her emails come in too. Anyone else gets a polite refusal.
+
+Watch how it works shows what happens next. Forward an email from your own mailbox to the matter's address. Here, Priya's email about her return to work.
+
+Andri saves the email as a document in the matter, and each attachment as a document of its own. Each arrival also shows in your Inbox.
+
+On the Knowledge Base, Email Documents gives you the same address.
+
+Second, files from elsewhere. Connect links SharePoint, Google Drive or OneDrive, and Google Workspace or Microsoft 365 for calendar and mail.
+
+Third, your own mailbox. In Personalisation, under Connectors, sign in to Gmail, Outlook or SharePoint. It stays with you, not the matter, and each new matter starts with it switched on.
+
+Once a mailbox is connected, the Email tab in your Inbox shows your mail. Andri files each email in the right matter, and flags what needs you.
+
+The matter's address, connected files, and your own mailbox. Nothing uploaded by hand.

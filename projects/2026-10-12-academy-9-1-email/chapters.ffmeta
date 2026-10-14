@@ -1,0 +1,32 @@
+;FFMETADATA1
+title=Andri Academy 9.1 · Email in Andri: three ways in
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=8350
+title=Introduction
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=8350
+END=51600
+title=1. The matter's address
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=51600
+END=63200
+title=2. Files from elsewhere
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=63200
+END=86850
+title=3. Your own mailbox
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=86850
+END=94000
+title=Up next

@@ -1,0 +1,17 @@
+0:00.00  Someone new joining your firm? Before you invite them, here's how roles, seats and credits work.
+0:06.24  As an admin, click your firm's name in the top bar, then company and open members.
+0:12.00  Click invite member and enter your colleague's email address.
+0:15.76  Then choose a role. An admin has full access, matters, members, billing and settings.
+0:22.40  A member creates and uses matters, documents and templates.
+0:26.64  Support works like a member for part-time helpers such as a trainee without a full seat.
+0:32.32  Choose with care. Moving someone between a billable seat and support locks their role for 30 days.
+0:38.80  Send the invitation and your colleague gets an email to accept it.
+0:42.48  So who pays for support? Open billing. Support members aren't billed as a seat.
+0:48.32  Their AI work is paid from the support wallet instead. Credits never expire and they're shared
+0:53.76  by the whole firm. There are two wallets. Premium unlocks the most advanced reasoning
+0:59.12  with packs from £50 for 8,500 credits, and every billable member unlocks one support seat.
+1:06.08  When someone leaves, have them transfer their matters first. In the matters menu,
+1:10.96  choose transfer ownership and pick the new owner. The whole matter moves to them.
+1:16.24  Transfers need two-factor authentication. Then remove them on the members page.
+1:21.20  They lose access to everything in the firm. The right role, the right seat,
+1:25.68  and every matter handed over before anyone leaves.

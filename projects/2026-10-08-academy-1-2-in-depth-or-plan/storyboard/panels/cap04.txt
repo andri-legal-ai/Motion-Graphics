@@ -1,0 +1,2 @@
+4  Plan Mode picked: the button turns green
+VO: For a bigger job with several steps, switch to Plan.   Next: task typed, sent

@@ -1,0 +1,18 @@
+Academy 2.2 · narration, English (UK). Voice: "UK voice voice to use for ANDRI vids" (ElevenLabs, My Voices).
+One line per beat; the video's scene times hang off where each line starts (VO in app.js).
+
+L1  A letter from the other side can make a lot of points. Here's how to answer every one.
+L2  Put their letter in the matter first. Upload it to the Knowledge Base. When it shows Complete, Andri has read it.   (re-recorded 8 Oct, audio/narration-uk-fix1.mp3)
+L3  Ask Andri to list each of their points. Type the at sign, and pick their letter.
+L4  Four points, each in plain words. Now you can see nothing is missed.
+L5  Set the tone once. Ask Andri to remember it for the whole firm, and confirm.
+L5b Now it's saved as a Firm memory.   (new, 8 Oct, audio/narration-uk-fix1.mp3)
+L6  Now give your position in one message. Accept point three, reject the rest, and say why. Add your earlier letter with the at sign, too.
+L7  If something needs a decision, Andri asks first. Here: how to mention an offer made without prejudice.
+L8  The reply is written in the background, on your letterhead, answering each point in turn.
+L9  Open it from Jobs. Download it, and finish it in Word.   (re-recorded 8 Oct: staging shows no Edit In Drafts under a finished letter, and the Drafts page is empty, so Drafts was dropped)
+L10 Every point answered. Nothing missed.
+
+Script check: read the opening out loud. "point" is the subject of the video, so it stays in the lines about their points, but it is no longer used as a verb ("point at"), which made it repeat.
+
+Rule for this video (Bennett, 8 Oct): a ring only appears on something the voice is naming at that moment.

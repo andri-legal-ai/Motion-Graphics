@@ -1,0 +1,11 @@
+# Academy 10.2 · Workflows: answer incoming emails automatically
+
+How this video is built (12–13 Oct 2026):
+
+1. `staging-snapshot/raw/*.html`: DOM snapshots of Andri staging taken in my own tabs (my own workflow "Check and reply to client documents (Academy 10.2)", built and published for real, and my own matter "Academy 10.2"). Saved by `inject.js` (stored in staging localStorage `snap102`) as downloads `academy102-batch*.html`, split by `grab.sh`. `localize.py` makes local pages (Aldridge Vine, AF / Adam Frith, the "(Academy 10.2)" suffix dropped, my matter shown as Nair v Calderdale Logistics, the workflows panel width made to follow the window).
+2. `node plates/capture.mjs [regex]` renders 2x plates at 1440 x 860 and `plates/rects.json`: builder plates with the React Flow canvas content hidden, node sprites (zoom 1, 3x, shadows off), the "Approved" edge label, toasts, the publish explainer as 100 ms frame sequences (`plates/seq/`), and a rect for every control and phrase. Popovers are put back under their trigger (their position was frozen for staging's 1920 px window). Fixes are commented there: the matters list shows only Nair, the empty Workflows page is rebuilt in the real list card from what staging showed on my first visit, published "v2" shown as "v1" (I re-published once to capture the explainer).
+3. `app.js` draws everything on one canvas (`build/index.html`). The workflow canvas (dots, nodes, edges, label) is drawn from the sprites, so steps land, get dragged and joined as in staging. Timings at the top (`VO`, `T`, `CAP`); no time warp, the timeline is in video seconds.
+4. Audio: one ElevenLabs take (`audio/narration-uk-10.2.mp3`, UK voice, Eleven v4), cut by sentence (`audio/sentences.json` → `audio/uk/S*.wav`); `zsh audio/mix.sh` places them at `VO` with clicks and whooshes → `audio/mix-uk-14.wav`.
+5. Render: `node "$HOME/Desktop/Andri/Motion Graphics/_toolkit/render.mjs" build --out vN.mp4 --audio "$PWD/audio/mix-uk-14.wav"`, then `node chapters.mjs` and mux `chapters.ffmeta` in. `./check-pauses.sh` finds still-and-silent stretches.
+
+Left in staging for Bennett to delete: the published workflow and the matter "Academy 10.2". Nothing was sent; no mailbox was connected; the workflow was not activated (Activate stays disabled without a connected mailbox).

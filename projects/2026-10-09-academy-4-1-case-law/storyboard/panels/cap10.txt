@@ -1,0 +1,3 @@
+10  Question typed in the panel
+VO: Each ruling becomes a row. Ask your question once...
+Next: Done, Start review

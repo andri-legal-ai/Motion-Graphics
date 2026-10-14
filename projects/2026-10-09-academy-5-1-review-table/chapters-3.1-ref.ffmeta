@@ -1,0 +1,38 @@
+;FFMETADATA1
+title=Andri Academy 3.1 · Say it once. Andri remembers.
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=8050
+title=Introduction
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=8050
+END=18600
+title=1. Tell Andri once
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=18600
+END=24400
+title=2. Ask what it knows
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=24400
+END=29900
+title=3. Correct or forget
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=29900
+END=64500
+title=4. See all memories
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=64500
+END=72000
+title=Up next

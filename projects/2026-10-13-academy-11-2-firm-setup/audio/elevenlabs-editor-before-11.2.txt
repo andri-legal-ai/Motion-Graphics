@@ -1,0 +1,1 @@
+ElevenLabs editor before 11.2 (14 Oct 2026): text = the 11.1 UK script (audio/script-uk-11.1.txt in the 11.1 project), voice = "Devin dutch narration Andri", Eleven v4. Restore both after generating.

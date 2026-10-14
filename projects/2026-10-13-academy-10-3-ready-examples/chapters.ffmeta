@@ -1,0 +1,50 @@
+;FFMETADATA1
+title=Andri Academy 10.3 · Start from a ready example: overnight redline, new client intake
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=11010
+title=Introduction
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=11010
+END=30150
+title=1. Find the examples
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=30150
+END=69810
+title=2. Overnight redline
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=69810
+END=106810
+title=3. New client intake
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=106810
+END=123320
+title=4. Make it yours
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=123320
+END=133860
+title=5. Publish
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=133860
+END=151160
+title=6. Switch it on
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=151160
+END=158110
+title=Up next

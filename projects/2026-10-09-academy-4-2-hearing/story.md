@@ -1,0 +1,39 @@
+# Academy 4.2 · Prepare and rehearse the hearing (story check)
+
+Brief (andri-academy-videos.html, #v4-2): "The viewer prepares a hearing with the Timeline, then rehearses it with Simulate." Opens on: hearing on Thursday, a 400-page file, the other side's best argument still unknown. Next video: 5.1 Check many contracts at once, in one table.
+
+Format: how-to walkthrough, same look as 1.1 and 1.2 (centred app window, cream to gold background, one caption pill per step, Aldridge Vine demo firm, Nair v Calderdale Logistics). No welcome intro. About 2:20.
+
+Checked in Andri staging on 9 Oct 2026 (own tab, own conversation "Academy 4.2" in Nair; Nair simulation restarted with Bennett's OK). Full notes: staging-captures/NOTES.md.
+
+What staging shows, and where the brief differs:
+- Timeline: first rail icon (tooltip "Open Timeline") opens a panel beside the chat: "Matter Timeline", "Summary and key dates for this matter", "N of N events completed". Sections as in the brief. Source links are file chips inside the summary sections (the event cards carry none). A chip opens the document in the same panel; closing it closes the panel, and reopening the Timeline starts at the top.
+- Counts: staging shows 31 events and Knowledge Base 23 because another session uploaded 21_Letter_Bowater_Sykes_Remedy.docx; its three 9 April 2026 events are left out, so the video shows 28 of 28 (as the brief) and Knowledge Base 22 (as 2.1 and 2.2).
+- + Add event: inline form Title / Date (calendar, opens on today) / Description (optional), Cancel / Save. Filled in but not saved (shared matter); Save is ringed, not clicked.
+- "What does each one prove?" gives a sourced answer: points to fix first (schedule of loss does not add up), a table Document | What it proves | Limits for the liability documents, then the remedy documents (medical report, bank statement, mitigation ...).
+- "Write my hearing notes from this." Andri asks first ("Andri has questions before continuing"): which hearing (11 May 2026 has passed), then where (In chat / Word document). Picked Remedy hearing (relisted or adjourned), In chat. Notes: "Hearing notes: Nair v Calderdale Logistics Limited, Case No 1803442/2025", sections 1 to 8 (What is fixed, Fix our schedule ..., Mitigation, Polkey, Injury to feelings, Acas uplift, Evidence checklist, Open questions). One line naming the other session's letter is left out.
+- Simulate: rail play icon. Header "Turn 1/6", "Start Simulation →". Strip Judge Now · Claimant Next · Defendant. Right cards Claimant - Priya Nair (Next), Defendant - Calderdale Logistics Limi... (On deck). Judge: "Active", "Generating a plan...", steps, "Record Issues For Trial · 6 issues recorded and published to counsel." (this run: 6, the brief's run: 5; narration names no number), then the opening with the issues and who carries each burden. Next Step runs Counsel for the Claimant. Restart: circular arrow (title "Start New Simulation") opens "Complete Simulation ... Would you like to start a new simulation?" Cancel / Start New Simulation.
+- Not shown: the brief's step 11 "Preparation list" (no such feature in staging; Bennett: drop it). "Each turn uses credits" and "stay on the page" (not visible anywhere).
+- Found while checking: the Claimant's turn ended without a submission (searches and thinking, then its first line again). The video shows the turn starting and its searches only.
+
+| # | Time | On screen | Narration (UK voice) | Sound |
+|---|---|---|---|---|
+| 1 | 0:00 | Yellow title card "ANDRI ACADEMY · 4.2", "Prepare and rehearse" / "the hearing." Waving mascot (1.2 layout). | "Hearing on Thursday, and you still don't know the other side's best argument? Prepare it, and rehearse it, with Andri." | whoosh into app |
+| 2 | 0:07 | Nair chat (greeting). Cursor to the first rail icon, tooltip "Open Timeline", click. Panel slides in. Pill 1 "Open the Timeline". | "In your matter, open the Timeline. It's the first icon on the left." | click |
+| 3 | 0:12 | Panel: Matter Timeline, 28 of 28 events, Case overview & type ... slow scroll past the section headings. Ring on Knowledge Base 22 as it is named. | "Andri builds it from every file in the Knowledge Base: an overview of the case, the disputed issues, the parties, and where things stand." | |
+| 4 | 0:22 | Zoom on the Case overview chip 05_Tribunal_Judgment.pdf, click; the judgment opens in the panel. Pill 2 "Every fact, sourced". | "Every fact is linked to its source. Click one, and the document opens beside your chat." | click |
+| 5 | 0:30 | Close the viewer, reopen the Timeline, scroll down to the dated events (13 January 2025 ... 11 May 2026). Pill 3 "Key dates". | "Below the summary, every key date, in order, each with what happened." | click, whoosh |
+| 6 | 0:39 | Bottom: + Add event, form opens; title typed, 9 October 2026 picked; ring on Save. Pill 4 "Add your own". | "Something the file doesn't show yet, like a call with your client? Add it yourself: a title, a date, then save." | click x3 |
+| 7 | 0:50 | Panel closed. Chat: "Review the key documents: what does each one prove?" typed and sent; steps (case document searches). Pill 5 "What each document proves". | "Now ask Andri what each document proves." | click |
+| 8 | 0:56 | Answer: intro, "Points that differ ..." with the schedule of loss bullet (zoom), then the table Document / What it proves / Limits (zoom). | "It reads every file, then sets out what each document proves, and its limits. It also flags what needs fixing first, like a schedule of loss that doesn't add up." | |
+| 9 | 1:10 | "Write my hearing notes from this." sent. Card "Andri has questions before continuing"; picker "Which hearing are the notes for?", click Remedy hearing (relisted or adjourned); "How should the notes be delivered?", click In chat. Pill 6 "Hearing notes". | "Then ask for your hearing notes. If something is unclear, Andri asks first: here, which hearing, and where you want the notes." | click x2 |
+| 10 | 1:24 | Notes arrive: "Hearing notes: Nair v Calderdale Logistics Limited ...", "1. What is fixed", section list. | "The notes arrive in the chat, built on what it just found." | |
+| 11 | 1:30 | Rail play icon (tooltip Simulate) clicked; Simulate page, Turn 1/6. Rings on Judge, Claimant, Defendant in the strip as named. Click Start Simulation. Pill 7 "Rehearse with Simulate". | "Now rehearse. Open Simulate: a judge, counsel for the Claimant, and counsel for the Defendant, over six turns. Start the simulation." | click |
+| 12 | 1:42 | Judge Active, Generating a plan..., steps stream; zoom on "Record Issues For Trial · 6 issues recorded and published to counsel."; then the opening (zoom on "The issues I have fixed"). | "The judge reads the case file and the law, fixes the issues and who has to prove each one, then opens the hearing." | |
+| 13 | 1:55 | Next Step clicked; strip moves to Claimant Now; Claimant - Priya Nair panel, Active, its first steps. Pill 8 "Next Step". | "Next Step runs the next turn: counsel for the Claimant, then the Defendant. Each turn shows what it searched." | click |
+| 14 | 2:05 | Circular arrow ringed and clicked; "Complete Simulation" dialog; Start New Simulation; toast. Pill 9 "Start again". | "To start again, use the circular arrow." | click x2 |
+| 15 | 2:11 | Window fades. End card: logo, mascot with tick, "Andri Academy · Next: Check many contracts at once, in one table". | "Know your file, then hear the other side before the judge does." | |
+
+Zoom only on: the Timeline chip (4), the Add event form (6), the answer's flagged point and table (8), the question picker (9), "Record Issues" and the issues (12). Everything else at the normal window size, and back out to the full screen between close-ups.
+
+Chapters: 0:00 Introduction · 1. The Timeline · 2. What each document proves · 3. Hearing notes · 4. Rehearse with Simulate · Up next.

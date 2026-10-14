@@ -1,0 +1,2 @@
+2  Zoom: the mode menu with In-Depth Mode and Plan Mode
+VO: The mode button sits in the chat box, and always shows the mode you're in.   Next: zoom out

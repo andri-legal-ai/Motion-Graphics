@@ -1,0 +1,32 @@
+0:00.34  Someone new joining your firm?
+0:02.34  Before you invite them, here's how roles, seats and credits work.
+0:07.34  As an admin, click your firm's name in the top bar, then Company and Open Members.
+0:14.34  Click Invite Member and enter your colleague's email address.
+0:18.34  Then choose a role.
+0:20.34  An admin has full access, Matters, Members, Billing and Settings.
+0:25.34  A member creates and uses Matters, Documents and Templates.
+0:30.34  Support works like a member for part-time helpers such as a trainee without a full seat.
+0:36.34  Choose with Care.
+0:38.34  Moving someone between a billable seat and support locks their role for 30 days.
+0:43.34  Send the invitation and your colleague gets an email to accept it.
+0:48.34  So, who pays for support?
+0:50.34  Open Billing.
+0:53.68  Support members aren't billed as a seat.
+0:55.68  Their AI work is paid from the Support Wallet instead.
+0:58.68  Credits never expire and they're shared by the whole firm.
+1:02.68  There are two wallets.
+1:04.68  Premium unlocks the most advanced reasoning with packs from £50 for 8,500 credits.
+1:10.68  And every billable member unlocks one support seat.
+1:14.68  When someone leaves, have them transfer their Matters first.
+1:18.68  In the Matters menu, choose Transfer Ownership and pick the new owner.
+1:23.68  The whole Matter moves to them.
+1:26.68  Transfers need two-factor authentication.
+1:29.68  Then, remove them on the Members page.
+1:32.68  They lose access to everything in the firm.
+1:34.68  The right role, the right seat and every Matter handed over before anyone leaves.
+
+--- script vs heard: 226/235 script words matched
+  …locks their role for  - thirty  + 30
+  …reasoning with packs from  - fifty pounds  + 50
+  …from fifty pounds for  - eight and a half thousand  + 8 500
+  …matters first in the  - matter's  + matters

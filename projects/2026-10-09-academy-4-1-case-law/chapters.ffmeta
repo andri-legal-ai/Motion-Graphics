@@ -1,0 +1,50 @@
+;FFMETADATA1
+title=Andri Academy 4.1 · Case law research, start to finish
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=7400
+title=Introduction
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=7400
+END=15600
+title=1. Open Case law
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=15600
+END=31400
+title=2. Filter and read
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=31400
+END=38000
+title=3. Search by keyword
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=38000
+END=43300
+title=4. Read the judgment
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=43300
+END=59600
+title=5. Compare in a table
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=59600
+END=68400
+title=6. Ask in the matter
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=68400
+END=77800
+title=Up next

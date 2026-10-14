@@ -1,0 +1,42 @@
+0:00.43  Still pasting your firm's own clauses over Andri's?
+0:03.83  By hand?
+0:05.03  Give Andri a colleague who already knows them.
+0:08.83  A specialist learns from files you choose.
+0:11.83  Here, Aldridge finds letter and memo templates
+0:14.63  and a skeleton argument sitting one folder
+0:17.13  in the company knowledge base.
+0:19.93  Open Explore, then Specialists.
+0:22.73  A specialist is a colleague Andri consults.
+0:25.63  It gives direction and references
+0:27.63  and never drafts for you.
+0:30.23  Click New Specialist and give it a short name.
+0:33.13  Employment Law.
+0:34.83  Then the most important line,
+0:36.83  when should Andri consult it?
+0:38.93  This is the only thing Andri reads
+0:40.73  when it decides whether to ask,
+0:42.43  so say what it knows.
+0:45.03  Notes for the build are optional.
+0:46.93  Andri reads them once while it builds.
+0:49.83  Now choose what it learns from.
+0:51.93  Pick the folder and everything inside comes with it,
+0:54.83  now and later.
+0:56.93  Click Build Specialist.
+0:59.03  Andri reads every file and writes the specialist its own brief.
+1:03.13  It takes a few minutes and you can leave the page.
+1:06.43  When it's ready, Andri has rewritten the consult line
+1:09.23  from what it read and the brief it wrote is yours to edit.
+1:13.63  Back in a matter, Andri has just drafted a letter to Ms. Nair.
+1:17.73  Ask it to check the letter against your house style.
+1:21.43  Andri consults the specialist by itself
+1:23.83  and comes back with every change
+1:25.43  the firm's letter template asks for.
+1:28.33  To ask it yourself,
+1:29.63  type the at sign and pick it from specialists.
+1:33.63  It answers straight from your firm's memo template.
+1:37.63  Add one specialist per team
+1:39.43  or a playbook with your negotiation positions.
+1:42.23  Keep each consult line to its own area
+1:44.63  so Andri always asks the right colleague.
+1:49.26  Your firms know how.
+1:50.66  On call in every matter.

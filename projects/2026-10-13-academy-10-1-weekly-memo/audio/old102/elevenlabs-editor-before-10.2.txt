@@ -1,0 +1,17 @@
+(Editor text found in ElevenLabs before my 10.2 take, 12 Oct 2026: an earlier 8.1 script, other session, already delivered.)
+More tasks than hours before a deadline? Hand them to Andri, and to your trainee.
+Assignments, in the top bar, holds every task in your firm. See just yours under My work, filter by status, matter, due date or priority, and view them as a board or a list.
+Click New, and give the task a title and a short description.
+Then set it up: a priority, the type of task, the matter it belongs to, and a due date.
+Create it, and it's on the board, under To do.
+Switch to the list, open the task, and click Delegate to Andri. Run in the background lets Andri work on its own and report back here. Work together opens the matter chat, so you can watch and steer.
+Andri is on it. The task moves to In progress, with Andri as the assignee.
+The activity log shows what Andri is doing, and you can stop it at any time.
+About a minute later, Andri hands it back. The task goes to In review, not Done, because you check it first.
+Andri's report tags you, and says what to check: here, the point about the 2013 Rules.
+Ask for a change, open the full thread in the matter's chat, or mark it done.
+Every task has a checklist, and comments. Type the at sign to mention a colleague, or Andri.
+Your Inbox tells you when Andri has finished, too.
+To bring in your trainee, invite them from your firm's Members page, with a Support seat. Video 11.1 covers seats.
+Then assign them tasks the same way. On the board, Andri does the first pass, your trainee checks it, and once the checklist is ticked, mark it done.
+Put the work in Assignments. Andri does the first pass, and your team checks it.

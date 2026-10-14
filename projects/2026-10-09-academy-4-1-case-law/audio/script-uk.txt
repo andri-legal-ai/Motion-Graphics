@@ -1,0 +1,19 @@
+Case law research usually means a dozen open tabs. Here's how to do it all in Andri.
+
+Open Explore, then Case law. The newest rulings come first, from the UK, the Netherlands, Belgium and Switzerland.
+
+Narrow the list on the left by legal area, decision date or court. Here, employment law.
+
+Each ruling is summarised for you: the court, the citation and the outcome, then the key holdings, the legal issues and the cases it cites.
+
+To find something specific, search by keyword. Matching words are highlighted in every summary.
+
+View case opens the full judgment on Bailey, so you can check it at the source.
+
+To compare rulings, tick the ones you need, choose Add to tabular review, and pick the matter.
+
+Each ruling becomes a row. Ask your question once, start the review, and Andri answers it for every ruling, with its sources.
+
+Or just ask in the matter's chat. Andri searches case law and legislation itself, and cites the authorities it relies on.
+
+Find it, read it, compare it, or just ask. That's case law research in Andri.

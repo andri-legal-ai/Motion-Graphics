@@ -1,0 +1,62 @@
+;FFMETADATA1
+title=Andri Academy 10.1 · Your weekly memo, and other ways to start a workflow
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=7850
+title=Introduction
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=7850
+END=13600
+title=1. A new workflow
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=13600
+END=25600
+title=2. Choose how it starts
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=25600
+END=38400
+title=3. Every Monday
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=38400
+END=50200
+title=4. The instruction
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=50200
+END=59200
+title=5. The memo
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=59200
+END=67600
+title=6. Publish
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=67600
+END=77800
+title=7. Switch it on
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=77800
+END=102700
+title=8. Other ways to start
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=102700
+END=109600
+title=Up next

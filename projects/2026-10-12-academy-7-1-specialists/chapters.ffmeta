@@ -1,0 +1,80 @@
+;FFMETADATA1
+title=Andri Academy 7.1 · Your firm's experts, on call
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=8650
+title=Introduction
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=8650
+END=20000
+title=1. Your firm's models
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=20000
+END=30200
+title=2. Open Specialists
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=30200
+END=34800
+title=3. Name it
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=34800
+END=45000
+title=4. When to consult it
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=45000
+END=49800
+title=5. Notes for the build
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=49800
+END=56900
+title=6. Choose its files
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=56900
+END=66400
+title=7. Build it
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=66400
+END=73600
+title=8. It's ready
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=73600
+END=88300
+title=9. Andri consults it
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=88300
+END=97600
+title=10. Ask it directly
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=97600
+END=108700
+title=11. One per team
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=108700
+END=115500
+title=Up next

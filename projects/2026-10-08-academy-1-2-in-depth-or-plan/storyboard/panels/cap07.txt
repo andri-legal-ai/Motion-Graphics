@@ -1,0 +1,2 @@
+7  Zoom: the plan is waiting for your decision
+VO: Execute starts the work. Edit changes the plan, and Cancel drops it.   Next: zoom out

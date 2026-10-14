@@ -1,0 +1,56 @@
+;FFMETADATA1
+title=Andri Academy 2.1 · The whole letter, in one request
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=7200
+title=Introduction
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=7200
+END=25150
+title=1. The case file
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=25150
+END=34750
+title=2. One request
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=34750
+END=45180
+title=3. Your letter template
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=45180
+END=57010
+title=4. Andri asks first
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=57010
+END=65590
+title=5. Written in the background
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=65590
+END=78070
+title=6. Ready on your letterhead
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=78070
+END=89185
+title=7. Ask for changes
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=89185
+END=97000
+title=Up next

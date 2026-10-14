@@ -1,0 +1,3 @@
+7  Zoom\: + Add event form, title typed, date picker on 9 Oct
+VO\: Something the file doesn’t show yet ... a title, a date, then save.
+Next\: ring on Save, close panel

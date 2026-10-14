@@ -1,0 +1,165 @@
+// ------------------------------------------------------------------ easing
+const cl = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const L = (a, b, k) => a + (b - a) * k;
+const E = {
+  lin: x => x,
+  out: x => 1 - Math.pow(1 - x, 3),
+  q: x => 1 - Math.pow(1 - x, 5),
+  io: x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2,
+  qio: x => x < .5 ? 16 * x ** 5 : 1 - Math.pow(-2 * x + 2, 5) / 2,
+  back: x => { const a = 1.4, k = a + 1; return 1 + k * Math.pow(x - 1, 3) + a * Math.pow(x - 1, 2); },
+};
+const P = (t, a, b, e = E.out) => e(cl((t - a) / (b - a)));
+const V2 = (t, a, b, fi = .35, fo = .3) => Math.min(P(t, a, a + fi), 1 - P(t, b - fo, b, E.io));
+
+// ------------------------------------------------------------------ helpers
+const R = (set, id) => RECTS[set][id];
+const box = n => RECTS[n].box;
+const C = r => [r[0] + r[2] / 2, r[1] + r[3] / 2];
+function rr(x, y, w, h, r) { ctx.beginPath(); ctx.roundRect(x, y, w, h, r); }
+function font(w, s, fam = 'Rethink') { ctx.font = `${w} ${s}px ${fam}`; }
+function plate(name, a = 1) { if (a <= 0) return; ctx.save(); ctx.globalAlpha *= a; ctx.drawImage(IMG[name], 0, 0, 1440, 860); ctx.restore(); }
+// part of a plate, in place (or moved by dx, dy)
+function region(name, r, a = 1, dx = 0, dy = 0) { if (a <= 0) return; const [x, y, w, h] = r; ctx.save(); ctx.globalAlpha *= a; ctx.drawImage(IMG[name], x * 2, y * 2, w * 2, h * 2, x + dx, y + dy, w, h); ctx.restore(); }
+// crossfade between two plates
+function xf(a, b, t, t0, d = .3) { const k = P(t, t0, t0 + d, E.io); if (k < 1) plate(a); if (k > 0) plate(b, k); }
+function sprite(name, a = 1, dx = 0, dy = 0, sc = 1) {
+  if (a <= 0) return; const [x, y, w, h] = box(name); ctx.save(); ctx.globalAlpha *= a;
+  ctx.translate(x + w / 2 + dx, y + h / 2 + dy); ctx.scale(sc, sc); ctx.drawImage(IMG[name], -w / 2, -h / 2, w, h); ctx.restore();
+}
+// shadow for a floating sprite captured without its own (known-issues #1); values from the live CSS
+function floatShadow(name, a = 1, dx = 0, dy = 0, r = 16, strong = false) {
+  if (a <= 0) return; const [x, y, w, h] = box(name);
+  ctx.save(); ctx.globalAlpha *= a; ctx.shadowColor = strong ? 'rgba(35,30,25,.20)' : 'rgba(35,30,25,.16)'; ctx.shadowBlur = strong ? 30 : 26; ctx.shadowOffsetY = strong ? 10 : 9;
+  ctx.fillStyle = '#FFFFFF'; rr(x + dx + 2, y + dy + 2, w - 4, h - 4, r); ctx.fill(); ctx.restore();
+}
+// gold ring around a small control (app px), only while the voice names it
+function ring(t, a, b, r, rad = 10, pad = 5) {
+  const v = V2(t, a, b, .25, .3); if (v <= 0) return;
+  const g = P(t, a, a + .35, E.back);
+  ctx.save(); ctx.globalAlpha *= v; ctx.strokeStyle = '#E9CD4F'; ctx.lineWidth = 3;
+  const p = pad + (1 - g) * 6; rr(r[0] - p, r[1] - p, r[2] + p * 2, r[3] + p * 2, rad + p); ctx.stroke(); ctx.restore();
+}
+function caret(t, x, y, h = 18) { if (Math.floor(t * 2.2) % 2 === 0) { ctx.fillStyle = '#241E19'; ctx.fillRect(x + 1, y - h + 4, 1.4, h); } }
+
+function clampCam(o) {
+  if (o.s * 1440 >= W) o.fx = cl(o.fx, o.cx / o.s, 1440 - (W - o.cx) / o.s);
+  if (o.s * 860 >= H) o.fy = cl(o.fy, o.cy / o.s, 860 - (H - o.cy) / o.s);
+  return o;
+}
+const toScreen = (cam, x, y) => [cam.cx + (x - cam.fx) * cam.s, cam.cy + (y - cam.fy) * cam.s];
+
+// ------------------------------------------------------------------ background (cream to gold, as in 1.1)
+function background(t) {
+  ctx.fillStyle = '#F1EDE3'; ctx.fillRect(0, 0, W, H);
+  const blob = (x, y, rx, ry, col, a) => {
+    ctx.save(); ctx.translate(x, y); ctx.scale(1, ry / rx);
+    const g = ctx.createRadialGradient(0, 0, 0, 0, 0, rx);
+    g.addColorStop(0, col + a); g.addColorStop(.55, col + Math.round(parseInt(a, 16) * .45).toString(16).padStart(2, '0')); g.addColorStop(1, col + '00');
+    ctx.fillStyle = g; ctx.fillRect(-rx, -rx, rx * 2, rx * 2); ctx.restore();
+  };
+  blob(350 + Math.sin(t * .12) * 60, 350 + Math.cos(t * .1) * 40, 900, 760, '#F9EFC2', 'ff');
+  blob(1700 + Math.cos(t * .1) * 50, 200 + Math.sin(t * .12) * 40, 800, 650, '#FFFFFF', 'ff');
+  blob(1300 + Math.sin(t * .09 + 1) * 60, 1010 + Math.cos(t * .11) * 40, 950, 650, '#F3DD86', 'ee');
+}
+
+// ------------------------------------------------------------------ text: per word rise (title)
+let globalT = 0;
+function words(text, x, y, t0, step, size, weight, color, fam = 'Neco') {
+  font(weight, size, fam); ctx.fillStyle = color; ctx.textBaseline = 'alphabetic';
+  let cx = x;
+  text.split(' ').forEach((w, i) => {
+    const k = P(globalT, t0 + i * step, t0 + i * step + .5, E.q);
+    if (k > 0) { ctx.save(); ctx.globalAlpha *= k; ctx.fillText(w, cx, y + (1 - k) * 44); ctx.restore(); }
+    cx += ctx.measureText(w + ' ').width;
+  });
+}
+// ------------------------------------------------------------------ mascot
+function mascot(pose, t, start, end, x, y, w, { from = 'bottom', flip = false } = {}) {
+  if (t < start || t > end) return;
+  const m = MMETA[pose], fr = MASC[pose][Math.floor((t - start) * m.fps) % m.frames];
+  const h = w * m.size[1] / m.size[0];
+  const vin = P(t, start, start + .6, E.back), vout = P(t, end - .4, end, E.io);
+  let dy = 0, sc = 1;
+  if (from === 'bottom') dy = (1 - vin) * 600 + vout * 600; else sc = Math.max(.001, P(t, start, start + .5, E.back) * (1 - vout));
+  const land = P(t, start + .45, start + .7) * (1 - P(t, start + .7, start + 1));
+  ctx.save(); ctx.translate(x + w / 2, y + h + dy); ctx.scale((flip ? -1 : 1) * sc * (1 + .04 * land), sc * (1 - .06 * land));
+  ctx.drawImage(fr, -w / 2, -h, w, h); ctx.restore();
+  return { x, y, w, h, dy, sc };
+}
+// ------------------------------------------------------------------ caption pill (exactly as 1.1 and 1.2)
+function caption(t) {
+  const first = CAP[0][0];
+  if (t < first || t > CAP_END + .1) return;
+  let ci = 0; for (let i = 0; i < CAP.length; i++) if (t >= CAP[i][0]) ci = i;
+  const [t0, n, text] = CAP[ci];
+  const H = 62, R = 21, PAD = 90;
+  font(500, 26, 'Neco'); const widthOf = s => ctx.measureText(s).width + PAD;
+  const open = P(t, first + .12, first + .55, E.qio), close = P(t, CAP_END - .45, CAP_END - .05, E.qio);
+  let w = widthOf(text);
+  if (ci > 0) w = L(widthOf(CAP[ci - 1][2]), w, P(t, t0, t0 + .45, E.qio));
+  w = L(H, w, open * (1 - close));
+  const pop = (x => x <= 0 ? 0 : E.back(x))(cl((t - first) / .32)) * (1 - P(t, CAP_END - .1, CAP_END + .1, E.io));
+  if (pop <= 0) return;
+  const x = 960 - w / 2, y = 1022 - H / 2;
+  ctx.save();
+  ctx.translate(960, y + H / 2); ctx.scale(pop, pop); ctx.translate(-960, -(y + H / 2));
+  ctx.shadowColor = 'rgba(35,30,25,.10)'; ctx.shadowBlur = 8; ctx.shadowOffsetY = 4; ctx.fillStyle = '#FFFFFF'; rr(x, y, w, H, H / 2); ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.strokeStyle = '#DDD1BE'; ctx.lineWidth = 1; ctx.stroke();
+  ctx.save(); rr(x, y, w, H, H / 2); ctx.clip();
+  ctx.fillStyle = '#F7E17E'; ctx.beginPath(); ctx.arc(x + 31, y + H / 2, R, 0, Math.PI * 2); ctx.fill();
+  ctx.save(); ctx.beginPath(); ctx.arc(x + 31, y + H / 2, R, 0, Math.PI * 2); ctx.clip();
+  font(700, n >= 10 ? 17 : 19); ctx.fillStyle = '#231E19'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  const nk = ci > 0 ? P(t, t0, t0 + .35, E.qio) : 1;
+  if (ci > 0 && nk < 1) { ctx.globalAlpha = 1 - nk; ctx.fillText(String(CAP[ci - 1][1]), x + 31, y + H / 2 + 1 - nk * 22); }
+  ctx.globalAlpha = nk; ctx.fillText(String(n), x + 31, y + H / 2 + 1 + (1 - nk) * 22); ctx.restore();
+  font(500, 26, 'Neco'); ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#231E19';
+  const tin = ci === 0 ? P(t, first + .35, first + .7, E.q) : P(t, t0 + .12, t0 + .5, E.q);
+  const tout = ci > 0 ? 1 - P(t, t0, t0 + .15, E.io) : 0;
+  const fadeEnd = 1 - P(t, CAP_END - .5, CAP_END - .3, E.io);
+  if (tout > 0) { ctx.globalAlpha = tout * fadeEnd; ctx.fillText(CAP[ci - 1][2], x + 64, y + H / 2 + 1 - (1 - tout) * 10); }
+  ctx.globalAlpha = tin * fadeEnd; ctx.fillText(text, x + 64, y + H / 2 + 1 + (1 - tin) * 12);
+  ctx.restore(); ctx.restore();
+}
+
+// ------------------------------------------------------------------ title card (1.2 layout) and end card
+const TITLE = { tag: 'ANDRI ACADEMY · 5.1', l1: 'Check many contracts', l2: 'at once, in one table.' };
+function title(t) {
+  if (t > T.push + .9) return;
+  const up = P(t, T.push, T.push + .8, E.qio);
+  ctx.save(); ctx.translate(0, -up * 1080);
+  ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.clip();
+  ctx.fillStyle = '#F7E17E'; ctx.fillRect(0, 0, W, H);
+  const e = P(t, 0.3, 0.75); font(600, 22); ctx.fillStyle = '#494746'; ctx.globalAlpha = e;
+  ctx.letterSpacing = '3px'; ctx.fillText(TITLE.tag, 122, 392); ctx.letterSpacing = '0px'; ctx.globalAlpha = 1;
+  // 1.2 sizes (128 / 84); the first line is longer than earlier titles, so it is fitted to end before the mascot
+  font(500, 128, 'Neco'); const s1 = Math.min(128, Math.floor(128 * 1040 / ctx.measureText(TITLE.l1).width));
+  words(TITLE.l1, 120, 530, 0.5, .09, s1, 500, '#231E19');
+  words(TITLE.l2, 120, 640, 1.15, .09, 84, 400, '#231E19');
+  mascot('wave', t, .25, T.push + .9, 1180, 330, 640);
+  ctx.restore();
+}
+const NEXT = 'Andri Academy · Next: Your draft and their contract, finished in Word';
+function endCard(t) {
+  if (t < END) return;
+  // logo and line on the left, mascot on the right, centred as one group (the next title is longer than in 1.1)
+  font(500, 25); const tw = ctx.measureText(NEXT).width, bw = Math.max(520, tw), gx = Math.round((1920 - (bw + 30 + 330)) / 2), mx = gx + bw + 30 - 45;
+  const a = P(t, END + .05, END + .65), dy = (1 - P(t, END + .05, END + .75, E.q)) * 24;
+  ctx.save(); ctx.globalAlpha = a; ctx.translate(0, dy);
+  ctx.drawImage(IMG.logo, gx - 3, 438, 520, 520 * 600 / 2299);
+  ctx.fillStyle = '#494746'; ctx.textBaseline = 'alphabetic'; ctx.fillText(NEXT, gx, 635);
+  ctx.restore();
+  const m = mascot('done', t, END + .25, DURATION + 2, mx, 400, 420, { from: 'pop' });
+  if (m) {
+    const b = MMETA.done.badge, sc = m.sc;
+    const bx = m.x + m.w / 2 + (b[0] * m.w + b[2] * m.w / 2 - m.w / 2) * sc, by = m.y + m.h + (b[1] * m.h + b[3] * m.h / 2 - m.h) * sc;
+    const fi = Math.floor((t - END - .25) * MMETA.disc.fps) % MMETA.disc.frames, mw = m.w * m.sc, mh = m.h * m.sc;
+    const ox = m.x + m.w / 2 - mw / 2, oy = m.y + m.h + m.dy - mh;
+    const x = cl((t - END - .75) / .34), k = x <= 0 ? 0 : E.back(x);
+    if (k > 0) {
+      ctx.save(); ctx.globalAlpha *= cl(x * 4);
+      ctx.translate(bx, by); ctx.rotate((1 - k) * -0.35); ctx.scale(k, k); ctx.translate(-bx, -by);
+      ctx.drawImage(MASC.tick[fi], ox, oy, mw, mh); ctx.restore();
+    }
+  }
+}

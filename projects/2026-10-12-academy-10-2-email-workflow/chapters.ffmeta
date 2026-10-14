@@ -1,0 +1,62 @@
+;FFMETADATA1
+title=Andri Academy 10.2 · Workflows: answer incoming emails automatically
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=9550
+title=Introduction
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=9550
+END=18900
+title=1. A new workflow
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=18900
+END=29000
+title=2. The trigger
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=29000
+END=46300
+title=3. Check it
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=46300
+END=57900
+title=4. Write the memo
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=57900
+END=71100
+title=5. Approve it
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=71100
+END=83400
+title=6. Reply
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=83400
+END=90600
+title=7. Publish
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=90600
+END=108100
+title=8. Switch it on
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=108100
+END=116600
+title=Up next

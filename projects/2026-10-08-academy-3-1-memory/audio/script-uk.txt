@@ -1,0 +1,17 @@
+Tired of telling Andri the same thing in every conversation? Say it once, and Andri remembers.
+
+In a matter, just say it in the chat. Start with "remember in this case", then the fact.
+
+Andri saves it as a note for this matter, and uses it from now on.
+
+To check what Andri knows, just ask.
+
+If something changes, tell it to forget. The note is deleted straight away.
+
+To see everything Andri keeps, open Personalisation, then Memories.
+
+Personal holds how you work, in all your matters. Firm holds rules for everyone, like writing to clients in formal English. Only admins can add those. And each matter has its own folder.
+
+Every memory is a file. Open it, edit it, or delete it, or add one with New file.
+
+Say it once, and Andri keeps it: for you, your firm, and every matter.

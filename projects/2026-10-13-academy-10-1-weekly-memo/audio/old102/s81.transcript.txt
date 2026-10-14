@@ -1,0 +1,10 @@
+0:00.27  More tasks than hours before a deadline? Hand them to Andri and to your trainee.
+0:06.27  Assignments in the top bar holds every task in your firm. See just yours under My Work,
+0:13.27  filtered by status, matter, due date or priority and view them as a board or a list.
+0:20.27  Click New and give the task a title and a short description.
+0:24.27  Then set it up, a priority, the type of task, the matter it belongs to and a due date.
+0:35.78  Create it and it's on the board, under To Do.
+0:39.78  Switch to the list, open the task and click Delegate to Andri.
+0:45.78  Running the background lets Andri work on its own and report back here.
+0:50.78  Work Together opens the Matter Chat so you can watch and steer.
+0:54.78  Andri is on it. The task moves to...

@@ -1,0 +1,636 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Academy 1.1 · Your first matter, start to finish</title>
+<style>
+@font-face{font-family:Neco;src:url(../fonts/Neco-400.woff2) format("woff2");font-weight:400}
+@font-face{font-family:Neco;src:url(../fonts/Neco-500.woff2) format("woff2");font-weight:500}
+@font-face{font-family:Neco;src:url(../fonts/Neco-700.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Rethink;src:url(../fonts/RethinkSans.woff2) format("woff2");font-weight:400 800}
+:root{--bg:#D6CFBB;--ink:#241E19;--ink2:#2E2924;--mute:#8F877B;--line:#E4DED3;--line2:#CCC1B3;--yellow:#F8E37C;--yellow2:#F3D85A;--page:#F2EFE9;--card:#FEFDFB;--doc:#638363;--ent:#96732C}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);font-family:Rethink,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+svg{display:block}
+.abs{position:absolute}
+#stage{position:absolute;inset:0;overflow:hidden}
+
+/* ---------- kinetic text (v7 style) ---------- */
+.kt{position:absolute;font-family:Neco;font-weight:500;letter-spacing:-.01em;line-height:1.05;color:var(--ink)}
+.kt .ln{display:block;will-change:transform,opacity}
+.kt .m{color:var(--mute)}
+.eyebrow{position:absolute;font:600 22px Rethink;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.steplbl{position:absolute;left:240px;top:44px;display:flex;align-items:center;gap:16px;font:500 34px Neco;color:var(--ink)}
+.steplbl b{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--yellow);font:700 22px Rethink;color:var(--ink)}
+
+/* ---------- the window ---------- */
+#win{position:absolute;left:240px;top:120px;width:1440px;height:860px;border-radius:22px;overflow:hidden;background:var(--page);
+  box-shadow:0 40px 80px -30px rgba(60,45,20,.45),0 10px 30px rgba(60,45,20,.12),0 0 0 1px rgba(60,45,20,.08);transform-origin:0 0;will-change:transform}
+.app{position:absolute;inset:0;font-size:16px}
+.scr{position:absolute;inset:0}
+/* top nav */
+.nav{position:absolute;left:0;right:0;top:0;height:67px;border-bottom:1px solid #E2DCCF;background:#F1EEE8;display:flex;align-items:center;padding:0 16px}
+.nav .lg{width:32px;height:32px;margin-right:38px}
+.nav .lk{font-size:15px;margin-right:26px;color:#3a332c;position:relative;height:67px;display:flex;align-items:center}
+.nav .lk.on{color:var(--ink);font-weight:500}
+.nav .lk.on:after{content:"";position:absolute;left:-12px;right:-12px;bottom:-1px;height:2px;background:var(--ink)}
+.badge{display:inline-grid;place-items:center;min-width:18px;height:18px;border-radius:9px;background:var(--yellow);font-size:11px;font-weight:600;margin-left:6px}
+.nav .rt{margin-left:auto;display:flex;align-items:center;gap:22px}
+.ic{width:20px;height:20px;color:#3a332c;flex:none}
+.ic svg{width:100%;height:100%}
+.firm{display:flex;align-items:center;gap:8px;border:1px solid #DDD5C8;border-radius:10px;padding:8px 12px;font-size:14px;font-weight:500;background:#ECE8E0}
+.av{width:30px;height:30px;border-radius:50%;background:var(--yellow);display:grid;place-items:center;font:700 13px Rethink}
+/* matter card */
+.rail{position:absolute;left:0;top:67px;bottom:0;width:56px}
+.rail .ri{position:absolute;left:16px;width:24px;height:24px;color:#4a4239}
+.rail .ri.on{left:8px;width:40px;height:40px;margin-top:-8px;border-radius:12px;border:2px solid var(--yellow);background:#FFFDF2;padding:9px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.mcard{position:absolute;left:56px;right:2px;top:84px;bottom:16px;background:var(--card);border-radius:16px;box-shadow:0 0 0 1px #E6E0D5,0 2px 6px rgba(0,0,0,.04);overflow:hidden}
+.mhead{position:absolute;left:0;right:0;top:0;height:56px;display:flex;align-items:center;padding:0 12px;gap:10px;background:var(--card);z-index:3}
+.crumb{display:flex;align-items:center;gap:6px;font-size:13.5px;color:#3a332c}
+.crumb .ic{width:15px;height:15px}
+.mname{border-left:1px solid #E2DCCF;padding-left:12px;margin-left:6px}
+.mname b{display:block;font:700 19px Neco;line-height:1.1}
+.mname small{font-size:11.5px;color:#4a4239}
+.pill{display:flex;align-items:center;gap:6px;border:1px solid #D7CFC2;border-radius:8px;padding:4px 9px;font-size:12.5px;margin-left:8px}
+.pill i{font-style:normal;background:#EEE9E1;border-radius:5px;padding:0 6px;font-size:11px}
+.kbbtn{margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--yellow);border-radius:12px;padding:10px 14px;font-size:14px;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.kbbtn .ic{width:17px;height:17px}
+.kbbtn i{font-style:normal;font-size:12px;font-weight:500;opacity:.8}
+/* greeting */
+.greet{position:absolute;left:0;right:0;top:0;bottom:0}
+.greet h1{position:absolute;left:0;right:0;top:250px;display:flex;justify-content:center;align-items:center;gap:18px;font:400 64px Neco;letter-spacing:-.01em}
+.greet h1 img{width:58px;height:58px}
+.greet p{position:absolute;left:0;right:0;top:338px;text-align:center;font-size:20px;color:#6b645b}
+/* chat box */
+.cbox{position:absolute;width:760px;height:98px;border-radius:20px;background:#FFFEFA;border:2px solid #F4E8B0;box-shadow:0 4px 18px rgba(200,170,60,.16)}
+.cbox .ph{position:absolute;left:18px;top:18px;right:18px;font-size:17px;color:#9b958c;white-space:nowrap;overflow:hidden}
+.cbox .tx{position:absolute;left:18px;top:17px;right:18px;font-size:17px;color:var(--ink);line-height:1.45}
+.cbox .bar{position:absolute;left:14px;right:14px;bottom:12px;height:30px;display:flex;align-items:center;gap:14px;font-size:13px;color:#3a332c}
+.cbox .bar .ic{width:17px;height:17px}
+.cbox .eq{display:flex;align-items:center;gap:6px;padding:5px 9px;border-radius:9px}
+.cbox .eq.hot{background:#FBF1C8}
+.cbox .send{margin-left:auto;display:flex;align-items:center;gap:14px}
+.cbox .go{width:28px;height:28px;border-radius:8px;background:#FBEFB6;display:grid;place-items:center}
+.cbox .go.on{background:var(--yellow)}
+.cbox .go .ic{width:15px;height:15px}
+.cbox .atb{position:relative}
+.cbox .atb em{position:absolute;right:-8px;top:-9px;width:15px;height:15px;border-radius:50%;background:var(--yellow);font:600 9.5px Rethink;font-style:normal;display:grid;place-items:center}
+.chip{background:#EDE6D8;color:#96732C;border-radius:4px;padding:1px 3px}
+.caret{display:inline-block;width:1.5px;height:20px;background:var(--ink);vertical-align:-4px;margin-left:1px}
+.disc{position:absolute;z-index:4;font-size:11px;color:#3a332c;text-align:center}
+/* popovers */
+.pop{position:absolute;z-index:20;background:#EAE4D9;border-radius:16px;box-shadow:0 18px 40px rgba(60,45,20,.22),0 0 0 1px rgba(60,45,20,.06);overflow:hidden}
+.eqp{width:712px}
+.eqp .hd{text-align:center;padding:14px 0 10px}
+.eqp .hd b{font:700 17px Neco;display:block}
+.eqp .hd small{font-size:12px;color:#5a534a}
+.eqp .q{padding:9px 16px;font-size:13.5px;line-height:1.5;color:#2E2924;border-radius:8px;margin:0 6px}
+.eqp .q.hot{background:#DED6C7}
+.eqp .ft{display:flex;justify-content:space-between;padding:9px 16px 11px;font-size:11.5px;color:#3a332c}
+.mp{width:712px}
+.mp .hd{display:flex;align-items:center;gap:8px;padding:12px 14px;font-size:13px;font-weight:500;border-bottom:1px solid #DDD5C6}
+.mp .hd .ic{width:15px;height:15px;color:#638363}
+.mp .hd span{margin-left:auto;font-size:11.5px;color:#4a4239;font-weight:400}
+.mp .row{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;background:#E1D9CA}
+.mp .ft{padding:10px 14px;font-size:11.5px;color:#3a332c}
+.tag{display:inline-block;font-size:11px;border:1px solid #CFC5B5;border-radius:6px;padding:1px 6px;background:#fff}
+.fi{width:20px;height:24px;border-radius:3px;flex:none;position:relative}
+.fi.pdf{background:linear-gradient(135deg,#E5484D,#B22A2F)}
+.fi.doc{background:linear-gradient(135deg,#4C8DF0,#2B5BC4)}
+.fi.eml{background:linear-gradient(135deg,#6F7BEA,#4651B8)}
+.fi:after{content:attr(data-t);position:absolute;left:1px;bottom:2px;font:700 6.5px Rethink;color:#fff}
+/* tables */
+.toolbar{position:absolute;display:flex;align-items:center;gap:8px}
+.btn{display:flex;align-items:center;gap:7px;border:1px solid #D2C8B8;border-radius:10px;padding:8px 13px;font-size:14px;font-weight:500;background:#F6F3EE;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.btn .ic{width:16px;height:16px}
+.btn.y{background:var(--yellow);border-color:transparent}
+.search{display:flex;align-items:center;gap:8px;border:1px solid #D9D1C4;background:#fff;border-radius:10px;padding:9px 12px;font-size:14px;color:#8a837a}
+.search .ic{width:16px;height:16px}
+.tbl{position:absolute;background:#fff;border-radius:14px;box-shadow:0 0 0 1px #E3DCCF;overflow:hidden}
+.tbl .th{display:flex;height:40px;align-items:center;font-size:12.5px;color:#3a332c;border-bottom:1px solid #EEE9E0}
+.tbl .tr{display:flex;align-items:center;height:60px;font-size:14px;border-bottom:1px solid #F2EEE7}
+.status{display:inline-flex;align-items:center;gap:5px;background:#EAF2E6;color:#5F8A5B;border-radius:5px;padding:2px 7px;font-size:12px}
+.status .ic{width:12px;height:12px;color:#5F8A5B}
+.spin{width:14px;height:14px;border-radius:50%;border:2px solid #E3DCCF;border-top-color:#96732C}
+/* dialog */
+.dim{position:absolute;inset:0;background:rgba(40,34,26,.55)}
+.dlg{position:absolute;left:490px;top:208px;width:475px;background:#EFECE6;border-radius:18px;padding:26px 24px 24px;box-shadow:0 30px 60px rgba(0,0,0,.25)}
+.dlg h3{font:700 18px Neco}
+.dlg p{font-size:14.5px;color:#4a4239;margin-top:6px}
+.dlg label{display:block;font-size:14.5px;font-weight:500;margin:34px 0 6px}
+.dlg label+label{margin-top:16px}
+.dlg .in{height:42px;border-radius:10px;border:1px solid #CFC6B8;background:#F7F5F1;padding:0 12px;display:flex;align-items:center;font-size:15px}
+.dlg .in.f{border:2px solid #3a332c;box-shadow:0 0 0 2px #E2DCCF}
+.dlg .cn{margin-top:20px;height:40px;border:1px solid #D9D1C4;border-radius:10px;display:flex;align-items:center;gap:10px;padding:0 12px;font-size:12.5px;color:#4a4239}
+.dlg .bt{display:flex;justify-content:flex-end;gap:12px;margin-top:28px}
+.dlg .bt span{padding:10px 20px;border-radius:12px;font-size:14.5px;font-weight:600}
+.dlg .cancel{border:2px solid #D7CBB8}
+.dlg .create{background:#F8EBB0;color:#a59a7f}
+.dlg .create.on{background:var(--yellow);color:var(--ink)}
+/* thread */
+.thread{position:absolute;left:0;right:0;top:56px;bottom:0;overflow:hidden}
+.tin{position:absolute;left:0;right:0;top:0;will-change:transform}
+.ubub{margin:24px 230px 18px auto;max-width:650px;background:#F8E7A2;border-radius:16px;padding:12px 16px;font-size:16px;line-height:1.5;color:#3a332c}
+.steps{margin:0 230px 0 240px;position:relative}
+.step{position:relative;margin:0 0 9px 26px;border:1px solid #ECE6DC;border-radius:12px;background:#FBFAF7;padding:9px 12px;font-size:12.5px}
+.step:before{content:"";position:absolute;left:-28px;top:11px;width:14px;height:14px;border-radius:50%;background:#C9D8C6;box-shadow:0 0 0 3px #EEF3EC}
+.step.y:before{background:#F8E37C;box-shadow:0 0 0 3px #FBF4D2}
+.step b{font-weight:600}
+.step .k{display:inline-block;background:#FBF3D6;border-radius:5px;padding:0 6px;margin:0 6px;font-size:11px}
+.step i{color:#9b958c}
+.step .hits{margin-top:6px;font-size:11.5px;color:#5F8A5B;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.step .hits span{border:1px solid #D3D9CF;background:#F1F4EF;border-radius:6px;padding:1px 7px;color:#4a4239}
+.step .ck{display:inline-block;width:13px;height:13px;vertical-align:-2px;margin-right:6px;color:#5F8A5B}
+.ans{margin:14px 230px 0 240px;font-size:16px;line-height:1.65;color:var(--ink2);position:relative}
+.ans:before{content:"";position:absolute;left:-28px;top:6px;width:14px;height:14px;border-radius:50%;background:#C9D8C6;box-shadow:0 0 0 3px #EEF3EC}
+.ans p{margin-bottom:12px}
+.ans h4{font:700 22px Neco;margin:14px 0 8px;color:var(--ink)}
+.ans ul{padding-left:22px}
+.ans li{margin-bottom:4px}
+.dl{color:var(--doc);text-decoration:underline;text-underline-offset:3px}
+.dl:before{content:"";display:inline-block;width:12px;height:13px;margin-right:4px;vertical-align:-1px;background:currentColor;-webkit-mask:var(--fileic) center/contain no-repeat}
+.en{color:var(--ent);text-decoration:underline;text-underline-offset:3px}
+/* source panel */
+.src{position:absolute;top:84px;bottom:16px;right:2px;width:580px;background:#fff;border-radius:16px;box-shadow:0 0 0 1px #E6E0D5;overflow:hidden}
+.src .tabs{height:54px;border-bottom:1px solid #EEE9E0;display:flex;align-items:center;padding:0 12px;gap:10px}
+.src .tab{display:flex;align-items:center;gap:7px;background:#EFECE7;border-radius:8px;padding:6px 10px;font-size:13px}
+.src .tab .ic{width:14px;height:14px}
+.src .pg{position:absolute;left:36px;right:36px;top:76px;bottom:0;background:#fff;box-shadow:0 0 0 1px #E2DCCF;font-family:"Times New Roman",Times,serif;color:#111;padding:26px 60px;font-size:13px;line-height:1.35}
+.src .pg h5{text-align:center;font-size:14px;letter-spacing:.02em;border-bottom:1px solid #222;padding-bottom:3px;margin-bottom:12px}
+.src .pg .sh{font-weight:700;font-size:11.5px;margin:10px 0 4px}
+.src .pg p{font-size:12px;margin-bottom:8px;width:290px}
+.hl{background:linear-gradient(#F8E37C,#F8E37C) no-repeat;background-size:0% 100%}
+/* jobs */
+.jtb .th span,.jtb .tr span{display:block}
+/* letter */
+.letter{position:absolute;width:760px;height:1075px;background:#fff;box-shadow:0 30px 70px -20px rgba(60,45,20,.5),0 0 0 1px rgba(0,0,0,.06);font-family:Georgia,"Times New Roman",serif;color:#111;padding:54px 64px;transform-origin:50% 50%}
+.letter .lh{color:#23236A;font:700 26px Georgia;letter-spacing:.08em}
+.letter .ad{font-size:11.5px;color:#555;margin-top:6px;padding-bottom:9px;border-bottom:2px solid #3B3B7A}
+.letter .pc{font-weight:700;font-size:13px;margin:16px 0 12px}
+.letter .to{font-size:16px;line-height:1.35}
+.letter .dt{font-size:16px;margin-top:14px}
+.letter .rf{font-size:13px;margin-top:2px;line-height:1.5}
+.letter .dr{font-size:16px;margin:16px 0 10px}
+.letter h6{font-size:16px;line-height:1.35;margin-bottom:10px}
+.letter .bd{font-size:15.5px;line-height:1.5}
+.letter .bars{margin-top:18px;display:flex;flex-direction:column;gap:11px}.letter .bars i{display:block;height:9px;border-radius:5px;background:#ECE8E1}
+.lmark{background:linear-gradient(rgba(248,227,124,.85),rgba(248,227,124,.85)) no-repeat;background-size:0% 100%;padding:0 2px}
+/* callouts */
+.callout{position:absolute;background:var(--yellow);border-radius:14px;padding:10px 16px 11px;box-shadow:0 8px 20px rgba(120,95,20,.18)}
+.callout b{display:block;font:500 25px Neco;line-height:1.1}
+.callout span{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:500;margin-top:4px}
+.callout .fi{width:13px;height:16px}
+.callout .fi:after{display:none}
+svg.wires{position:absolute;inset:0;width:1920px;height:1080px;pointer-events:none}
+svg.wires path{fill:none;stroke:#C9A733;stroke-width:2}
+svg.wires circle{fill:#C9A733}
+/* mascot */
+.masc{position:absolute;transform-origin:50% 100%;will-change:transform,opacity}
+.masc svg{width:100%;height:auto}
+/* cursor */
+#cur{position:absolute;left:0;top:0;width:30px;height:30px;z-index:50;will-change:transform}
+#ripple{position:absolute;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:3px solid rgba(201,167,51,.9);z-index:49}
+/* outro */
+.chk{position:absolute;display:flex;flex-direction:column;gap:18px}
+.chk div{display:flex;align-items:center;gap:16px;font:500 30px Neco}
+.chk i{width:38px;height:38px;border-radius:50%;border:2px solid #A79E8B;display:grid;place-items:center;font-style:normal}
+.chk i svg{width:22px;height:22px;color:var(--ink)}
+.chk .on i{background:var(--yellow);border-color:var(--yellow)}
+</style></head>
+<body>
+<div id="stage">
+
+<!-- S0 / S1 kinetic text -->
+<div class="kt" id="k0" style="left:190px;top:380px;font-size:104px"><span class="ln">First day in Andri?</span><span class="ln m">No idea where to start?</span></div>
+<div class="eyebrow" id="k1e" style="left:190px;top:350px">Andri Academy · 1.1</div>
+<div class="kt" id="k1" style="left:190px;top:400px;font-size:118px"><span class="ln">Your first matter,</span><span class="ln m">start to finish.</span></div>
+
+<div class="steplbl" id="slbl"><b id="slbln">1</b><span id="slblt">Create a matter</span></div>
+
+<!-- ===== the Andri window ===== -->
+<div id="win"><div class="app">
+  <div class="nav">
+    <img class="lg" src="../assets/andri-logo.svg">
+    <div class="lk" id="navMatters">Matters</div><div class="lk">Assignments</div><div class="lk">Inbox<span class="badge">1</span></div><div class="lk">Explore&nbsp;<span class="ic" style="width:14px;height:14px">{{I:chevron-down}}</span></div>
+    <div class="rt"><span class="ic">{{I:sliders-horizontal}}</span><span class="firm"><span class="ic" style="width:15px;height:15px">{{I:house}}</span>Aldridge Vine</span><span class="ic">{{I:layout-grid}}</span><span class="ic">{{I:info}}</span><span class="av">AF</span></div>
+  </div>
+
+  <!-- screen A: matters list -->
+  <div class="scr" id="scrList">
+    <div class="toolbar" style="left:54px;top:108px"><div class="search" style="width:316px"><span class="ic">{{I:search}}</span>Search matters...</div><div class="btn" style="background:#fff"><span class="ic">{{I:arrow-down}}</span>Newest first<span class="ic">{{I:chevron-down}}</span></div></div>
+    <div class="btn y" id="btnNew" style="position:absolute;right:38px;top:106px;padding:11px 20px;font-size:14.5px">New Matter</div>
+    <div class="tbl" style="left:55px;right:38px;top:163px">
+      <div class="th"><span style="width:210px;padding-left:24px">Matter Name</span><span style="width:130px">Tags</span><span style="flex:1;text-align:center">Summary</span><span style="width:410px">Created</span></div>
+      <div class="tr" id="rowNew" style="height:0;overflow:hidden"><span style="width:340px;padding-left:24px;font-weight:500">Nair v Calderdale Logistics</span><span style="flex:1;color:#8a837a;font-size:13.5px">Upload documents to your private matter knowledge base to generate a summary</span><span style="width:410px">6 Oct 2026</span></div>
+      <div class="tr"><span style="width:340px;padding-left:24px;font-weight:500">Hallam / Brightwater supply</span><span style="flex:1;color:#3a332c;font-size:13.5px">Case Overview &amp; Type: a commercial dispute over a supply agreement for haulage services…</span><span style="width:410px">29 Sept 2026</span></div>
+      <div class="tr"><span style="width:340px;padding-left:24px;font-weight:500">Okafor v Pennine Health</span><span style="flex:1;color:#3a332c;font-size:13.5px">Case Overview &amp; Type: an employment law matter on a flexible working request refused…</span><span style="width:410px">24 Sept 2026</span></div>
+      <div class="tr"><span style="width:340px;padding-left:24px;font-weight:500">Van Hoven lease renewal</span><span style="flex:1;color:#3a332c;font-size:13.5px">Case Overview &amp; Type: a commercial lease renewal for warehouse premises in Wakefield…</span><span style="width:410px">22 Sept 2026</span></div>
+      <div class="tr" style="border:0"><span style="width:340px;padding-left:24px;font-weight:500">Marsh estate</span><span style="flex:1;color:#3a332c;font-size:13.5px">Case Overview &amp; Type: a contentious probate matter concerning a 2019 will…</span><span style="width:410px">21 Sept 2026</span></div>
+    </div>
+    <div class="dim" id="dim"></div>
+    <div class="dlg" id="dlg">
+      <h3>New Matter</h3><p>Create a matter to start your legal research.</p>
+      <label>Matter Name</label><div class="in f" id="dlgIn"><span id="dlgTx"></span></div>
+      <label>Jurisdiction</label><div class="in" style="justify-content:space-between">United Kingdom<span class="ic" style="width:16px;height:16px">{{I:chevron-down}}</span></div>
+      <div class="cn"><span class="ic" style="width:15px;height:15px">{{I:link}}</span>No connectors signed in yet<span style="margin-left:auto;color:var(--ink);font-weight:500">Connectors ›</span></div>
+      <div class="bt"><span class="cancel">Cancel</span><span class="create" id="btnCreate">Create</span></div>
+    </div>
+  </div>
+
+  <!-- screen B: matter (chat) -->
+  <div class="scr" id="scrMatter">
+    <div class="rail">
+      <div class="ri on" id="railChat" style="top:203px">{{I:message-square}}</div>
+      <div class="ri" style="top:247px">{{I:file-text}}</div><div class="ri" style="top:291px">{{I:play}}</div><div class="ri" style="top:335px">{{I:git-branch}}</div>
+      <div class="ri" style="top:379px">{{I:table}}</div><div class="ri" style="top:423px">{{I:pen-tool}}</div><div class="ri" style="top:467px">{{I:clipboard-list}}</div>
+      <div class="ri" id="railJobs" style="top:511px">{{I:file-plus-2}}</div><div class="ri" style="top:555px">{{I:mail}}</div><div class="ri" style="top:599px">{{I:shield}}</div>
+    </div>
+    <div class="mcard" id="mcard">
+      <div class="mhead">
+        <div class="crumb"><span class="ic">{{I:house}}</span>Matters <span class="ic" style="width:12px;height:12px;color:#9b958c">{{I:chevron-right}}</span></div>
+        <div class="mname"><b>Nair v Calderdale Logistics</b><small>United Kingdom</small></div>
+        <div class="pill"><span class="ic" style="width:13px;height:13px">{{I:messages-square}}</span>Conversations <i>1</i></div>
+        <span class="ic" style="margin-left:auto;width:18px;height:18px">{{I:search}}</span>
+        <div class="kbbtn" id="btnKB" style="margin-left:14px"><span class="ic">{{I:file-text}}</span>Knowledge Base <i id="kbN">0</i></div>
+      </div>
+      <div class="greet" id="greet"><h1><img src="../assets/andri-logo.svg">Good afternoon</h1><p>How can I help you today?</p></div>
+      <div class="thread" id="thread"><div class="tin" id="tin">
+        <div class="ubub" id="ub1">Provide a detailed SWOT analysis of Calderdale Logistics Limited’s position on the core issue of whether a genuine redundancy situation existed, given the tribunal’s finding that the claimed 22% fall in haulage volumes was not borne out by the figures and that volumes were broadly flat with two new clients onboarded in early 2025.</div>
+        <div class="steps" id="steps1">
+          <div class="step y"><b>Thinking</b><div style="color:#8a837a;margin-top:3px;font-size:12px">I should pull together a SWOT of Calderdale’s position, grounding it in the retrieved documents: the judgment, the ET3 and the dismissal letter, along with the key legal authorities.</div></div>
+          <div class="step"><span class="ck">{{I:circle-check}}</span><b>Search case documents</b><span class="k">by_title</span><i>05_Tribunal_Judgment</i><div class="hits">1 hits <span>05_Tribunal_Judgment</span></div></div>
+          <div class="step"><span class="ck">{{I:circle-check}}</span><b>Search case documents</b><span class="k">by_title</span><i>03_ET3_Response</i><div class="hits">1 hits <span>03_ET3_Response</span></div></div>
+          <div class="step"><span class="ck">{{I:circle-check}}</span><b>Looking up legislation</b> <i>Employment Rights Act 1996, s.139</i><div class="hits">3 hits <span>Employment Rights Act 1996 ↗</span><span>The Employment Rights Act 1996… ↗</span></div></div>
+          <div class="step"><span class="ck">{{I:circle-check}}</span><b>Searching case law</b> <i>Murray v Foyle Meats redundancy section 139</i><div class="hits">5 hits <span>[1999] UKHL 30 Murray and Anot… ↗</span><span>[2015] EWCA Civ 904 Paszkiewicz… ↗</span></div></div>
+        </div>
+        <div class="ans" id="ans1">
+          <p class="a1">The core issue is already decided against <span class="en">Calderdale Logistics Limited</span>, so this SWOT shows how little of its redundancy defence survives and where it can still fight.</p>
+          <p class="a2"><span class="en">Employment Judge Hartley’s</span> tribunal found that the claimed 22% fall in volumes was not borne out by the figures, which showed volumes broadly flat with two new clients onboarded in early 2025. <span class="dl" id="cite1">05_Tribunal_Judgment</span> It also found that no genuine redundancy situation existed. That came in the reserved judgment of <span class="en">19 March 2026</span>.</p>
+          <h4 class="a3">Strengths (what Calderdale can still rely on)</h4>
+          <ul class="a4"><li><b>The legal test is wider than “did volumes fall”.</b> Section 139 ERA 1996 asks whether the requirements of the business for employees to carry out work of a particular kind have ceased or diminished.</li></ul>
+        </div>
+        <div class="ubub" id="ub2"><span class="chip">@[03_ET3_Response.pdf]</span> List the respondent’s defences.</div>
+        <div class="steps" id="steps2"><div class="step"><span class="ck">{{I:circle-check}}</span><b>Search case documents</b><span class="k">by_title</span><i>03_ET3_Response</i><div class="hits">1 hits <span>03_ET3_Response</span></div></div></div>
+        <div class="ans" id="ans2">
+          <p><span class="en">Calderdale Logistics Limited</span> defends the claim in its entirety. <span class="dl">03_ET3_Response</span></p>
+          <ul><li><b>Genuine redundancy</b>, after a 22% fall in haulage volumes in the year to 31 December 2024</li><li><b>A fair consultation</b>, with individual meetings on <span class="en">24 February</span> and <span class="en">7 March 2025</span></li><li><b>A different role.</b> Mr Thornton’s Transport Planning role is at a lower grade and salary</li><li><b>No discrimination</b>, and Ms Nair failed to mitigate her loss</li></ul>
+        </div>
+        <div class="ubub" id="ub3">Draft a short update letter to Priya Nair on where the claim stands. <span class="chip">@[Aldridge_Vine_Letter_Template.docx]</span></div>
+        <div class="steps" id="steps3">
+          <div class="step"><span class="ck">{{I:circle-check}}</span><b>Search case documents</b><span class="k">by_title</span><i>05_Tribunal_Judgment</i><div class="hits">1 hits <span>05_Tribunal_Judgment</span></div></div>
+          <div class="step" id="stepDoc"><span class="ck" id="docCk">{{I:circle-check}}</span><b>Creating Word document</b> <i>Aldridge_Vine_Client_Update_Letter_Nair.docx</i></div>
+        </div>
+      </div></div>
+      <div id="fadebot" style="position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(rgba(254,253,251,0),#FEFDFB 45%);z-index:2"></div>
+      <div class="cbox" id="cbox" style="z-index:4">
+        <div class="ph" id="cph">Ask Andri...</div><div class="tx" id="ctx"></div>
+        <div class="bar"><span class="ic">{{I:plus}}</span><span class="ic atb" id="atb">{{I:at-sign}}<em id="atn">1</em></span>
+          <span class="eq" id="eqBtn"><span class="ic" style="width:15px;height:15px">{{I:lightbulb}}</span>Example questions</span>
+          <span style="display:flex;align-items:center;gap:7px"><span class="ic" style="width:16px;height:16px">{{I:settings}}</span>In-Depth Mode</span>
+          <span class="send"><span class="ic">{{I:laptop}}</span><span class="ic">{{I:mic}}</span><span style="width:1px;height:20px;background:#DDD5C8"></span><span class="go" id="go"><span class="ic">{{I:arrow-up}}</span></span></span></div>
+      </div>
+      <div class="disc" id="disc">Andri is an AI system and can make mistakes, so please double-check responses.</div>
+    </div>
+    <!-- example questions -->
+    <div class="pop eqp" id="eqp">
+      <div class="hd"><b>Standard Questions</b><small>General case analysis questions</small></div>
+      <div class="q">Draft a comprehensive legal argument for Ms Nair on the issue of automatic unfairness arising from her dismissal within nine weeks of returning from maternity leave on 13 January 2025…</div>
+      <div class="q">Write a professional email to Calderdale Logistics Limited (care of Bowater Sykes Solicitors) regarding the remedy hearing scheduled for 11 May 2026…</div>
+      <div class="q" id="eqPick">Provide a detailed SWOT analysis of Calderdale Logistics Limited’s position on the core issue of whether a genuine redundancy situation existed, given the tribunal’s finding that the claimed 22% fall in haulage volumes was not borne out by the figures…</div>
+      <div class="q">Prepare robust cross-examination questions for James Thornton regarding the scope, content, and daily performance of his role between 15 April 2024 and 31 March 2025…</div>
+      <div class="ft"><span>💡&nbsp; Use ← → to navigate question types</span><span>1-4 / 6</span></div>
+    </div>
+    <!-- @ menu -->
+    <div class="pop mp" id="mp">
+      <div class="hd"><span class="ic">{{I:file-text}}</span>Matter Documents<span>←/→ Next: Company Documents ›</span></div>
+      <div style="padding:9px 14px;font-size:12.5px;display:flex;gap:8px;align-items:center;border-bottom:1px solid #DDD5C6"><span class="ic" style="width:14px;height:14px">{{I:calendar}}</span>October 2026</div>
+      <div class="row"><span class="fi pdf" data-t="PDF"></span><div style="flex:1"><div style="font-size:14px;font-weight:500">03_ET3_Response.pdf <span class="tag" style="color:#C2463C;border-color:#EBB8B3;background:#FBEDEC">PDF</span></div><div style="margin-top:4px"><span class="tag" style="background:#E9E2D4;border:0">Pleadings</span></div><div style="font-size:12px;color:#4a4239;margin-top:4px">06/10/2026 14:41</div></div><span class="ic" style="width:18px;height:18px;margin-top:14px">{{I:eye}}</span></div>
+      <div class="ft">Use ↑↓ to navigate, Enter to select</div>
+    </div>
+    <!-- source viewer -->
+    <div class="src" id="srcP">
+      <div class="tabs"><div class="tab"><span class="ic">{{I:file-text}}</span>05_Tribunal_Judgment<span class="ic" style="width:12px;height:12px">{{I:x}}</span></div><span class="ic" style="margin-left:auto;width:18px;height:18px">{{I:download}}</span><span class="ic" style="width:18px;height:18px">{{I:x}}</span></div>
+      <div class="pg">
+        <h5>RESERVED JUDGMENT</h5>
+        <div class="sh">Claims and Issues</div>
+        <p>1. The Claimant brings complaints of unfair dismissal under the Employment Rights Act 1996 and of direct sex discrimination and pregnancy and maternity discrimination under sections 13 and 18 of the Equality Act 2010. The Respondent says the Claimant was fairly dismissed by reason of redundancy.</p>
+        <div class="sh">Findings of Fact</div>
+        <p id="srcPara"><span class="hl" id="srcHl">2. We heard from the Claimant and from Mr Marsden and Ms Caldwell (HR) for the Respondent. We found the Claimant a credible and consistent witness. We found Mr Marsden’s evidence on the alleged restructuring vague and unsupported by contemporaneous documents. The claimed 22% fall in volumes was not borne out by the figures, which showed volumes broadly flat with two new clients onboarded in early 2025.</span></p>
+        <p>3. We find that Mr Thornton was recruited to cover the Claimant’s maternity leave and was retained in a role materially identical to the Claimant’s. The distinction drawn by the Respondent between ‘Operations Manager’ and ‘Transport Planning’ was a label without substance. No genuine redundancy situation existed.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- screen C: knowledge base -->
+  <div class="scr" id="scrKB">
+    <div style="position:absolute;left:0;right:0;top:67px;height:68px;border-bottom:1px solid #E2DCCF;background:#F1EEE8;display:flex;align-items:center;padding-left:66px;gap:10px">
+      <div class="crumb" style="font-size:14.5px;gap:10px"><span class="ic">{{I:house}}</span>Matters <span style="color:#9b958c">›</span> Nair v Calderdale Logistics <span style="color:#9b958c">›</span> <b style="font-weight:500;color:var(--ink)">Matter Knowledge Base</b></div>
+      <div class="mname" style="margin-left:14px"><b style="font-size:22px">Nair v Calderdale Logistics</b><small>United Kingdom</small></div>
+    </div>
+    <div class="rail" style="top:67px"><div class="ri" style="top:203px">{{I:message-square}}</div><div class="ri on" style="top:247px">{{I:file-text}}</div><div class="ri" style="top:291px">{{I:play}}</div><div class="ri" style="top:335px">{{I:git-branch}}</div><div class="ri" style="top:379px">{{I:table}}</div><div class="ri" style="top:423px">{{I:pen-tool}}</div><div class="ri" style="top:467px">{{I:clipboard-list}}</div><div class="ri" style="top:511px">{{I:file-plus-2}}</div><div class="ri" style="top:555px">{{I:mail}}</div><div class="ri" style="top:599px">{{I:shield}}</div></div>
+    <div class="toolbar" style="left:122px;top:160px"><div class="search" style="width:236px"><span class="ic">{{I:search}}</span>Search documents...</div><div class="btn" style="padding:8px 9px"><span class="ic">{{I:refresh-cw}}</span></div><div class="btn" style="padding:8px 9px"><span class="ic">{{I:arrow-up-down}}</span></div><div class="btn"><span class="ic">{{I:sliders-horizontal}}</span>Filters<span class="ic">{{I:chevron-down}}</span></div></div>
+    <div class="toolbar" style="right:58px;top:204px"><div class="btn"><span class="ic">{{I:folder-plus}}</span>New Folder</div><div class="btn"><span class="ic">{{I:link}}</span>Connect</div><div class="btn" id="btnEmail"><span class="ic">{{I:mail}}</span>Email Documents</div><div class="btn"><span class="ic">{{I:user-plus}}</span>Client upload</div><div class="btn y" id="btnUp"><span class="ic">{{I:upload}}</span>Upload Matter Documents</div></div>
+    <div class="tbl" id="kbTbl" style="left:122px;right:50px;top:262px">
+      <div class="th"><span style="width:62px"></span><span style="width:290px">Name</span><span style="width:150px">Created</span><span style="flex:1">Summary</span><span style="width:150px">Status</span><span style="width:170px">Tags</span></div>
+      <div id="kbRows"></div>
+    </div>
+  </div>
+
+  <!-- screen D: jobs -->
+  <div class="scr" id="scrJobs">
+    <div style="position:absolute;left:0;right:0;top:67px;height:68px;border-bottom:1px solid #E2DCCF;background:#F1EEE8;display:flex;align-items:center;padding-left:66px;gap:10px">
+      <div class="crumb" style="font-size:14.5px;gap:10px"><span class="ic">{{I:house}}</span>Matters <span style="color:#9b958c">›</span> Nair v Calderdale Logistics <span style="color:#9b958c">›</span> <b style="font-weight:500;color:var(--ink)">Jobs</b></div>
+      <div class="mname" style="margin-left:14px"><b style="font-size:22px">Nair v Calderdale Logistics</b><small>United Kingdom</small></div>
+    </div>
+    <div class="rail" style="top:67px"><div class="ri" style="top:203px">{{I:message-square}}</div><div class="ri" style="top:247px">{{I:file-text}}</div><div class="ri" style="top:291px">{{I:play}}</div><div class="ri" style="top:335px">{{I:git-branch}}</div><div class="ri" style="top:379px">{{I:table}}</div><div class="ri" style="top:423px">{{I:pen-tool}}</div><div class="ri" style="top:467px">{{I:clipboard-list}}</div><div class="ri on" style="top:511px">{{I:file-plus-2}}</div><div class="ri" style="top:555px">{{I:mail}}</div><div class="ri" style="top:599px">{{I:shield}}</div></div>
+    <div class="toolbar" style="left:94px;top:160px"><div class="search" style="width:380px"><span class="ic">{{I:search}}</span>Search jobs...</div><div class="btn"><span class="ic">{{I:circle-dot}}</span>All statuses<span class="ic">{{I:chevron-down}}</span></div><div class="btn"><span class="ic">{{I:file-text}}</span>All types<span class="ic">{{I:chevron-down}}</span></div></div>
+    <div class="tbl jtb" style="left:94px;right:78px;top:210px">
+      <div class="th" style="text-transform:uppercase;font-size:12px;letter-spacing:.04em;color:#6b645b"><span style="width:430px;padding-left:16px">Filename</span><span style="width:137px">Type</span><span style="width:236px">Status</span><span style="flex:1">Completed</span><span style="width:110px;text-align:right;padding-right:16px">Actions</span></div>
+      <div class="tr" id="jobRow" style="height:70px;border:0"><span style="width:430px;padding-left:16px;display:flex;gap:12px;align-items:center"><span class="fi doc" data-t="W" style="width:26px;height:30px"></span><span><span style="font-size:14.5px;font-weight:500">Aldridge_Vine_Client_Update_Letter_Nair.docx</span><span style="font-size:12px;color:#6b645b">49.82 KB</span></span></span><span style="width:137px"><span class="tag" style="background:#EEE9E1;border:0;display:inline-block">DOCX</span></span><span style="width:236px"><span class="status" style="display:inline-flex">Completed</span></span><span style="flex:1">6 Oct 2026, 14:52</span><span style="display:flex;gap:8px;padding-right:16px"><span class="btn" id="btnOpen" style="padding:6px 11px;font-size:13px"><span class="ic" style="width:14px;height:14px">{{I:eye}}</span>Open</span><span class="btn" style="padding:6px 11px;font-size:13px"><span class="ic" style="width:14px;height:14px">{{I:download}}</span>Download</span></span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- letter, floats out of the window -->
+<div class="letter" id="letter">
+  <div class="lh"><span class="lmark" id="lm1">ALDRIDGE VINE LLP</span></div>
+  <div class="ad">Minerva House, 29 East Parade, Leeds LS1 5PS &nbsp;|&nbsp; T 0113 246 8800 &nbsp;|&nbsp; DX 26411 Leeds Park Square</div>
+  <div class="pc">PRIVATE AND CONFIDENTIAL</div>
+  <div class="to">Ms Priya Nair<br>14 Saltaire Road<br>Shipley<br>West Yorkshire BD18 3HN</div>
+  <div class="dt">6 October 2026</div>
+  <div class="rf">Our ref: AV/HR/NAIR/0318</div>
+  <div class="dr">Dear Ms Nair</div>
+  <h6>Claim for unfair dismissal and discrimination against Calderdale Logistics Limited - <span class="lmark" id="lm2">Case No 1803442/2025</span></h6>
+  <div class="bd">I am delighted to tell you that the Employment Tribunal has ruled in your favour on every complaint. In its reserved judgment of <span class="lmark" id="lm3">19 March 2026, the Leeds tribunal, before Employment Judge Hartley,</span> upheld all four of your complaints against Calderdale Logistics Limited.</div>
+  <div class="bars"><i style="width:100%"></i><i style="width:96%"></i><i style="width:99%"></i><i style="width:62%"></i><i style="width:0%"></i><i style="width:100%"></i><i style="width:94%"></i><i style="width:98%"></i><i style="width:97%"></i><i style="width:40%"></i><i style="width:0%"></i><i style="width:100%"></i><i style="width:88%"></i></div>
+</div>
+<svg class="wires" id="wires"></svg>
+<div class="callout" id="co1"><b>Firm template</b><span><span class="fi doc"></span>Aldridge_Vine_Letter_Template.docx</span></div>
+<div class="callout" id="co2"><b>Case number</b><span><span class="fi pdf"></span>01_ET1_Grounds_of_Claim.pdf</span></div>
+<div class="callout" id="co3"><b>The judgment</b><span><span class="fi pdf"></span>05_Tribunal_Judgment.pdf</span></div>
+<div class="callout" id="co4"><b>The exact passage</b><span><span class="fi pdf"></span>05_Tribunal_Judgment.pdf · page 1</span></div>
+<div class="callout" id="co5" style="padding:8px 14px"><b style="font-size:21px">Or forward it by email</b><span>Every matter has its own address</span></div>
+
+<div class="kt" id="k7" style="left:150px;top:400px;font-size:84px"><span class="ln">On your template.</span><span class="ln m">Every fact sourced.</span></div>
+<!-- outro -->
+<div class="kt" id="k8" style="left:150px;top:400px;font-size:96px"><span class="ln">One matter.</span><span class="ln m">The whole loop.</span></div>
+<div class="chk" id="chk" style="left:960px;top:300px">
+  <div><i>{{I:plus}}</i>Create a matter</div><div><i>{{I:upload}}</i>Add the file</div><div><i>{{I:lightbulb}}</i>Ask a first question</div>
+  <div><i>{{I:file-text}}</i>Click a source</div><div><i>{{I:at-sign}}</i>Point at one document</div><div><i>{{I:pen-tool}}</i>Ask for a first letter</div>
+</div>
+<div id="endc" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px">
+  <div style="display:flex;align-items:center;gap:22px"><img src="../assets/andri-logo.svg" style="width:96px;height:96px"><span style="font:600 104px Rethink;letter-spacing:-.03em">Andri</span></div>
+  <div style="font:500 26px Rethink;color:#6b645b">Andri Academy · Next: In-Depth, Fast, Plan or Outcome</div>
+</div>
+
+<!-- mascots -->
+<div class="masc" id="mWave" style="width:560px">{{M:andri-waving-hello}}</div>
+<div class="masc" id="mIdea" style="width:560px">{{M:andri-idea-lightbulb}}</div>
+<div class="masc" id="mSearch" style="width:520px">{{M:andri-searching-magnifier}}</div>
+<div class="masc" id="mPoint" style="width:330px">{{M:andri-presenting-feature-tiles:748}}</div>
+<div class="masc" id="mDone" style="width:560px">{{M:andri-success-checkmark}}</div>
+
+<div id="ripple"></div>
+<svg id="cur" viewBox="0 0 30 30"><path d="M6 3 L6 24 L11.2 19.3 L14.6 27 L18.2 25.4 L14.9 17.9 L22 17.6 Z" fill="#1d1813" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg>
+</div>
+
+<script>
+// ---------------------------------------------------------------- helpers
+const $=id=>document.getElementById(id);
+const cl=x=>Math.max(0,Math.min(1,x));
+const E={lin:t=>t,out:t=>1-Math.pow(1-t,3),io:t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2,back:t=>{const a=1.5,c=a+1;return 1+c*Math.pow(t-1,3)+a*Math.pow(t-1,2)},q:t=>1-Math.pow(1-t,5)};
+const P=(t,a,b,e=E.out)=>e(cl((t-a)/(b-a)));
+const L=(a,b,k)=>a+(b-a)*k;
+// visible window with fades: in at a, out at b
+const V=(t,a,b,fi=.45,fo=.45)=>Math.min(P(t,a,a+fi),1-P(t,b-fo,b,E.io));
+const S=(el,css)=>{for(const k in css) el.style[k]=css[k];};
+const show=(el,o)=>{el.style.opacity=o;el.style.visibility=o<=0.001?'hidden':'visible';};
+
+// ---------------------------------------------------------------- timeline
+// scene boundaries (seconds); voice lines start at VO[i]
+const VO=[0.6,5.4,10.3,20.5,32.4,47.4,57.2,66.3,79.6];
+const DUR=86;
+
+// knowledge base rows (real file names, summaries and tags from staging)
+const KB=[
+ ["pdf","01_ET1_Grounds_of_Claim.pdf","An Employment Tribunal Claim Form (ET1) filed with the Leeds Employment Tribunal, case number 1803442/2025…",["Pleadings"]],
+ ["pdf","03_ET3_Response.pdf","One-page Response (ET3) filed on 30 June 2025 by Calderdale Logistics Limited, represented by Bowater Sykes…",["Pleadings"]],
+ ["pdf","05_Tribunal_Judgment.pdf","A two-page reserved judgment from the Employment Tribunal (Leeds) dated 19 March 2026…",["Judgment"]],
+ ["doc","09_Dismissal_Letter.docx","A two-page termination letter from Calderdale Logistics Limited, through Geoffrey Marsden (Operations Director)…",["Termination Letter"]],
+ ["doc","10_Letter_Settlement.docx","A two-page letter dated 12 January 2026 from Aldridge Vine LLP to Bowater Sykes Solicitors, without prejudice…",["Letter","Settlement Offer"]],
+ ["eml","20_Email_HR_Role.eml","Email dated 8 January 2025 from Sandra Okeke, Calderdale Logistics HR, to Priya Nair welcoming her return…",["Email"]],
+];
+$('kbRows').innerHTML=KB.map((r,i)=>`<div class="tr kbr" style="height:64px"><span style="width:62px;padding-left:24px"><span style="display:block;width:14px;height:14px;border:1.5px solid #CFC6B8;border-radius:4px"></span></span>
+ <span style="width:290px;display:flex;gap:10px;align-items:center;font-weight:500"><span class="fi ${r[0]}" data-t="${r[0]==='pdf'?'PDF':r[0]==='doc'?'W':'@'}"></span>${r[1]}</span>
+ <span style="width:150px;display:flex;align-items:center;gap:8px"><span style="width:18px;height:18px;border-radius:50%;background:#EEE9E1;font-size:9px;display:grid;place-items:center">AF</span>06/10/2026</span>
+ <span style="flex:1;font-size:13px;color:#3a332c;line-height:1.35;padding-right:20px"><span class="sum" style="display:block;height:35px;overflow:hidden">${r[2]}</span></span>
+ <span style="width:150px"><span class="spin"></span><span class="status" style="display:none"><span class="ic">{{I:lock}}</span>Complete</span></span>
+ <span style="width:170px;display:flex;flex-direction:column;gap:3px;align-items:flex-start">${r[3].map(x=>`<span class="tag tg">${x}</span>`).join('')}</span></div>`).join('');
+document.documentElement.style.setProperty('--fileic',`url("data:image/svg+xml,${encodeURIComponent('{{I:file-text}}'.replace('currentColor','#000'))}")`);
+
+// typing with optional chips: segs = [text | {chip:'...'}]
+function typed(segs,n,caret){let out='',c=0;for(const s of segs){if(typeof s==='string'){const k=Math.max(0,Math.min(s.length,n-c));out+=s.slice(0,k).replace(/&/g,'&amp;');c+=s.length;}else{if(n>c)out+=`<span class="chip">${s.chip}</span>`;c+=1;}}return out+(caret?'<span class="caret"></span>':'');}
+const segLen=segs=>segs.reduce((a,s)=>a+(typeof s==='string'?s.length:1),0);
+
+// window camera: focus point in app coords + scale + stage offset
+const CAM=[ // t, fx, fy, s, dx
+ [0,720,430,1,0],[20.3,720,430,1,0],[22.0,720,430,1,0],
+ [24.0,720,430,1,-150],[30.6,720,430,1,-150],[31.6,720,430,1,0],
+ [32.2,720,430,1,0],[33.2,760,360,1.12,-150],[37.6,760,360,1.12,-150],[38.8,720,430,1,-60],[39.6,720,430,1,0],
+ [48.6,720,430,1,0],[49.6,720,430,1,-120],[56.2,720,430,1,-120],[57.0,720,430,1,0],
+ [57.4,748,700,1.35,0],[63.2,748,700,1.35,0],[64.0,720,430,1,0],
+ [66.2,720,430,1,0],[66.9,748,700,1.3,0],[70.2,748,700,1.3,0],[70.9,720,430,1,0],
+];
+function cam(t){let i=0;while(i<CAM.length-1&&CAM[i+1][0]<=t)i++;const a=CAM[i],b=CAM[Math.min(i+1,CAM.length-1)];const k=b===a?0:E.io(cl((t-a[0])/(b[0]-a[0]||1)));return [L(a[1],b[1],k),L(a[2],b[2],k),L(a[3],b[3],k),L(a[4],b[4],k)];}
+
+// cursor moves: [t0,t1,target] target = element id (centre) | [x,y] stage | [id,ox,oy]
+const MOV=[
+ [10.4,11.2,[1500,1000]],[11.4,12.3,'btnNew'],[12.6,13.0,'dlgIn'],[15.4,15.9,'btnCreate'],
+ [17.6,19.4,'btnKB'],[20.9,21.7,'btnUp'],[23.4,24.4,[1400,1040]],
+ [32.6,33.8,'eqBtn'],[36.2,37.2,'eqPick'],[38.0,38.4,'go'],[39.0,40.0,[1520,980]],
+ [47.6,48.7,'cite1'],[49.4,50.4,[1450,1010]],
+ [57.6,58.4,[1100,1000]],[68.8,69.7,'go'],[71.0,72.4,'railJobs'],[72.9,73.9,'btnOpen'],[74.6,75.6,[1880,1100]]
+];
+const CLK=[12.35,13.05,15.95,19.5,21.8,33.9,37.3,38.5,48.8,69.8,72.5,74.0];
+const curPrev={x:1700,y:1150};
+function target(t){let pos=[1700,1150];for(const [t0,t1,tg] of MOV){const p=resolve(tg);if(t>=t1){pos=p;continue;}if(t>t0){const k=E.io((t-t0)/(t1-t0));pos=[L(pos[0],p[0],k),L(pos[1],p[1],k)];}break;}return pos;}
+function resolve(tg){if(Array.isArray(tg)&&typeof tg[0]==='number')return tg;let id=tg,ox=0,oy=0;if(Array.isArray(tg)){[id,ox,oy]=tg;}const r=$(id).getBoundingClientRect();return [r.left+r.width/2+ox,r.top+r.height/2+oy];}
+
+// mascots: pose in/out
+function masc(el,t,a,b,x,y,{from='right',flip=false,scale=1}={}){
+  const vin=P(t,a,a+.75,E.back), vout=P(t,b-.55,b,E.io);
+  const on=t>=a-.01&&t<=b+.01;
+  if(!on){el.style.visibility='hidden';return;}
+  el.style.visibility='visible';
+  let dx=0,dy=0,sx=1,sy=1,o=1;
+  if(from==='right'){dx=(1-vin)*700+vout*700;}
+  else if(from==='bottom'){dy=(1-vin)*520+vout*520;}
+  else if(from==='pop'){const k=P(t,a,a+.55,E.back);sx=sy=k;o=P(t,a,a+.2);sx*=1-vout;sy*=1-vout;}
+  // walking bob while entering/leaving
+  const moving=(t<a+.75||t>b-.55)&&from==='right';
+  if(moving){dy+=-Math.abs(Math.sin(t*14))*16;}
+  // little landing squash
+  const land=P(t,a+.6,a+.95)*(1-P(t,a+.95,a+1.3));
+  if(from==='right'){sy*=1-.05*land;sx*=1+.04*land;}
+  el.style.opacity=o;
+  el.style.transform=`translate(${x+dx}px,${y+dy}px) scale(${(flip?-1:1)*sx*scale},${sy*scale})`;
+}
+
+// ---------------------------------------------------------------- render
+const ANIMS=()=>document.getAnimations();
+function render(t){
+  // keep the mascots' own CSS animations (blink, wave, breathe) frame-exact
+  for(const a of ANIMS()){a.pause();a.currentTime=t*1000;}
+
+  // --- S0 / S1 kinetic text
+  const k0=$('k0').children;
+  S(k0[0],{opacity:P(t,.5,1.1)*(1-P(t,4.4,4.9)),transform:`translateY(${(1-P(t,.5,1.2))*40-P(t,4.4,4.9)*30}px)`});
+  S(k0[1],{opacity:P(t,1.7,2.3)*(1-P(t,4.5,5.0)),transform:`translateY(${(1-P(t,1.7,2.4))*40-P(t,4.5,5)*30}px)`});
+  S($('k1e'),{opacity:P(t,5.1,5.6)*(1-P(t,8.8,9.3)),transform:`translateY(${(1-P(t,5.1,5.7))*20}px)`});
+  const k1=$('k1').children;
+  S(k1[0],{opacity:P(t,5.3,5.9)*(1-P(t,8.9,9.4)),transform:`translateY(${(1-P(t,5.3,6))*44-P(t,8.9,9.4)*30}px)`});
+  S(k1[1],{opacity:P(t,5.9,6.5)*(1-P(t,9.0,9.5)),transform:`translateY(${(1-P(t,5.9,6.6))*44-P(t,9,9.5)*30}px)`});
+
+  // mascots: hello → idea → (later) search, point, done
+  masc($('mWave'),t,0.25,5.05,1290,430,{});
+  masc($('mIdea'),t,5.05,9.3,1290,430,{from:'pop'});
+  masc($('mSearch'),t,24.2,30.9,1560,520,{});
+  masc($('mPoint'),t,34.6,38.0,1585,520,{flip:true,from:'bottom'});
+  masc($('mDone'),t,80.2,83.1,1390,420,{from:'pop',scale:.95});
+  if(t>=5.0&&t<5.12){$('mWave').style.visibility='hidden';}
+
+  // --- step label
+  const steps=[[9.9,20.2,1,'Create a matter'],[20.4,32,2,'Add the file'],[32.2,47.2,3,'Ask a first question'],[47.3,57,4,'Click a source'],[57.1,66.1,5,'Point at one document with @'],[66.2,75.0,6,'Ask for a first letter']];
+  let so=0;for(const [a,b,n,txt] of steps){const v=V(t,a,b,.35,.35);if(v>0){so=v;$('slbln').textContent=n;$('slblt').textContent=txt;}}
+  S($('slbl'),{opacity:so,transform:`translateY(${(1-so)*-12}px)`});
+
+  // --- window in/out + camera
+  const wv=P(t,9.5,10.3)*(1-P(t,74.7,75.3,E.io));
+  const [fx,fy,s,dx]=cam(t);
+  const tx=960-240-s*fx+dx, ty=550-120-s*fy+(1-P(t,9.5,10.4))*70;
+  show($('win'),wv);
+  $('win').style.transform=`translate(${tx}px,${ty}px) scale(${s})`;
+
+  // --- screens
+  const onList=t<16.3, onKB=t>=20.0&&t<31.7, onJobs=t>=72.55;
+  show($('scrList'),onList?1:0);
+  show($('scrMatter'),(!onList&&!onKB&&!onJobs)?1:0);
+  show($('scrKB'),onKB?1:0);
+  show($('scrJobs'),onJobs?1:0);
+  $('navMatters').classList.toggle('on',onList);
+
+  // S2: new matter dialog
+  const dlg=P(t,12.4,12.7)*(1-P(t,16.0,16.25));
+  show($('dim'),dlg);show($('dlg'),dlg);
+  $('dlg').style.transform=`translateY(${(1-P(t,12.4,12.75))*16}px) scale(${.97+.03*P(t,12.4,12.75)})`;
+  const name='Nair v Calderdale Logistics';
+  const nn=Math.round(P(t,13.2,15.1,E.lin)*name.length);
+  $('dlgTx').innerHTML=nn?name.slice(0,nn)+(t<15.9?'<span class="caret"></span>':''):'<span class="caret"></span><span style="color:#9b958c">Enter matter name</span>';
+  $('btnCreate').classList.toggle('on',nn>0);
+  $('rowNew').style.height=(P(t,16.0,16.3)*60)+'px';
+
+  // matter: greeting vs thread
+  $('kbN').textContent=t>=31.7?'6':'0';
+  const greetOn=t<38.6;
+  show($('greet'),greetOn?1-P(t,38.4,38.6):0);
+  show($('thread'),greetOn?0:1);show($('fadebot'),greetOn?0:1);
+  // chat box position: centred on greeting, docked at bottom in a conversation
+  const dock=P(t,38.5,39.2,E.io);
+  const srcK=P(t,48.9,49.7,E.io)*(1-P(t,56.0,56.6,E.io));
+  const cardW=L(1382,790,srcK);
+  $('mcard').style.right=(1440-56-cardW)+'px';
+  const bx=(cardW-760)/2, byG=410, byD=600;
+  S($('cbox'),{left:bx+'px',top:L(byG,byD,dock)+'px',width:Math.min(760,cardW-40)+'px'});
+  S($('disc'),{left:'0px',right:'0px',top:(L(byG,byD,dock)+104)+'px'});
+  // example questions button only once documents exist
+  $('eqBtn').style.display=t>=31.7?'flex':'none';
+  $('eqBtn').classList.toggle('hot',t>=33.9&&t<38.4);
+  // source panel
+  show($('srcP'),srcK>0?1:0);
+  $('srcP').style.transform=`translateX(${(1-srcK)*620}px)`;
+  $('srcHl').style.backgroundSize=`${P(t,50.0,51.0,E.io)*100}% 100%`;
+
+  // chat box text
+  let ph=true,ct='',go=false,at=false;
+  if(t>=37.3&&t<38.5){ph=false;ct='Provide a detailed SWOT analysis of Calderdale Logistics Limited’s position on the core issue of whether…';go=true;}
+  const q2=['@ET3'];
+  if(t>=58.6&&t<61.0){ph=false;const n=Math.round(P(t,58.6,59.2,E.lin)*4);ct='@ET3'.slice(0,n)+'<span class="caret"></span>';}
+  const seg2=[{chip:'@[03_ET3_Response.pdf]'},' List the respondent’s defences.'];
+  if(t>=61.0&&t<63.6){ph=false;ct=typed(seg2,1+Math.round(P(t,61.3,62.9,E.lin)*31),true);go=true;at=true;}
+  const seg3=['Draft a short update letter to Priya Nair on where the claim stands. ',{chip:'@[Aldridge_Vine_Letter_Template.docx]'}];
+  if(t>=66.9&&t<69.9){ph=false;ct=typed(seg3,Math.round(P(t,67.0,69.1,E.lin)*segLen(seg3)),true);go=true;at=t>=69.0;}
+  $('cph').style.display=ph?'block':'none';$('ctx').innerHTML=ct;$('go').classList.toggle('on',go);
+  $('atn').style.display=at?'grid':'none';
+
+  // popovers
+  const eq=P(t,34.0,34.3)*(1-P(t,37.35,37.6));
+  show($('eqp'),eq);S($('eqp'),{left:(56+bx+24)+'px',bottom:(860-84-byG+10)+'px',transform:`translateY(${(1-P(t,34,34.35))*12}px)`});
+  $('eqPick').classList.toggle('hot',t>=36.9);
+  const mp=P(t,59.0,59.3)*(1-P(t,60.9,61.1));
+  show($('mp'),mp);S($('mp'),{left:(56+bx+24)+'px',bottom:(860-84-byD+10)+'px',transform:`translateY(${(1-P(t,59,59.3))*10}px)`});
+
+  // thread contents (reveal + scroll)
+  const rev=(el,a)=>{const k=P(t,a,a+.45);el.style.opacity=k;el.style.transform=`translateY(${(1-k)*14}px)`;};
+  rev($('ub1'),38.6);
+  [...$('steps1').children].forEach((c,i)=>rev(c,39.3+i*.75));
+  const a1=$('ans1').children;rev(a1[0],43.3);rev(a1[1],44.2);rev(a1[2],45.3);rev(a1[3],45.9);
+  $('ans1').style.setProperty('opacity',t>=43.3?1:0);
+  rev($('ub2'),63.6);rev($('steps2'),64.0);rev($('ans2'),64.6);
+  rev($('ub3'),69.9);[...$('steps3').children].forEach((c,i)=>rev(c,70.3+i*.6));
+  $('docCk').style.opacity=t>=71.9?1:0;
+  // scroll positions (px) of the thread
+  const scr=[[38.6,0],[42.6,0],[43.4,330],[63.5,330],[64.1,860],[69.8,860],[70.4,1265]];
+  let sc=0;for(let i=0;i<scr.length;i++){if(t>=scr[i][0]){sc=scr[i][1];const n=scr[i+1];if(n&&t<n[0]){sc=L(scr[i][1],n[1],E.io(cl((t-scr[i][0])/(n[0]-scr[i][0]))));}}}
+  $('tin').style.transform=`translateY(${-sc}px)`;
+
+  // S3: knowledge base rows
+  [...document.querySelectorAll('.kbr')].forEach((r,i)=>{const a=22.0+i*.32;const k=P(t,a,a+.45,E.back);r.style.opacity=P(t,a,a+.25);r.style.transform=`translateX(${(1-k)*-40}px)`;
+    const done=t>=25.3+i*.45;r.querySelector('.spin').style.display=done?'none':'inline-block';r.querySelector('.status').style.display=done?'inline-flex':'none';r.querySelector('.spin').style.transform=`rotate(${t*540}deg)`;
+    r.querySelector('.sum').style.opacity=P(t,24.4+i*.4,25+i*.4);
+    r.querySelectorAll('.tg').forEach(g=>{const k2=P(t,25.5+i*.45,25.9+i*.45,E.back);g.style.opacity=cl(k2);g.style.transform=`scale(${k2})`;});});
+  $('btnUp').style.boxShadow=t>21.6&&t<22.2?'0 0 0 4px rgba(248,227,124,.6)':'';
+
+  // callouts + wires
+  const W=[];
+  const co=(id,a,b,anchor,x,y,side='right')=>{const el=$(id);const v=V(t,a,b,.4,.35);show(el,v);if(v<=0)return;el.style.left=x+'px';el.style.top=y+'px';el.style.transform=`translateY(${(1-P(t,a,a+.45,E.back))*14}px)`;
+    const r=el.getBoundingClientRect();const ax=anchor[0],ay=anchor[1];const sx=side==='right'?r.left:r.right, sy=r.top+r.height/2;const k=P(t,a+.1,a+.7,E.io);
+    const mx=L(ax,sx,.5);const ex=L(ax,sx,k),ey=L(ay,sy,k);W.push(`<g opacity="${v}"><circle cx="${ax}" cy="${ay}" r="5"/><path d="M${ax},${ay} C${mx},${ay} ${mx},${sy} ${ex},${ey}" stroke-dasharray="1400" stroke-dashoffset="${(1-k)*1400}"/><circle cx="${sx}" cy="${sy}" r="${4*k}"/></g>`);};
+  const er=$('btnEmail').getBoundingClientRect();
+  co('co5',22.4,24.6,[er.left+er.width/2,er.top],er.left-120,er.top-150,'right');
+  const hr=$('srcHl').getBoundingClientRect();
+  co('co4',51.0,56.0,[hr.right+8,hr.top+hr.height/2],Math.min(1500,hr.right+120),hr.top-10,'right');
+
+  // S7: the letter leaves the window
+  const lt=$('letter');const lv=P(t,74.4,75.3,E.io)*(1-P(t,78.6,79.2,E.io));
+  show(lt,lv);
+  const lx=L(1150,900,P(t,74.4,75.4,E.io)), ly=L(200,2,P(t,74.4,75.4,E.io));
+  S(lt,{left:lx+'px',top:ly+'px',transform:`scale(${L(.5,.82,P(t,74.4,75.4,E.io))}) rotate(${L(4,0,P(t,74.4,75.4,E.io))}deg)`});
+  [['lm1',75.6],['lm2',76.2],['lm3',76.8]].forEach(([id,a])=>$(id).style.backgroundSize=`${P(t,a,a+.5,E.io)*100}% 100%`);
+  const m1=$('lm1').getBoundingClientRect(),m2=$('lm2').getBoundingClientRect(),m3=$('lm3').getBoundingClientRect();
+  co('co1',75.7,79.0,[m1.right+10,m1.top+m1.height/2],1630,m1.top-30);
+  co('co2',76.3,79.0,[m2.right+8,m2.top+m2.height/2],1630,m2.top+10);
+  co('co3',76.9,79.0,[m3.right+8,m3.top+m3.height/2],1630,m3.top+110);
+  $('wires').innerHTML=W.join('');
+
+  const k7=$('k7').children;
+  S(k7[0],{opacity:P(t,75.4,76.0)*(1-P(t,78.6,79.1)),transform:`translateY(${(1-P(t,75.4,76.1))*40}px)`});
+  S(k7[1],{opacity:P(t,76.3,76.9)*(1-P(t,78.7,79.2)),transform:`translateY(${(1-P(t,76.3,77))*40}px)`});
+  // --- outro
+  const k8=$('k8').children;
+  S(k8[0],{opacity:P(t,79.6,80.2)*(1-P(t,83.0,83.4)),transform:`translateY(${(1-P(t,79.6,80.3))*40}px)`});
+  S(k8[1],{opacity:P(t,80.2,80.8)*(1-P(t,83.1,83.5)),transform:`translateY(${(1-P(t,80.2,80.9))*40}px)`});
+  const ch=$('chk');show(ch,P(t,80.0,80.4)*(1-P(t,83.0,83.4)));
+  [...ch.children].forEach((d,i)=>{const a=80.4+i*.32;d.style.opacity=.35+.65*P(t,a,a+.25);d.classList.toggle('on',t>=a+.15);d.querySelector('i').style.transform=`scale(${t>=a&&t<a+.35?1+.18*Math.sin((t-a)/.35*Math.PI):1})`;});
+  show($('endc'),P(t,83.5,84.1)*(1-P(t,85.6,86)));
+  $('endc').style.transform=`scale(${.96+.04*P(t,83.5,84.3)})`;
+  // outro layout: the checklist sits right, mascot between
+
+  // --- cursor
+  const curOn=(t>=10.4&&t<16.4)||(t>=17.5&&t<24.6)||(t>=32.5&&t<40.2)||(t>=47.5&&t<50.6)||(t>=68.6&&t<75.8);
+  const [cx,cy]=target(t);
+  let press=0;for(const c of CLK){if(t>=c-.08&&t<c+.18)press=1;}
+  S($('cur'),{transform:`translate(${cx-6}px,${cy-3}px) scale(${press?.86:1})`,opacity:curOn?1:0});
+  let rp=0,rs=1;for(const c of CLK){if(t>=c&&t<c+.5){rp=1-(t-c)/.5;rs=.4+((t-c)/.5)*1.2;}}
+  S($('ripple'),{left:cx+'px',top:cy+'px',opacity:curOn?rp:0,transform:`scale(${rs})`});
+}
+window.render=render;window.DUR=DUR;
+document.fonts.ready.then(()=>{window.READY=true;render(+(location.hash.slice(1)||0));});
+</script>
+</body></html>

@@ -1,0 +1,49 @@
+0:00.27  The other side's red line lands at midnight.
+0:03.27  A ready-made workflow can have it reviewed and marked up by morning.
+0:07.27  Here's how to start from one and make it your own.
+0:11.27  Open Explore, then Workflows, and click New Workflow.
+0:15.27  This time, choose Start from a template.
+0:19.27  Start blank or from one of four examples.
+0:22.27  A contract red line response, a daily morning briefing,
+0:26.27  enter status memo, and a full intake for new clients.
+0:30.27  Open the contract red line response.
+0:33.27  All six steps are already in place.
+0:36.27  It starts when an email arrives with a Word document attached.
+0:40.27  First, Andri checks that it really is a contract with track changes.
+0:44.27  Then it reviews every change against the fact of your case and rates the risk.
+0:50.27  Next, it counteredits the red line in place.
+0:53.27  You track changes and comments inside the same Word document.
+0:57.27  Last, it writes a short covering note and sends it to your own address.
+1:01.27  The attachment is the marked up Word document from the counteredit step.
+1:05.27  Nothing goes back to the other side until you've checked it.
+1:09.27  Now the intake example.
+1:11.27  Say a prospective client, like Priya Nair, emails in after her dismissal.
+1:17.27  Andri first checks the matter is one your firm handles.
+1:20.27  If it isn't, the client is politely referred elsewhere.
+1:24.27  Then it checks the file is complete.
+1:27.27  If something is missing, it asks the client for it.
+1:30.27  If everything is there, Andri triages the matter and builds a dossier for the lawyer.
+1:36.27  Nothing is written for the client until the lawyer approves.
+1:39.27  Then Andri drafts the advice report and the next letter or email and sends both to you to check.
+1:46.27  To make it yours, change what doesn't fit.
+1:49.27  Aldridge Vine only takes on employment work, so say that in the first check and save.
+1:56.74  And send every approval to one person, Adam Frith.
+2:03.27  Give it a name and click publish.
+2:05.27  It's now a template ready to switch on in a matter.
+2:10.90  Go to the matter whose email address receives your inquiries, open its workflows and click activate.
+2:19.78  The example already listens for the word intake in the subject line.
+2:23.78  Connect your outlook or Gmail with sending turned on, then click activate.
+2:28.78  Start from an example, change what doesn't fit and switch it on.
+
+--- script vs heard: 363/378 script words matched
+  …the other side's  - redline  + red line
+  …four examples a contract  - redline  + red line
+  …a daily morning briefing  - a matter  + enter
+  …clients open the contract  - redline  + red line
+  …is a contract with  - tracked  + track
+  …every change against the  - facts  + fact
+  …the risk next it  - counter edits  + counteredits
+  …it counter edits the  - redline  + red line
+  …the redline in place  - new tracked  + you track
+  …word document from the  - counter edit  + counteredit
+  …email address receives your  - enquiries  + inquiries

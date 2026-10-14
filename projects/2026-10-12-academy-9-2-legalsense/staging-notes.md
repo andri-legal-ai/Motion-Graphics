@@ -1,0 +1,17 @@
+# 9.2 LegalSense, linked once · staging check, 12 Oct 2026
+
+Brief: andri-academy-videos.html #v9-2 "Your BaseNet dossier, linked once" (On hold: BaseNet not in staging). Checked again today in my own tab:
+still no BaseNet. Company → Company connectors lists only LegalSense, so this video is the swap the brief suggests. Next video: 10.1
+"Your weekly memo, and other ways to start a workflow". Window in Chrome: 1920 x 992 (plates re-laid at 1470 x 835).
+
+| Screen | What staging shows |
+|---|---|
+| Top bar | Firm button ("Bennet law", shown as Aldridge Vine) opens /company. Personalisation is the sliders icon left of it. |
+| Company → Company connectors | Plug icon, "Company connectors" / "Connect Andri to the systems your firm already runs. Connectors are set up once by an administrator and apply to the whole company." Card "Looking for Gmail, Outlook or SharePoint? You sign in to those yourself, in Personalisation." Card LegalSense · "Practice management · Netherlands" · chip "Not connected" · "Work with the matters, contacts and time in your firm's LegalSense Online installation." · yellow "Connect". |
+| Connect → intro, 1 of 3 | "Connect LegalSense" / "Bring your firm's LegalSense Online into Andri, so matters, contacts and time come together in the conversation you are already having." Scene: LegalSense card (Time, Matters, Contacts, Invoices) → Andri card → "Connected", ticks. Not now · dots · Next. |
+| 2 of 3 | "What Andri can do" / "Andri finds matters, clients and contacts, registers time, looks up invoices, budgets and third-party funds, and opens new clients and matters." Scene: "How many hours on De Vries this week?" → "6.5 hours / 3 entries, 1 in draft / LegalSense · Time" (the app's own sample). Back · Next. |
+| 3 of 3 | "How it works" / "An administrator enters the firm's LegalSense installation once. Each lawyer then signs in with their own account, so Andri never has more rights than they do." / "Have your LegalSense address to hand (yourfirm.legalsense.nl). No API client or token is needed." Scene: Company connectors · LegalSense Not connected → Enabled; M. de Vries and S. Bakker, "Own login", ticks. Back · Continue. |
+| Continue → form | Intro closes (90 ms) as "Connect LegalSense" opens: "Enter your firm's LegalSense Online installation. Andri connects with its own API client, approved by LegalSense for every installation; each member then signs in with their own LegalSense account." Installation domain (placeholder yourfirm.legalsense.nl) + help line. Amber box "Two-factor authentication is required / Connecting a system for your whole firm requires two-factor authentication on your own account. Enable 2FA to continue." [Set up 2FA ↗]. Cancel · Save installation (disabled). |
+| Personalisation → Connectors | Gmail, Outlook, SharePoint "Not connected" + Connect. Footer: "Some of your firm's systems, such as LegalSense, appear here only once an administrator switches them on under Company. You always sign in with your own login." link "Company connectors". |
+| Animations | Intro scenes: CSS (emt-*), one loop is 4.8 s (progress bar), restarted by the app. Dialog in: 0.24 s after 80 ms, rises 8 px, scale 0.985 → 1; out 90 ms; scrim 0.14 s in, 0.2 s out. |
+| Not possible | Connecting LegalSense (needs 2FA on the account and a real LegalSense Online installation); a LegalSense answer in chat. The video shows only the screens above; the chat example is the app's own intro scene. Nothing was saved, connected or sent. |

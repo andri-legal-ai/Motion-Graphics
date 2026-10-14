@@ -1,0 +1,3 @@
+2  Nair chat. Cursor on the first rail icon, tooltip Open Timeline
+VO\: In your matter, open the Timeline. It’s the first icon on the left.
+Next\: panel opens

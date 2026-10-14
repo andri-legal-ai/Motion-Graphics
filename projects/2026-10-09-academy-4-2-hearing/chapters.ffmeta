@@ -1,0 +1,38 @@
+;FFMETADATA1
+title=Andri Academy 4.2 · Prepare and rehearse the hearing
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=9000
+title=Introduction
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=9000
+END=43200
+title=1. The Timeline
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=43200
+END=57400
+title=2. What each document proves
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=57400
+END=69800
+title=3. Hearing notes
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=69800
+END=99400
+title=4. Rehearse with Simulate
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=99400
+END=105600
+title=Up next

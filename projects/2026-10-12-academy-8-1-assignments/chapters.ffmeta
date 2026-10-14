@@ -1,0 +1,68 @@
+;FFMETADATA1
+title=Andri Academy 8.1 · Delegate it to Andri, and to your trainee
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=7000
+title=Introduction
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=7000
+END=20875
+title=1. Assignments
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=20875
+END=40525
+title=2. A new task
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=40525
+END=57388
+title=3. Delegate to Andri
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=57388
+END=69275
+title=4. Andri works
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=69275
+END=90113
+title=5. Check the result
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=90113
+END=98950
+title=6. Checklist and comments
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=98950
+END=104388
+title=7. Inbox
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=104388
+END=112638
+title=8. Add your trainee
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=112638
+END=127888
+title=9. The board
+
+[CHAPTER]
+TIMEBASE=1/1000
+START=127888
+END=136388
+title=Up next

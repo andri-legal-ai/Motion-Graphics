@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Andri</title><script>// Office webview may lack or null-out History API methods.
+      // Clerk calls history.replaceState/pushState during initialization.
+      // Force non-overridable no-op stubs before anything else loads.
+      (function() {
+        if (!globalThis.history) { globalThis.history = {}; }
+        var noop = function() {};
+        ['replaceState', 'pushState'].forEach(function(method) {
+          if (typeof globalThis.history[method] !== 'function') {
+            try {
+              Object.defineProperty(globalThis.history, method, {
+                value: noop,
+                writable: true,
+                configurable: true,
+                enumerable: true
+              });
+            } catch(e) {
+              globalThis.history[method] = noop;
+            }
+          }
+        });
+      })();</script><script>// The theme, before the first stylesheet paints: every colour follows
+      // `data-theme` on <html> (src/config/theme.ts). Repeats the key and the
+      // rule of src/lib/theme-mode.ts in plain JavaScript; a test pins both.
+      (function () {
+        var dark = false;
+        try {
+          var raw = localStorage.getItem("andri.word.prefs.v1");
+          var prefs = raw ? JSON.parse(raw) : null;
+          dark = !!prefs && prefs.darkTheme === true;
+        } catch (e) {}
+        document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+      })();</script><style>:root[data-theme="dark"]{background-color:#15120F}</style><script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script><style>@keyframes andriSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }</style><script defer="defer" src="runtime-taskpane.d54c6297d15fcf5fd13e.js"></script><script defer="defer" src="vendor-fluent.668bc99d3cb16348968f.js"></script><script defer="defer" src="vendor-react.22c3494d9f4b2b32047d.js"></script><script defer="defer" src="vendor.8a0e8fb640f84ad59736.js"></script><script defer="defer" src="taskpane.529759512b6cadabf510.js"></script><link href="taskpane.9caabab0badeafefd5a5.css" rel="stylesheet"></head><body><div id="root"></div></body></html>

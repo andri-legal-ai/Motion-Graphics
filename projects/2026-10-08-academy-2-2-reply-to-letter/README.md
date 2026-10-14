@@ -9,5 +9,5 @@ English (UK), 1920×1080, 60 fps, about 1:34. Same look and engine as the approv
 - `plates/`: the screens as 2x plates, captured from the rebuild `video-1.1/build/s22.html` (source `src/s22.src.html`) by `plates/capture.mjs`.
 - `app.js`: the whole video, drawn on one canvas. Scene times hang off the narration starts (`VO`).
 - `mix.mjs`: builds `audio/mix-uk.wav` (voice, clicks, whooshes, -14 LUFS). `stills.mjs`: single frames for checking.
-- Render: `node "$HOME/Desktop/Andri/Motion Graphics/_toolkit/render.mjs" build --out vN.mp4 --audio audio/mix-uk.wav`, then the contact sheet.
+- Render: `node "$HOME/Desktop/andri code /Motion Graphics/_toolkit/render.mjs" build --out vN.mp4 --audio audio/mix-uk.wav`, then the contact sheet.
 - `chapters.txt`: timestamps for the Academy page.

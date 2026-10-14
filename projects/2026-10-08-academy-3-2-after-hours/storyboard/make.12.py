@@ -2,7 +2,7 @@
 import pathlib, subprocess
 from playwright.sync_api import sync_playwright
 P = pathlib.Path(__file__).resolve().parent.parent
-A = pathlib.Path("/Users/bennettnittke/Desktop/Andri/Motion Graphics/projects/2026-10-07-academy-1-1-first-matter/assets")
+A = pathlib.Path("/Users/bennettnittke/Desktop/andri code /Motion Graphics/projects/2026-10-07-academy-1-1-first-matter/assets")
 C = P / "staging-captures"
 CSS = f"""
 @font-face{{font-family:Neco;src:url({(A/'fonts/Neco-500.woff2').as_uri()});font-weight:500}}

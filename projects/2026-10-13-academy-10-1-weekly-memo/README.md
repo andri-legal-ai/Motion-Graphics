@@ -6,6 +6,6 @@ How this video is built (13 Oct 2026). Copied from the 10.2 project (`2026-10-12
 2. `node plates/capture101.mjs [regex]` renders 2x plates at 1440 x 860 and `plates/rects.json`: builder plates with the canvas content hidden, node sprites, toasts, the explainer dialog alone as 100 ms frames (`plates/seq/`), and a rect for every control and phrase.
 3. `app.js` draws everything on one canvas (`build/index.html`). Timings at the top (`VO`, `T`, `CAP`), in video seconds. The window fade is drawn on its own canvas (known-issues #12).
 4. Audio: one ElevenLabs take (`audio/narration-uk-10.1.mp3`, UK voice, Eleven v4, sp100 s50 sb75), cut at its pauses (`audio/cuts.json` → `audio/uk/S*.wav`); `zsh audio/mix.sh` places them at `VO` with clicks and whooshes → `audio/mix-uk-14.wav`.
-5. Render: `node "$HOME/Desktop/Andri/Motion Graphics/_toolkit/render.mjs" build --out vN.mp4 --audio "$PWD/audio/mix-uk-14.wav"`, then `node chapters.mjs` and mux `chapters.ffmeta` in. `./check-pauses.sh` finds still-and-silent stretches.
+5. Render: `node "$HOME/Desktop/andri code /Motion Graphics/_toolkit/render.mjs" build --out vN.mp4 --audio "$PWD/audio/mix-uk-14.wav"`, then `node chapters.mjs` and mux `chapters.ffmeta` in. `./check-pauses.sh` finds still-and-silent stretches.
 
 Left in staging for Bennett to delete: the published workflow "Weekly matter memo (Academy 10.1 WM)", in the matter "Academy 10.1 WM" (deactivated after delivery, so it no longer runs). Nothing was sent.

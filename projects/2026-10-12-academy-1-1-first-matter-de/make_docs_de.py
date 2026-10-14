@@ -17,7 +17,7 @@ from reportlab.pdfgen import canvas
 HERE = pathlib.Path(__file__).resolve().parent
 OUT = HERE / "demo-files-de"
 SRC = pathlib.Path.home() / "Desktop/Andri/2 - Product/Demo Files/Mock Case/employment"
-TPL = pathlib.Path.home() / "Desktop/Andri/Motion Graphics/projects/2026-10-12-academy-7-1-specialists/demo-files/Aldridge_Vine_Letter_Template.docx"
+TPL = pathlib.Path.home() / "Desktop/andri code /Motion Graphics/projects/2026-10-12-academy-7-1-specialists/demo-files/Aldridge_Vine_Letter_Template.docx"
 OUT.mkdir(exist_ok=True)
 
 DASH = "- " * 46

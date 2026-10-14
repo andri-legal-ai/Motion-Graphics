@@ -2,7 +2,7 @@
 # so every Academy video is "re-listened" before delivery: missing or changed words, odd pronunciations ("Andri" heard
 # as something else), lines in the wrong place.
 # Usage:
-#   ~/.local/share/academy-stt/.venv/bin/python "$HOME/Desktop/Andri/Motion Graphics/_toolkit/transcribe.py" <video.mp4> [script.txt] [--lang en|de|nl] [--model small]
+#   ~/.local/share/academy-stt/.venv/bin/python "$HOME/Desktop/andri code /Motion Graphics/_toolkit/transcribe.py" <video.mp4> [script.txt] [--lang en|de|nl] [--model small]
 # Prints the timed transcript, then a word diff against the script (- only in the script, + only heard), and writes
 # <video>.transcript.txt next to the video.
 import sys, re, difflib, subprocess, os

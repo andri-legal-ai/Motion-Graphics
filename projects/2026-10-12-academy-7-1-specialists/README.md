@@ -7,6 +7,6 @@ How this video is built (12 Oct 2026):
 3. `node plates/capture71.mjs [regex]` renders the 2x plates and `plates/rects.json` / `rects.js`. The form's scrolling part is stitched from its top and bottom (`tallA`, `tallB`); earlier chat states remove later turns from a finished snapshot.
 4. `app.js` draws everything on one canvas (`build/index.html`); timings at the top (`VO`, `T`, `CAP`, `SHOTS`).
 5. Audio: `audio/narration-uk-7.1.mp3` is one ElevenLabs take, cut into `audio/uk/L*.wav`; `zsh audio/mix.sh` places lines and clicks from app.js and loudnorms to about -14 LUFS (`mix-uk-14.wav`).
-6. Render: `node "$HOME/Desktop/Andri/Motion Graphics/_toolkit/render.mjs" build --out vN.mp4 --audio "$PWD/audio/mix-uk-14.wav"`, then `node chapters.mjs` and mux `chapters.ffmeta`.
+6. Render: `node "$HOME/Desktop/andri code /Motion Graphics/_toolkit/render.mjs" build --out vN.mp4 --audio "$PWD/audio/mix-uk-14.wav"`, then `node chapters.mjs` and mux `chapters.ffmeta`.
 
 Staging items left behind (Bennett to delete): firm folder "Employment: models and precedents" (3 files) in Company › Knowledge base, the specialist "employment-law", conversation "Academy 7.1" in Nair.

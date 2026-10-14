@@ -11,8 +11,8 @@ Final example video, approved 7 October 2026. Use it as the reference for the re
 - Every frame drawn by JavaScript on a canvas, rendered with Playwright and FFmpeg.
 - Andri screens rebuilt from real staging (mock case Nair v Calderdale Logistics).
 - Narration: ElevenLabs, voice "UK voice voice to use for ANDRI vids" (My Voices), 8 Oct 2026.
-- Source project, to edit or re-render: `Desktop/Andri/Motion Graphics/projects/2026-10-07-academy-1-1-first-matter/`
-- Style references and what worked: `Desktop/Andri/Motion Graphics/REFERENCES.md`
+- Source project, to edit or re-render: `Desktop/andri code /Motion Graphics/projects/2026-10-07-academy-1-1-first-matter/`
+- Style references and what worked: `Desktop/andri code /Motion Graphics/REFERENCES.md`
 
 ## Note for the next scripts
 
